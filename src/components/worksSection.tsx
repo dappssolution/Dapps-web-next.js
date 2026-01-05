@@ -1,34 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export default function Works() {
   const { t, language } = useLanguage();
   const [activeId, setActiveId] = useState<number | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
   const [isHoveringContainer, setIsHoveringContainer] = useState(false);
 
-  // Handle Mobile Detection
-  useEffect(() => {
-    const checkDevice = () => {
-      setIsMobile(window.innerWidth < 640); // Tailwind 'sm' breakpoint
-      setIsTablet(window.innerWidth >= 640 && window.innerWidth < 1024); // 'sm' to 'lg'
-    };
-    checkDevice();
-    window.addEventListener("resize", checkDevice);
-    return () => window.removeEventListener("resize", checkDevice);
-  }, []);
-
   // Original Data
-  const originalProjects = useMemo(
+  const projects = useMemo(
     () => [
       {
         id: 1,
@@ -44,10 +31,7 @@ export default function Works() {
         type: "image",
         src: "/workslide-4.jpg",
         alt: "Brand Identity",
-        title: {
-          en: "Brand Identity Solutions",
-          ar: "حلول هوية العلامة التجارية",
-        },
+        title: { en: "Brand Identity Solutions", ar: "حلول هوية العلامة التجارية" },
         category: { en: "Brand Strategy", ar: "استراتيجية العلامة" },
         number: "02",
       },
@@ -82,16 +66,12 @@ export default function Works() {
     []
   );
 
-  // Double the data for infinite loop illusion on desktop
-  // Only duplicate projects for desktop (lg and up)
-  const displayProjects =
-    isMobile || isTablet
-      ? originalProjects
-      : [...originalProjects, ...originalProjects];
+  // Desktop only: Duplicate data for infinite loop
+  const desktopProjects = [...projects, ...projects];
 
   return (
     <section
-      className="relative min-h-screen w-full bg-[#0a0a0a] py-16 lg:py-36 flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen w-full bg-[#0a0a0a] py-16 lg:py-32 flex flex-col justify-center overflow-hidden"
       dir={language === "ar" ? "rtl" : "ltr"}
     >
       {/* Background Image with Blur */}
@@ -106,9 +86,9 @@ export default function Works() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
       </div>
 
-      <div className="container mx-auto z-10 h-full flex flex-col lg:h-[80vh]">
-        {/* Header Section - Added px-6 md:px-0 for spacing on mobile */}
-        <div className="px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-end mb-12 lg:mb-24">
+      <div className="container mx-auto z-10 h-full flex flex-col relative">
+        {/* Header Section */}
+        <div className="px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
           <div>
             <h2 className="text-[#5a189a] font-bold tracking-widest text-sm uppercase mb-2">
               {t("works.subtitle") || "PORTFOLIO"}
@@ -127,83 +107,77 @@ export default function Works() {
           </Link>
         </div>
 
-        {/* DESKTOP: Slider Container 
-            We use a custom animation class defined in styles below 
-        */}
+        {/* =========================================
+            MOBILE VIEW (Vertical Grid)
+            Hidden on md/lg screens
+           ========================================= */}
+        <div className="md:hidden flex flex-col gap-6 px-6 pb-20">
+          {projects.map((project) => (
+            <ProjectCardMobile
+              key={project.id}
+              project={project}
+              language={language}
+            />
+          ))}
+          {/* Mobile View All Button */}
+          <div className="mt-6">
+            <Link
+              href="/works"
+              className="flex w-full justify-center items-center gap-2 text-white border border-white/20 rounded-full px-6 py-4 hover:bg-white hover:text-black transition-all"
+            >
+              <span>{t("clients.viewAll")}</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+
+        {/* =========================================
+            DESKTOP VIEW (Horizontal Marquee)
+            Hidden on mobile
+           ========================================= */}
         <div
-          className="flex-1 w-full relative pb-10 lg:pb-16"
+          className="hidden md:flex w-full relative py-10 lg:py-12"
           onMouseEnter={() => setIsHoveringContainer(true)}
           onMouseLeave={() => {
             setIsHoveringContainer(false);
-            setActiveId(null); // Reset active card when leaving the track
+            setActiveId(null);
           }}
         >
+          {/* The scrolling track */}
           <div
             className={cn(
-              isMobile || isTablet
-                ? "grid grid-cols-1 gap-6 px-4 sm:px-8 md:px-16"
-                : "flex gap-4 h-full min-h-[500px] w-max animate-marquee",
-              (isHoveringContainer || activeId !== null) &&
-                !(isMobile || isTablet) &&
-                "paused"
+              "flex gap-6 h-[500px] lg:h-[600px] w-max animate-marquee pl-6",
+              (isHoveringContainer || activeId !== null) && "paused"
             )}
-            style={
-              isMobile || isTablet
-                ? { width: "100%" }
-                : { flexDirection: "row", width: "max-content" }
-            }
           >
-            {displayProjects.map((project, index) => (
-              <ProjectCard
-                key={`${project.id}-${index}`}
+            {desktopProjects.map((project, index) => (
+              <ProjectCardDesktop
+                key={`${project.id}-desktop-${index}`}
                 project={project}
                 activeId={activeId}
                 setActiveId={setActiveId}
                 language={language}
-                isMobile={isMobile}
-                isTablet={isTablet}
               />
             ))}
           </div>
         </div>
-
-        {/* Mobile View All Button */}
-        <div className="md:hidden mt-10 px-6 pb-10">
-          <Link
-            href="/works"
-            className="flex w-full justify-center items-center gap-2 text-white border border-white/20 rounded-full px-6 py-4 hover:bg-white hover:text-black transition-all"
-          >
-            <span>{t("clients.viewAll")}</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
       </div>
 
-      {/* Global CSS for the marquee loop */}
+      {/* Styles for Marquee */}
       <style jsx global>{`
         @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-          /* -50% because we duplicated the list once. Moving 50% reaches the start of the duplicate, creating the loop. */
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
         .animate-marquee {
           animation: marquee 40s linear infinite;
         }
-        /* RTL support for Arabic */
         [dir="rtl"] .animate-marquee {
           animation: marquee-rtl 40s linear infinite;
         }
         @keyframes marquee-rtl {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(50%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(50%); }
         }
         .paused {
           animation-play-state: paused !important;
@@ -213,85 +187,95 @@ export default function Works() {
   );
 }
 
-const ProjectCard = ({
+// ==========================================
+// COMPONENT: Mobile Card (Simplified Layout)
+// ==========================================
+const ProjectCardMobile = ({ project, language }: any) => {
+  return (
+    <div className="relative w-full aspect-[4/5] sm:h-[450px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+      <Image
+        src={project.src}
+        alt={project.alt}
+        fill
+        className="object-cover transition-transform duration-700 hover:scale-105"
+      />
+      {/* Dark Gradient for readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+      <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
+        <div className="flex justify-between items-start">
+          <span className="font-mono text-xl text-white">{project.number}</span>
+          <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 text-white">
+            <ArrowUpRight size={20} />
+          </div>
+        </div>
+
+        <div>
+          <p className="text-[#5a189a] text-xs font-bold tracking-wider uppercase mb-2">
+            {project.category[language] || project.category.en}
+          </p>
+          <h3 className={cn("text-white text-3xl font-bold leading-tight", language === 'ar' && "font-arabic")}>
+            {project.title[language] || project.title.en}
+          </h3>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ==========================================
+// COMPONENT: Desktop Card (Interactive Motion)
+// ==========================================
+const ProjectCardDesktop = ({
   project,
   activeId,
   setActiveId,
   language,
-  isMobile,
-  isTablet,
 }: any) => {
-  const isImage = project.type === "image";
   const isActive = activeId === project.id;
-
-  // Only animate on desktop (not mobile/tablet)
-  const enableAnimation = !(isMobile || isTablet);
+  const isBlur = activeId !== null && !isActive;
 
   return (
     <motion.div
-      layout={enableAnimation}
-      onHoverStart={() => enableAnimation && setActiveId(project.id)}
-      onHoverEnd={() => enableAnimation && setActiveId(null)}
+      layout
+      onHoverStart={() => setActiveId(project.id)}
+      onHoverEnd={() => setActiveId(null)}
       className={cn(
-        "relative overflow-hidden rounded-2xl w-full cursor-pointer border border-white/10 group",
-        // Mobile/Tablet: Fixed height stack
-        // Desktop: Fixed width (base) that grows
-        isMobile || isTablet
-          ? "w-full h-[350px] mb-4 last:mb-0"
-          : "h-full w-[280px]",
-        isImage ? "bg-zinc-900" : "bg-zinc-900/40 backdrop-blur-md"
+        "relative overflow-hidden rounded-2xl cursor-pointer border border-white/10 h-full",
+        "bg-zinc-900/40 backdrop-blur-md"
       )}
-      // FRAMER MOTION ANIMATION
-      animate={
-        enableAnimation
-          ? {
-              // If active, width becomes 600px. If not, 280px.
-              width: isActive ? 600 : 280,
-              opacity: activeId !== null && !isActive ? 0.5 : 1, // Dim others
-            }
-          : {}
-      }
-      transition={{ duration: 0.4, ease: "easeOut" }}
+      initial={false}
+      animate={{
+        width: isActive ? 600 : 280,
+        opacity: isBlur ? 0.3 : 1, // Dim inactive cards
+      }}
+      transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
     >
-      {/* Background Image */}
-      {isImage && (
-        <Image
-          src={project.src}
-          alt={project.alt}
-          fill
-          className={cn(
-            "object-cover transition-all duration-700 ease-out",
-            // Always visible, blurred and dark by default, clearer on hover (desktop)
-            enableAnimation && !isActive
-              ? "scale-100 blur-sm grayscale-[30%] brightness-50"
-              : enableAnimation && isActive
-              ? "scale-105 blur-none grayscale-0 brightness-90"
-              : isMobile || isTablet
-              ? "scale-105 blur-sm grayscale-[30%] brightness-60"
-              : "scale-100 blur-sm grayscale-[30%] brightness-50"
-          )}
-        />
-      )}
-
-      {/* Gradient Overlay */}
-      {/* Overlay: strong black for desktop, lighter on hover */}
-      <div
+      <Image
+        src={project.src}
+        alt={project.alt}
+        fill
         className={cn(
-          "absolute inset-0 transition-all duration-500 z-10",
-          enableAnimation && !isActive && isImage && "bg-black/40",
-          enableAnimation && isActive && isImage && "bg-black/40",
-          (isMobile || isTablet) && isImage && "bg-black/70"
+          "object-cover transition-all duration-700 ease-out",
+          isActive ? "scale-105 blur-0 grayscale-0" : "scale-100 blur-sm grayscale-[50%]"
         )}
       />
 
-      {/* Content Container */}
-      <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
-        {/* Top: Number & Icon */}
+      {/* Overlay */}
+      <div
+        className={cn(
+          "absolute inset-0 transition-colors duration-500",
+          isActive ? "bg-black/30" : "bg-black/60"
+        )}
+      />
+
+      <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+        {/* Top Row */}
         <div className="flex justify-between items-start">
           <span
             className={cn(
               "font-mono text-xl transition-colors duration-300",
-              isActive || isMobile ? "text-white" : "text-white/50"
+              isActive ? "text-white" : "text-white/40"
             )}
           >
             {project.number}
@@ -299,52 +283,49 @@ const ProjectCard = ({
 
           <div
             className={cn(
-              "w-10 h-10 rounded-full flex items-center justify-center border border-white/20 backdrop-blur-md transition-all duration-300",
-              isActive || isMobile
-                ? "bg-white text-black rotate-45"
-                : "bg-transparent text-white"
+              "w-12 h-12 rounded-full flex items-center justify-center border backdrop-blur-md transition-all duration-300",
+              isActive
+                ? "bg-white text-black border-white rotate-45 scale-110"
+                : "bg-transparent text-white/50 border-white/20"
             )}
           >
-            <ArrowUpRight size={20} />
+            <ArrowUpRight size={24} />
           </div>
         </div>
 
-        {/* Center: Vertical Text (Desktop Inactive State) */}
-        {enableAnimation && !isActive && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          >
-            <span className="text-white font-bold text-lg lg:text-2xl tracking-widest uppercase whitespace-nowrap [writing-mode:vertical-rl] rotate-180 drop-shadow-md">
-              {project.category[language] || project.category.en}
-            </span>
-          </motion.div>
-        )}
-
-        {/* Bottom: Main Text Info */}
-        <div
-          className={cn(
-            "relative overflow-hidden transition-all duration-500",
-            enableAnimation && !isActive
-              ? "opacity-0 translate-y-10 invisible"
-              : "opacity-100 translate-y-0 visible"
+        {/* Center Vertical Text (When inactive) */}
+        <AnimatePresence>
+          {!isActive && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            >
+              <span className="text-white/60 font-bold text-2xl tracking-[0.2em] uppercase whitespace-nowrap [writing-mode:vertical-rl] rotate-180">
+                {project.category[language] || project.category.en}
+              </span>
+            </motion.div>
           )}
-        >
-          <p className="text-white/90 text-sm font-bold tracking-wide mb-2 uppercase drop-shadow-md">
-            {project.category[language] || project.category.en}
-          </p>
+        </AnimatePresence>
 
-          <h3
-            className={cn(
-              "text-white font-bold leading-tight drop-shadow-md",
-              language === "ar" ? "font-arabic" : "",
-              isImage ? "text-2xl lg:text-3xl" : "text-2xl lg:text-4xl"
-            )}
+        {/* Bottom Content (Active only) */}
+        <div className="relative overflow-hidden">
+          <motion.div
+            initial={false}
+            animate={{
+              y: isActive ? 0 : 100,
+              opacity: isActive ? 1 : 0,
+            }}
+            transition={{ duration: 0.4 }}
           >
-            {project.title[language] || project.title.en}
-          </h3>
+            <p className="text-[#c084fc] text-sm font-bold tracking-widest mb-2 uppercase">
+              {project.category[language] || project.category.en}
+            </p>
+            <h3 className={cn("text-white text-4xl font-bold leading-tight", language === 'ar' && "font-arabic")}>
+              {project.title[language] || project.title.en}
+            </h3>
+          </motion.div>
         </div>
       </div>
     </motion.div>
