@@ -1,9 +1,12 @@
-# *
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+Disallow: /tmp/
 
-# Host
-Host: https://www.dappssolutions.com
 
-# Sitemaps
+Crawl-delay: 2
+
 Sitemap: https://www.dappssolutions.com/sitemap.xml
