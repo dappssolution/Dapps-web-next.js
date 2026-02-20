@@ -1,4 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<sitemap><loc>https://www.dappssolutions.com/sitemap.xml</loc></sitemap>
-</sitemapindex>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.dappssolutions.com/</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/about</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/service</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/works</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/careers</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/contact</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/service/web-development</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/service/app-development</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/service/branding</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/service/digital-marketing</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/service/video-photo-editing</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/service/ai-agents-automation</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/privacy-policy</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.dappssolutions.com/terms-of-service</loc>
+  <lastmod>2026-02-19T04:19:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>

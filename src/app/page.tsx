@@ -18,7 +18,7 @@ export default function Home() {
       {/* <ClientsSection /> */}
       {/* About section: ensure carousel images have alt text and loading="lazy" */}
       <AboutSection />
-      {/* AboutBoxes: ensure interactive elements have aria-labels */}
+      {/* AboutBoxes: ensure interactive elements have aria-labels */} 
       <AboutBoxes />
       {/* Services section: ensure icons and cards have aria-labels */}
       <ServicesSection />

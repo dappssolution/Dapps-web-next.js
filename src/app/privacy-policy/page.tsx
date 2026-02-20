@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
       contentRef.current.setAttribute("dir", language === "ar" ? "rtl" : "ltr");
     }
   }, [language]);
-
+ 
   return (
     <div
       ref={contentRef}

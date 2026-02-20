@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'AI',
     'digital transformation',
     'web development',
-    'app development',
+    'app development', 
   ],
   openGraph: {
     type: 'website',

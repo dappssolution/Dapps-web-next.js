@@ -10,7 +10,7 @@ export default function About() {
         <div>
             <AboutBanner/>
             <TeamDescription/>
-            <AboutBoxes/>
+            <AboutBoxes/> 
             <ApproachSection/>         
             <ClientReviews/>
         </div>

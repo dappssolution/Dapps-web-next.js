@@ -12,7 +12,7 @@ const ClientsGrid = dynamic(() => import("@/components/clients/ClientsGrid"), {
   loading: () => <div className="h-[600px] animate-pulse bg-gray-200" />
 });
 
-const CTASection = dynamic(() => import("@/components/clients/CTASection"), {
+const CTASection = dynamic(() => import("@/components/clients/CTASection"), { 
   loading: () => <div className="h-[300px] animate-pulse bg-gray-200" />
 });
 

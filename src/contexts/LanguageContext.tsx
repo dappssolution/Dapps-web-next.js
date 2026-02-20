@@ -11,7 +11,7 @@ interface Translations {
 }
 
 interface LanguageContextType {
-  language: Language;
+  language: Language; 
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
 }

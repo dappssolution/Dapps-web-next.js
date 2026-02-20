@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'AI',
     'web development',
     'app development',
-  ],
+  ], 
   openGraph: {
     type: 'website',
     url: 'https://www.dappssolutions.com/privacy-policy',

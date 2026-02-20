@@ -15,7 +15,7 @@ export default function WorkDetailBanner({ title, description }: WorkDetailBanne
 
   useEffect(() => {
     setIsVisible(true);
-  }, []);
+  }, []); 
  
   return (
     <div className=" w-full overflow-hidden  ">
