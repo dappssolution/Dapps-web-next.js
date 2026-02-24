@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Dapps Solutions',
-  description: 'Read the terms of service for Dapps Solutions. Understand your rights and obligations when using our AI-powered solutions and services.',
+  title: 'Software, Web & App Development Services in Dubai, UAE',
+  description: ' Professional software, web and mobile app development services in UAE, including CRM, ERP solutions and digital marketing for business growth',
   keywords: [
     'Terms of Service',
     'Dapps Solutions',

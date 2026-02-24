@@ -1,42 +1,45 @@
-import type { Metadata } from 'next';
+// src/app/page.metadata.ts
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Dapps Solutions | AI-Powered Web & Apps',
-  description: 'Dapps Solutions - Transforming Businesses with AI-powered websites, apps, automation, and digital transformation services for growth and efficiency.',
+  title: "Dapps Solutions | AI-Powered Web, App & Digital Services in Dubai",
+  description:
+    "Dapps Solutions is a leading software company in Dubai, UAE offering web development, mobile app development, AI automation, branding and digital marketing services for modern businesses.",
   keywords: [
-    'Dapps Solutions',
-    'AI',
-    'automation',
-    'digital transformation',
-    'web development',
-    'apps',
-    'CRM',
-    'ERP',
-    'marketing',
+    "Dapps Solutions",
+    "Software Company Dubai",
+    "Web Development Dubai",
+    "Mobile App Development UAE",
+    "AI Automation Services",
+    "Digital Marketing Agency Dubai",
+    "Branding Agency Dubai",
+    "IT Company UAE"
   ],
   openGraph: {
-    type: 'website', 
-    url: 'https://www.dappssolutions.com/',
-    title: 'Dapps Solutions | AI-Powered Web & Apps',
-    description: 'Dapps Solutions - Transforming Businesses with AI-powered websites, apps, automation, and digital transformation services for growth and efficiency.',
-    siteName: 'Dapps Solutions',
+    type: "website",
+    url: "https://www.dappssolutions.com/",
+    title: "Dapps Solutions | AI-Powered Digital Transformation Company",
+    description:
+      "Transform your business with AI automation, web development, mobile apps, branding and digital marketing services in Dubai, UAE.",
+    siteName: "Dapps Solutions",
     images: [
       {
-        url: '/logo.png',
+        url: "/logo.png",
         width: 512,
         height: 512,
-        alt: 'Dapps Solutions Logo',
+        alt: "Dapps Solutions Logo",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    site: '@dappssolutions',
-    title: 'Dapps Solutions | AI-Powered Web & Apps',
-    description: 'Dapps Solutions - Transforming Businesses with AI-powered websites, apps, automation, and digital transformation services for growth and efficiency.',
-    images: ['/logo.png'],
+    card: "summary_large_image",
+    site: "@dappssolutions",
+    title: "Dapps Solutions | Web, App & AI Services in Dubai",
+    description:
+      "Leading AI-powered software company in Dubai offering web, app, branding and marketing solutions.",
+    images: ["/logo.png"],
   },
   alternates: {
-    canonical: 'https://www.dappssolutions.com/',
+    canonical: "https://www.dappssolutions.com/",
   },
 };
