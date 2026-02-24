@@ -59,6 +59,21 @@ const ServicesSection = () => {
       desc: t("services.service6.desc"),
       icon: <FiZap aria-hidden className="size-6" />,
     },
+    {
+      title: t("services.service7.title"),
+      desc: t("services.service7.desc"),
+      icon: <FiTrendingUp aria-hidden className="size-6" />,
+    },
+    {
+      title: t("services.service8.title"),
+      desc: t("services.service8.desc"),
+      icon: <FiPenTool aria-hidden className="size-6" />,
+    },
+    {
+      title: t("services.service9.title"),
+      desc: t("services.service9.desc"),
+      icon: <FiZap aria-hidden className="size-6" />,
+    },
   ]
 
   return (
@@ -171,6 +186,9 @@ const serviceRoutes = [
   "/service/digital-marketing",
   "/service/video-photo-editing",
   "/service/ai-agents-automation",
+  "/service/ecommerce-development-marketing",
+  "/service/ui-ux-design",
+  "/service/video-editing-production",
 ]
 
 function ServiceCard({ title, desc, icon,  index }: Service & { index: number }) {

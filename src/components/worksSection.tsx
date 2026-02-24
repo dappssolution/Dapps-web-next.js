@@ -1,18 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export default function Works() {
   const { t, language } = useLanguage();
-  const [activeId, setActiveId] = useState<number | null>(null);
-  const [isHoveringContainer, setIsHoveringContainer] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef({
+    isDragging: false,
+    startX: 0,
+    startScrollLeft: 0,
+  });
 
   // Original Data
   const projects = useMemo(
@@ -66,8 +69,35 @@ export default function Works() {
     []
   );
 
-  // Desktop only: Duplicate data for infinite loop
-  const desktopProjects = [...projects, ...projects];
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    dragRef.current.isDragging = true;
+    dragRef.current.startX = e.clientX;
+    dragRef.current.startScrollLeft = el.scrollLeft;
+    el.setPointerCapture(e.pointerId);
+    el.style.cursor = "grabbing";
+  };
+
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el || !dragRef.current.isDragging) return;
+    e.preventDefault();
+    const delta = e.clientX - dragRef.current.startX;
+    el.scrollLeft = dragRef.current.startScrollLeft - delta;
+  };
+
+  const onPointerEnd = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    dragRef.current.isDragging = false;
+    try {
+      el.releasePointerCapture(e.pointerId);
+    } catch {
+      // no-op
+    }
+    el.style.cursor = "grab";
+  };
 
   return (
     <section
@@ -132,57 +162,29 @@ export default function Works() {
         </div>
 
         {/* =========================================
-            DESKTOP VIEW (Horizontal Marquee)
+            DESKTOP VIEW (Simple Drag Slider)
             Hidden on mobile
            ========================================= */}
-        <div
-          className="hidden md:flex w-full relative py-10 lg:py-12"
-          onMouseEnter={() => setIsHoveringContainer(true)}
-          onMouseLeave={() => {
-            setIsHoveringContainer(false);
-            setActiveId(null);
-          }}
-        >
-          {/* The scrolling track */}
+        <div className="hidden md:block w-full relative py-10 lg:py-12">
           <div
-            className={cn(
-              "flex gap-6 h-[500px] lg:h-[600px] w-max animate-marquee pl-6",
-              (isHoveringContainer || activeId !== null) && "paused"
-            )}
+            ref={scrollRef}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerEnd}
+            onPointerCancel={onPointerEnd}
+            className="flex gap-6 h-[500px] lg:h-[600px] overflow-x-auto overflow-y-hidden px-6 cursor-grab select-none snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            style={{ touchAction: "pan-y" }}
           >
-            {desktopProjects.map((project, index) => (
+            {projects.map((project) => (
               <ProjectCardDesktop
-                key={`${project.id}-desktop-${index}`}
+                key={`desktop-${project.id}`}
                 project={project}
-                activeId={activeId}
-                setActiveId={setActiveId}
                 language={language}
               />
             ))}
           </div>
         </div>
       </div>
-
-      {/* Styles for Marquee */}
-      <style jsx global>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          animation: marquee 40s linear infinite;
-        }
-        [dir="rtl"] .animate-marquee {
-          animation: marquee-rtl 40s linear infinite;
-        }
-        @keyframes marquee-rtl {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(50%); }
-        }
-        .paused {
-          animation-play-state: paused !important;
-        }
-      `}</style>
     </section>
   );
 }
@@ -228,106 +230,54 @@ const ProjectCardMobile = ({ project, language }: any) => {
 // ==========================================
 const ProjectCardDesktop = ({
   project,
-  activeId,
-  setActiveId,
   language,
 }: any) => {
-  const isActive = activeId === project.id;
-  const isBlur = activeId !== null && !isActive;
-
   return (
-    <motion.div
-      layout
-      onHoverStart={() => setActiveId(project.id)}
-      onHoverEnd={() => setActiveId(null)}
+    <div
       className={cn(
-        "relative overflow-hidden rounded-2xl cursor-pointer border border-white/10 h-full",
+        "relative overflow-hidden rounded-2xl cursor-pointer border border-white/10 h-full snap-start shrink-0 w-[360px] lg:w-[460px]",
         "bg-zinc-900/40 backdrop-blur-md"
       )}
-      initial={false}
-      animate={{
-        width: isActive ? 600 : 280,
-        opacity: isBlur ? 0.3 : 1, // Dim inactive cards
-      }}
-      transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
     >
       <Image
         src={project.src}
         alt={project.alt}
-        fill
-        className={cn(
-          "object-cover transition-all duration-700 ease-out",
-          isActive ? "scale-105 blur-0 grayscale-0" : "scale-100 blur-sm grayscale-[50%]"
-        )}
+        width={920}
+        height={1200}
+        className="h-full w-full object-cover transition-transform duration-300 ease-out hover:scale-[1.02]"
       />
 
       {/* Overlay */}
-      <div
-        className={cn(
-          "absolute inset-0 transition-colors duration-500",
-          isActive ? "bg-black/30" : "bg-black/60"
-        )}
-      />
+      <div className="absolute inset-0 bg-black/45" />
 
       <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
         {/* Top Row */}
         <div className="flex justify-between items-start">
           <span
-            className={cn(
-              "font-mono text-xl transition-colors duration-300",
-              isActive ? "text-white" : "text-white/40"
-            )}
+            className="font-mono text-xl text-white"
           >
             {project.number}
           </span>
 
           <div
-            className={cn(
-              "w-12 h-12 rounded-full flex items-center justify-center border backdrop-blur-md transition-all duration-300",
-              isActive
-                ? "bg-white text-black border-white rotate-45 scale-110"
-                : "bg-transparent text-white/50 border-white/20"
-            )}
+            className="w-12 h-12 rounded-full flex items-center justify-center border backdrop-blur-md transition-all duration-300 bg-white text-black border-white"
           >
             <ArrowUpRight size={24} />
           </div>
         </div>
 
-        {/* Center Vertical Text (When inactive) */}
-        <AnimatePresence>
-          {!isActive && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            >
-              <span className="text-white/60 font-bold text-2xl tracking-[0.2em] uppercase whitespace-nowrap [writing-mode:vertical-rl] rotate-180">
-                {project.category[language] || project.category.en}
-              </span>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Bottom Content (Active only) */}
+        {/* Bottom Content */}
         <div className="relative overflow-hidden">
-          <motion.div
-            initial={false}
-            animate={{
-              y: isActive ? 0 : 100,
-              opacity: isActive ? 1 : 0,
-            }}
-            transition={{ duration: 0.4 }}
-          >
+          <div>
             <p className="text-[#c084fc] text-sm font-bold tracking-widest mb-2 uppercase">
               {project.category[language] || project.category.en}
             </p>
             <h3 className={cn("text-white text-4xl font-bold leading-tight", language === 'ar' && "font-arabic")}>
               {project.title[language] || project.title.en}
             </h3>
-          </motion.div>
+          </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };

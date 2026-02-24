@@ -1,4 +1,4 @@
-import { Sliders, Headphones, Grid3x3, ShoppingCart, Monitor, Zap, PenTool, Camera, BarChart2, Users, Globe2 } from "lucide-react";
+﻿import { Sliders, Headphones, Grid3x3, ShoppingCart, Monitor, Zap, PenTool, Camera, BarChart2, Users, Globe2 } from "lucide-react";
 import { ServiceCard } from "@/components/services-innerpages/ServiceDetailMain";
 
 export interface ServiceDetailContent {
@@ -115,7 +115,7 @@ export const serviceDetails = {
           { id: 1, icon: PenTool, title: "Dynamic Logo Design", description: "Memorable, versatile logos built for the digital-first era.", color: "from-rose-400 to-pink-600" },
           { id: 2, icon: PenTool, title: "Systemic Brand Guidelines", description: "Comprehensive digital-ready brand books and scalable style guides.", color: "from-rose-400 to-pink-600" },
           { id: 3, icon: PenTool, title: "Visual Identity Systems", description: "Data-driven color, typography, and imagery systems for modern brands.", color: "from-rose-400 to-pink-600" },
-          { id: 4, icon: PenTool, title: "Strategic Voice & Story", description: "Crafting your brand’s narrative architecture and cross-platform tone.", color: "from-rose-400 to-pink-600" },
+          { id: 4, icon: PenTool, title: "Strategic Voice & Story", description: "Crafting your brandâ€™s narrative architecture and cross-platform tone.", color: "from-rose-400 to-pink-600" },
         ],
       },
       accordion: {
@@ -180,7 +180,84 @@ export const serviceDetails = {
         ],
       },
     },
-  },
+    ecommerce: {
+      banner: {
+        title: "Ecommerce Development & Growth Marketing",
+        description: "Build scalable storefronts and growth systems that improve acquisition, conversion, and repeat revenue.",
+        buttonText: "Start Ecommerce Project",
+      },
+      main: {
+        header: "Ecommerce Growth Stack",
+        subheader: "Services we deliver:",
+        services: [
+          { id: 1, icon: ShoppingCart, title: "Storefront Development", description: "Custom ecommerce stores with high-speed UX, SEO-ready architecture, and conversion-first product pages.", color: "from-amber-400 to-orange-600" },
+          { id: 2, icon: BarChart2, title: "Conversion Rate Optimization", description: "Data-backed CRO experiments across landing pages, checkout, and retention funnels.", color: "from-amber-400 to-orange-600" },
+          { id: 3, icon: Globe2, title: "Marketplace Expansion", description: "Integrate and scale on marketplaces with synchronized inventory, pricing, and fulfillment flows.", color: "from-amber-400 to-orange-600" },
+          { id: 4, icon: Users, title: "Performance Marketing", description: "Run paid and organic growth campaigns focused on CAC efficiency and LTV improvement.", color: "from-amber-400 to-orange-600" },
+        ],
+      },
+      accordion: {
+        title: "Ecommerce for Industries",
+        verticals: [
+          { title: "Fashion & Beauty", description: "Variant-rich catalogs, influencer funnels, and retention automations." },
+          { title: "Electronics", description: "Technical product journeys, warranty flows, and post-purchase support automation." },
+          { title: "Food & Grocery", description: "Subscription models, delivery-slot logic, and repeat order optimization." },
+          { title: "B2B Commerce", description: "Bulk pricing, RFQ workflows, and account-based purchasing portals." },
+        ],
+      },
+    },
+    uiux: {
+      banner: {
+        title: "UI/UX Design Systems",
+        description: "Create user experiences that are visually consistent, intuitive to navigate, and optimized for measurable outcomes.",
+        buttonText: "Request UI/UX Audit",
+      },
+      main: {
+        header: "Product Design Services",
+        subheader: "Services we deliver:",
+        services: [
+          { id: 1, icon: PenTool, title: "UX Research & Strategy", description: "User journey mapping, competitor analysis, and behavioral insights to guide design decisions.", color: "from-rose-400 to-pink-600" },
+          { id: 2, icon: Monitor, title: "Web & App Interface Design", description: "Pixel-precise interfaces crafted for clarity, accessibility, and conversion performance.", color: "from-rose-400 to-pink-600" },
+          { id: 3, icon: Grid3x3, title: "Design Systems", description: "Component libraries and interaction standards for scalable product consistency.", color: "from-rose-400 to-pink-600" },
+          { id: 4, icon: Sliders, title: "Usability Optimization", description: "Iterative testing and refinements that reduce friction and improve task completion.", color: "from-rose-400 to-pink-600" },
+        ],
+      },
+      accordion: {
+        title: "UI/UX for Industries",
+        verticals: [
+          { title: "SaaS Platforms", description: "Onboarding, dashboards, and workflows designed for retention and adoption." },
+          { title: "Healthcare", description: "Clear patient and clinician experiences with accessible navigation patterns." },
+          { title: "Fintech", description: "Trust-focused interfaces for transactions, insights, and secure account flows." },
+          { title: "E-learning", description: "Learning experiences that improve engagement and completion rates." },
+        ],
+      },
+    },
+    videoProduction: {
+      banner: {
+        title: "Video Editing & Production",
+        description: "End-to-end production workflows for social, advertising, and brand storytelling at scale.",
+        buttonText: "Book Production Call",
+      },
+      main: {
+        header: "Creative Video Services",
+        subheader: "Services we deliver:",
+        services: [
+          { id: 1, icon: Camera, title: "Brand Video Editing", description: "Narrative-driven edits with pacing, color, and sound crafted for brand identity.", color: "from-indigo-400 to-blue-600" },
+          { id: 2, icon: Camera, title: "Commercial & Ad Creatives", description: "Performance-focused ad videos optimized for platform-specific formats and hooks.", color: "from-indigo-400 to-blue-600" },
+          { id: 3, icon: Camera, title: "Motion Graphics & Titles", description: "Animated explainers, kinetic typography, and visual systems for stronger message clarity.", color: "from-indigo-400 to-blue-600" },
+          { id: 4, icon: Camera, title: "Post-Production Pipeline", description: "Consistent delivery with versioning, subtitle packs, and multi-platform export standards.", color: "from-indigo-400 to-blue-600" },
+        ],
+      },
+      accordion: {
+        title: "Video Services for Industries",
+        verticals: [
+          { title: "Real Estate", description: "Property showcases and promotional reels that accelerate inquiries." },
+          { title: "Healthcare", description: "Educational and trust-building content for patients and providers." },
+          { title: "Education", description: "Course content, launch trailers, and social-first explainers." },
+          { title: "Retail & Ecommerce", description: "Product storytelling and UGC-style edits for conversion lift." },
+        ],
+      },
+    },  },
   ar: {
     web: {
       banner: {
@@ -293,26 +370,26 @@ export const serviceDetails = {
     digital: {
       banner: {
         title: "التسويق الرقمي الخوارزمي",
-        description: "توسيع نطاق وصولك من خلال النمذجة التنبؤية وحلقات النمو المؤتمتة.",
+        description: "وسّع حضورك الرقمي عبر نماذج تنبؤية وحملات نمو مؤتمتة مدعومة بالبيانات.",
         buttonText: "اطلب استشارة التسويق",
       },
       main: {
         header: "التسويق بالأداء",
         subheader: "الخدمات التي نقدمها:",
         services: [
-          { id: 1, icon: BarChart2, title: "SEO/SEM معزز ذكياً", description: "تحسين الظهور من خلال تحليل البحث العصبي والمزايدة المؤتمتة.", color: "from-yellow-400 to-yellow-600" },
-          { id: 2, icon: BarChart2, title: "تنسيق التواصل الاجتماعي", description: "تفاعل الجمهور عبر توزيع المحتوى المؤتمت وتحليلات المجتمع.", color: "from-yellow-400 to-yellow-600" },
-          { id: 3, icon: BarChart2, title: "تسويق المحتوى التوليدي", description: "جذب العملاء عبر خطوط إنتاج محتوى مدعومة بالذكاء الاصطناعي.", color: "from-yellow-400 to-yellow-600" },
-          { id: 4, icon: BarChart2, title: "أتمتة دورة حياة العميل", description: "رعاية العملاء عبر تدفقات بريد إلكتروني تنبؤية وحملات مستهدفة.", color: "from-yellow-400 to-yellow-600" },
+          { id: 1, icon: BarChart2, title: "SEO/SEM معزّز بالذكاء", description: "تحسين الظهور الرقمي عبر تحليل بحث ذكي وإدارة عروض الأسعار بشكل مؤتمت.", color: "from-yellow-400 to-yellow-600" },
+          { id: 2, icon: BarChart2, title: "إدارة وسائل التواصل", description: "توسيع التفاعل عبر توزيع المحتوى وتحليل أداء الجمهور عبر المنصات.", color: "from-yellow-400 to-yellow-600" },
+          { id: 3, icon: BarChart2, title: "تسويق المحتوى الذكي", description: "إنتاج محتوى موجّه لجذب العملاء المحتملين وتحسين جودة التحويل.", color: "from-yellow-400 to-yellow-600" },
+          { id: 4, icon: BarChart2, title: "أتمتة دورة حياة العميل", description: "تنفيذ تدفقات تسويقية مخصصة عبر البريد والحملات الذكية لرفع الولاء والمبيعات.", color: "from-yellow-400 to-yellow-600" },
         ],
       },
       accordion: {
-        title: "التسويق الرقمي للصناعات",
+        title: "التسويق الرقمي حسب القطاع",
         verticals: [
-          { title: "التجارة الإلكترونية", description: "التسويق بالأداء وتحسين التحويلات." },
-          { title: "التعليم", description: "حملات جذب الطلاب والمشاركة." },
-          { title: "الرعاية الصحية", description: "اكتساب المرضى وزيادة الوعي بالعلامة التجارية." },
-          { title: "العقارات", description: "توليد العملاء المحتملين والجولات الافتراضية." },
+          { title: "التجارة الإلكترونية", description: "استراتيجيات أداء وتهيئة التحويل لزيادة المبيعات." },
+          { title: "التعليم", description: "حملات جذب طلاب وبناء حضور رقمي للمؤسسات التعليمية." },
+          { title: "الرعاية الصحية", description: "زيادة اكتساب العملاء وتعزيز الثقة بالعلامة الصحية." },
+          { title: "العقارات", description: "توليد العملاء المحتملين وحملات موجهة للمشاريع العقارية." },
         ],
       },
     },
@@ -342,5 +419,84 @@ export const serviceDetails = {
         ],
       },
     },
-  },
+    ecommerce: {
+      banner: {
+        title: "تطوير التجارة الإلكترونية وتسويق النمو",
+        description: "نبني متاجر إلكترونية قابلة للتوسع مع منظومات تسويق ترفع الاكتساب ومعدلات التحويل وتزيد تكرار الشراء.",
+        buttonText: "ابدأ مشروع متجرك",
+      },
+      main: {
+        header: "منظومة نمو التجارة الإلكترونية",
+        subheader: "الخدمات التي نقدمها:",
+        services: [
+          { id: 1, icon: ShoppingCart, title: "تطوير واجهة المتجر", description: "تصميم وتطوير متاجر مخصصة سريعة الأداء مع بنية جاهزة لمحركات البحث وصفحات منتجات عالية التحويل.", color: "from-amber-400 to-orange-600" },
+          { id: 2, icon: BarChart2, title: "تحسين معدل التحويل", description: "اختبارات وتحسينات مستمرة لصفحات الهبوط والدفع ومسارات إعادة الاستهداف بناءً على البيانات.", color: "from-amber-400 to-orange-600" },
+          { id: 3, icon: Globe2, title: "التوسع في المنصات", description: "ربط متجرك بالأسواق الإلكترونية مع مزامنة المخزون والتسعير وعمليات الشحن والتنفيذ.", color: "from-amber-400 to-orange-600" },
+          { id: 4, icon: Users, title: "تسويق الأداء", description: "إدارة حملات مدفوعة وعضوية تستهدف خفض تكلفة الاكتساب ورفع قيمة العميل على المدى الطويل.", color: "from-amber-400 to-orange-600" },
+        ],
+      },
+      accordion: {
+        title: "حلول التجارة الإلكترونية حسب القطاع",
+        verticals: [
+          { title: "الأزياء والجمال", description: "كتالوجات متعددة الخيارات ومسارات مؤثرين وحملات ولاء لزيادة إعادة الشراء." },
+          { title: "الإلكترونيات", description: "تجارب شراء تقنية واضحة مع إدارة الضمان وخدمة ما بعد البيع." },
+          { title: "الأغذية والبقالة", description: "نماذج اشتراك وخيارات توصيل ذكية وتحسين الطلبات المتكررة." },
+          { title: "التجارة بين الشركات B2B", description: "تسعير كميات كبيرة وطلبات عروض أسعار وبوابات شراء للحسابات المؤسسية." },
+        ],
+      },
+    },
+    uiux: {
+      banner: {
+        title: "تصميم UI/UX وأنظمة الواجهات",
+        description: "نصمم تجارب استخدام واضحة ومتسقة بصريًا لزيادة سهولة الاستخدام وتحقيق نتائج قابلة للقياس.",
+        buttonText: "اطلب تدقيق UI/UX",
+      },
+      main: {
+        header: "خدمات تصميم المنتجات الرقمية",
+        subheader: "الخدمات التي نقدمها:",
+        services: [
+          { id: 1, icon: PenTool, title: "بحث وتجربة المستخدم", description: "تحليل رحلة المستخدم والمنافسين وسلوك الجمهور لبناء قرارات تصميم دقيقة.", color: "from-rose-400 to-pink-600" },
+          { id: 2, icon: Monitor, title: "تصميم واجهات الويب والتطبيقات", description: "واجهات دقيقة وسهلة الوصول توازن بين الجمال والوضوح ورفع معدل الإنجاز.", color: "from-rose-400 to-pink-600" },
+          { id: 3, icon: Grid3x3, title: "أنظمة التصميم", description: "مكتبات مكونات وقواعد تفاعل موحدة تضمن الاتساق وقابلية التوسع.", color: "from-rose-400 to-pink-600" },
+          { id: 4, icon: Sliders, title: "تحسين قابلية الاستخدام", description: "اختبارات دورية وتحسينات مستمرة لتقليل الاحتكاك ورفع رضا المستخدم.", color: "from-rose-400 to-pink-600" },
+        ],
+      },
+      accordion: {
+        title: "تصميم UI/UX حسب القطاع",
+        verticals: [
+          { title: "منصات SaaS", description: "تجارب تسجيل دخول ولوحات تحكم ومسارات استخدام تدعم التبنّي والاحتفاظ." },
+          { title: "الرعاية الصحية", description: "واجهات واضحة للمرضى والكوادر الطبية مع تدفق معلومات منظم." },
+          { title: "التقنية المالية", description: "تصميمات موثوقة لعمليات الدفع وإدارة الحسابات والبيانات الحساسة." },
+          { title: "التعليم الإلكتروني", description: "تجارب تعلم تفاعلية ترفع معدل الإكمال وتزيد ارتباط المستخدم." },
+        ],
+      },
+    },
+    videoProduction: {
+      banner: {
+        title: "تحرير الفيديو والإنتاج",
+        description: "نقدم دورة إنتاج كاملة من الفكرة إلى التسليم لمحتوى السوشيال والإعلانات والهوية البصرية.",
+        buttonText: "احجز استشارة إنتاج",
+      },
+      main: {
+        header: "خدمات الفيديو الإبداعية",
+        subheader: "الخدمات التي نقدمها:",
+        services: [
+          { id: 1, icon: Camera, title: "تحرير فيديو العلامة التجارية", description: "مونتاج سردي احترافي مع تصحيح ألوان ومعالجة صوت متوافقين مع هوية علامتك.", color: "from-indigo-400 to-blue-600" },
+          { id: 2, icon: Camera, title: "إعلانات وفيديوهات تجارية", description: "إنتاج فيديوهات موجهة للأداء بصيغ مخصصة لكل منصة وحوافز مشاهدة قوية.", color: "from-indigo-400 to-blue-600" },
+          { id: 3, icon: Camera, title: "موشن جرافيك وعناوين", description: "تصميم موشن جرافيك وعناوين متحركة لشرح الرسائل بشكل أوضح وأكثر تأثيرًا.", color: "from-indigo-400 to-blue-600" },
+          { id: 4, icon: Camera, title: "مسار ما بعد الإنتاج", description: "تسليم منظم بإصدارات متعددة وترجمة وملفات نهائية محسّنة لكل قناة نشر.", color: "from-indigo-400 to-blue-600" },
+        ],
+      },
+      accordion: {
+        title: "خدمات الفيديو حسب القطاع",
+        verticals: [
+          { title: "العقارات", description: "جولات عقارية وفيديوهات ترويجية تزيد الاستفسارات وجودة العملاء المحتملين." },
+          { title: "الرعاية الصحية", description: "محتوى توعوي وبصري يعزز الثقة بين المريض ومقدم الخدمة." },
+          { title: "التعليم", description: "فيديوهات دورات وإطلاقات تعليمية وشرح مبسط مخصص للمنصات الاجتماعية." },
+          { title: "التجزئة والتجارة الإلكترونية", description: "سرد بصري للمنتجات ومحتوى UGC يرفع التفاعل والتحويل." },
+        ],
+      },
+    },  },
 };
+
+

@@ -3,6 +3,7 @@
 // import { useState } from "react"
 import { Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   ArrowUpRight,
   MapPin,
@@ -22,61 +23,170 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-// --- Data Configuration ---
-const jobs = [
-  {
-    id: 1,
-    title: "Digital Marketing Specialist",
-    department: "Marketing",
-    type: "Full-time",
-    location: "On-site",
-    description:
-      "We are looking for a creative and analytical Digital Marketing Specialist to drive our online presence. You will lead SEO strategies, manage social media campaigns, and analyze performance metrics to accelerate growth.",
-    requirements: [
-      "3+ years experience in Digital Marketing or SEO",
-      "Proficiency in Google Analytics, SEMrush, and Ad Managers",
-      "Strong copywriting and content creation skills",
-      "Ability to build comprehensive marketing funnels",
-    ],
-  },
-  {
-    id: 2,
-    title: "Front Desk Assistant",
-    department: "Operations",
-    type: "Part-time / Full-time",
-    location: "On-site",
-    description:
-      "Be the face of our company. We need a warm, organized, and proactive Front Desk Assistant to manage reception duties, coordinate schedules, and ensure our daily office operations run seamlessly.",
-    requirements: [
-      "Excellent verbal and written communication skills",
-      "Proficient in Microsoft Office Suite & Google Workspace",
-      "Strong organizational and multitasking abilities",
-      "Previous experience in admin/customer service is a plus",
-    ],
-  },
-];
+type Job = {
+  id: number;
+  title: string;
+  department: string;
+  type: string;
+  location: string;
+  description: string;
+  requirements: string[];
+};
 
-const benefits = [
-  {
-    icon: Users,
-    title: "Great Culture",
-    desc: "Collaborative environment where every voice matters.",
+type Benefit = {
+  icon: typeof Users;
+  title: string;
+  desc: string;
+};
+
+const careerContent = {
+  en: {
+    hiringBadge: "WE ARE HIRING",
+    heroTitleTop: "Do your",
+    heroTitleAccent: "best work",
+    heroTitleBottom: "here.",
+    heroDescription:
+      "Join a team of visionaries. We are building the future of digital solutions, and we need passionate people like you to help shape what comes next.",
+    openPositionsTitle: "Open Positions",
+    openPositionsDescription:
+      "We are currently looking for talent in the following roles.",
+    positionsSuffix: "POSITIONS",
+    requirementsLabel: "Requirements",
+    applyLabel: "Apply for this role",
+    emptyTitle: "Don't see your role?",
+    emptyDescription:
+      "We are always looking for exceptional talent. If you think you'd be a great fit, we want to hear from you.",
+    emptyCta: "Email us your portfolio",
+    benefits: [
+      {
+        icon: Users,
+        title: "Great Culture",
+        desc: "Collaborative environment where every voice matters.",
+      },
+      {
+        icon: Zap,
+        title: "Fast Growth",
+        desc: "Opportunities to learn and advance your career quickly.",
+      },
+      {
+        icon: Heart,
+        title: "Wellness",
+        desc: "Healthy work-life balance and supportive management.",
+      },
+    ] as Benefit[],
+    jobs: [
+      {
+        id: 1,
+        title: "Digital Marketing Specialist",
+        department: "Marketing",
+        type: "Full-time",
+        location: "On-site",
+        description:
+          "We are looking for a creative and analytical Digital Marketing Specialist to drive our online presence. You will lead SEO strategies, manage social media campaigns, and analyze performance metrics to accelerate growth.",
+        requirements: [
+          "3+ years experience in Digital Marketing or SEO",
+          "Proficiency in Google Analytics, SEMrush, and Ad Managers",
+          "Strong copywriting and content creation skills",
+          "Ability to build comprehensive marketing funnels",
+        ],
+      },
+      {
+        id: 2,
+        title: "Front Desk Assistant",
+        department: "Operations",
+        type: "Part-time / Full-time",
+        location: "On-site",
+        description:
+          "Be the face of our company. We need a warm, organized, and proactive Front Desk Assistant to manage reception duties, coordinate schedules, and ensure our daily office operations run seamlessly.",
+        requirements: [
+          "Excellent verbal and written communication skills",
+          "Proficient in Microsoft Office Suite & Google Workspace",
+          "Strong organizational and multitasking abilities",
+          "Previous experience in admin/customer service is a plus",
+        ],
+      },
+    ] as Job[],
   },
-  {
-    icon: Zap,
-    title: "Fast Growth",
-    desc: "Opportunities to learn and advance your career quickly.",
+  ar: {
+    hiringBadge: "نحن نوظف الآن",
+    heroTitleTop: "قدّم",
+    heroTitleAccent: "أفضل عمل",
+    heroTitleBottom: "لديك هنا.",
+    heroDescription:
+      "انضم إلى فريق من المبدعين. نحن نبني مستقبل الحلول الرقمية، ونبحث عن أشخاص شغوفين مثلك لصناعة المرحلة القادمة.",
+    openPositionsTitle: "الوظائف المتاحة",
+    openPositionsDescription:
+      "نبحث حالياً عن مواهب للانضمام إلى الأدوار التالية.",
+    positionsSuffix: "وظائف",
+    requirementsLabel: "المتطلبات",
+    applyLabel: "التقديم على هذه الوظيفة",
+    emptyTitle: "لم تجد الوظيفة المناسبة؟",
+    emptyDescription:
+      "نحن دائماً نبحث عن المواهب المميزة. إذا كنت ترى نفسك مناسباً، يسعدنا تواصلك معنا.",
+    emptyCta: "أرسل لنا سيرتك الذاتية",
+    benefits: [
+      {
+        icon: Users,
+        title: "بيئة عمل رائعة",
+        desc: "بيئة تعاونية يُسمع فيها صوت كل فرد.",
+      },
+      {
+        icon: Zap,
+        title: "نمو سريع",
+        desc: "فرص مستمرة للتعلم والتطور المهني بسرعة.",
+      },
+      {
+        icon: Heart,
+        title: "رفاهية وتوازن",
+        desc: "توازن صحي بين العمل والحياة مع إدارة داعمة.",
+      },
+    ] as Benefit[],
+    jobs: [
+      {
+        id: 1,
+        title: "أخصائي تسويق رقمي",
+        department: "التسويق",
+        type: "دوام كامل",
+        location: "حضوري",
+        description:
+          "نبحث عن أخصائي تسويق رقمي مبدع وتحليلي لقيادة حضورنا الرقمي. ستقود استراتيجيات تحسين الظهور، وتدير حملات التواصل، وتحلل مؤشرات الأداء لتسريع النمو.",
+        requirements: [
+          "خبرة 3 سنوات أو أكثر في التسويق الرقمي أو SEO",
+          "إتقان Google Analytics وSEMrush ومنصات إدارة الإعلانات",
+          "مهارات قوية في كتابة المحتوى وصناعته",
+          "القدرة على بناء مسارات تسويقية متكاملة",
+        ],
+      },
+      {
+        id: 2,
+        title: "مساعد استقبال",
+        department: "العمليات",
+        type: "دوام جزئي / دوام كامل",
+        location: "حضوري",
+        description:
+          "كن واجهة الشركة الأولى. نحتاج إلى مساعد استقبال منظم ومبادر لإدارة مهام الاستقبال، وتنسيق الجداول، وضمان سير العمليات اليومية بسلاسة.",
+        requirements: [
+          "مهارات ممتازة في التواصل الشفهي والكتابي",
+          "إجادة Microsoft Office وGoogle Workspace",
+          "قدرة عالية على التنظيم وتعدد المهام",
+          "خبرة سابقة في الإدارة أو خدمة العملاء تعتبر ميزة إضافية",
+        ],
+      },
+    ] as Job[],
   },
-  {
-    icon: Heart,
-    title: "Wellness",
-    desc: "Healthy work-life balance and supportive management.",
-  },
-];
+};
 
 // --- Components ---
 
-const JobCard = ({ job }: { job: (typeof jobs)[0] }) => {
+const JobCard = ({
+  job,
+  requirementsLabel,
+  applyLabel,
+}: {
+  job: Job;
+  requirementsLabel: string;
+  applyLabel: string;
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -115,7 +225,7 @@ const JobCard = ({ job }: { job: (typeof jobs)[0] }) => {
 
         <div className="mb-10">
           <h4 className="text-sm font-bold text-white mb-4 uppercase tracking-wider opacity-90">
-            Requirements
+            {requirementsLabel}
           </h4>
           <ul className="space-y-3">
             {job.requirements.map((req, idx) => (
@@ -134,7 +244,7 @@ const JobCard = ({ job }: { job: (typeof jobs)[0] }) => {
         )}`}
         className="w-full mt-auto inline-flex items-center justify-center gap-2 bg-white text-[#2D0C74] py-4 px-6 rounded-xl font-bold transition-all hover:bg-[#a78bfa] hover:text-white"
       >
-        Apply for this role
+        {applyLabel}
         <ArrowRight className="w-5 h-5" />
       </a>
     </motion.div>
@@ -142,6 +252,11 @@ const JobCard = ({ job }: { job: (typeof jobs)[0] }) => {
 };
 
 export default function CareerSection() {
+  const { language } = useLanguage();
+  const content = language === "ar" ? careerContent.ar : careerContent.en;
+  const jobs = content.jobs;
+  const benefits = content.benefits;
+
   return (
     <div
       className={`min-h-screen text-white selection:bg-white selection:text-[#2D0C74] ${montserrat.className}`}
@@ -173,21 +288,19 @@ export default function CareerSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8 text-sm font-semibold tracking-wide text-white/90">
             <Sparkles className="w-4 h-4 text-yellow-300" />
-            <span>WE ARE HIRING</span>
+            <span>{content.hiringBadge}</span>
           </div>
 
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-12 drop-shadow-2xl">
-            Do your <br />
+            {content.heroTitleTop} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">
-              best work
+              {content.heroTitleAccent}
             </span>{" "}
-            here.
+            {content.heroTitleBottom}
           </h1>
 
           <p className="max-w-2xl text-lg sm:text-2xl text-white/70 leading-relaxed font-light">
-            Join a team of visionaries. We are building the future of digital
-            solutions, and we need passionate people like you to help shape what
-            comes next.
+            {content.heroDescription}
           </p>
         </motion.div>
       </section>
@@ -221,15 +334,15 @@ export default function CareerSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              Open Positions
+              {content.openPositionsTitle}
             </h2>
             <p className="text-white/60 text-lg">
-              We are currently looking for talent in the following roles.
+              {content.openPositionsDescription}
             </p>
           </div>
           <div className="hidden md:block h-px flex-1 bg-white/20 mx-12 mb-4" />
           <span className="text-sm font-mono text-white/40 border border-white/20 px-4 py-2 rounded-lg">
-            0{jobs.length} POSITIONS
+            {`0${jobs.length} ${content.positionsSuffix}`}
           </span>
         </div>
 
@@ -238,22 +351,26 @@ export default function CareerSection() {
         */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {jobs.map((job) => (
-            <JobCard key={job.id} job={job} />
+            <JobCard
+              key={job.id}
+              job={job}
+              requirementsLabel={content.requirementsLabel}
+              applyLabel={content.applyLabel}
+            />
           ))}
         </div>
 
         {/* Empty State / General Contact */}
         <div className="mt-32 p-12 rounded-3xl text-center border border-white/10 bg-gradient-to-b from-white/5 to-transparent backdrop-blur-md">
-          <h3 className="text-2xl font-bold mb-3">Don&apos;t see your role?</h3>
+          <h3 className="text-2xl font-bold mb-3">{content.emptyTitle}</h3>
           <p className="text-white/60 mb-8 max-w-md mx-auto">
-            We are always looking for exceptional talent. If you think
-            you&apos;d be a great fit, we want to hear from you.
+            {content.emptyDescription}
           </p>
           <a
             href="mailto:info@dappssolutions.com"
             className="inline-block text-white font-semibold border-b border-white pb-1 hover:text-[#a78bfa] hover:border-[#a78bfa] transition-colors"
           >
-            Email us your portfolio
+            {content.emptyCta}
           </a>
         </div>
       </section>
