@@ -45,13 +45,8 @@ export default function Header() {
     setLanguage(newLanguage)
   }
 
-  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    const href = e.currentTarget.getAttribute("href")
-    if (href) {
-      setIsPanelOpen(false)
-      setTimeout(() => (window.location.href = href), 50)
-    }
+  const handleNavigation = () => {
+    setIsPanelOpen(false)
   }
 
   const LanguageSwitcher = ({ isMobile = false }: { isMobile?: boolean }) => (

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
@@ -136,8 +136,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'services.service5.desc': 'Deploy AI-enhanced business management systems with predictive analytics, automated workflows, and intelligent customer insights.',
       'services.service6.title': 'Advanced AI Agents & Automation',
       'services.service6.desc': 'Implement sophisticated AI agents, intelligent chatbots, and automated workflows that learn and adapt to your business needs.',
+      'services.service7.title': 'Ecommerce Development & Marketing',
+      'services.service7.desc': 'Build conversion-focused ecommerce platforms with intelligent product discovery, optimized checkout flows, and data-driven growth campaigns.',
+      'services.service8.title': 'UI/UX Design',
+      'services.service8.desc': 'Design intuitive user journeys, scalable design systems, and high-performing interfaces that improve engagement across web and mobile.',
+      'services.service9.title': 'Video Editing & Production',
+      'services.service9.desc': 'Produce polished brand videos with strategic storytelling, platform-optimized edits, motion graphics, and post-production workflows.',
       // Hero Section
-      "hero.tagline": "Intelligent Systems • Automated Workflows • Future Solutions",
+      "hero.tagline": "Intelligent Systems ⬢ Automated Workflows ⬢ Future Solutions",
       "hero.headline": "Intelligence-Driven Success",
       "hero.forYourBusiness": "For Your Enterprise",
       "hero.cta": "Begin Your Transformation",
@@ -390,11 +396,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'services.service3.title': 'حلول العلامة التجارية الذكية',
       'services.service3.desc': 'تطوير استراتيجيات علامة تجارية مدعومة بالذكاء الاصطناعي مع رؤى قائمة على البيانات وأنظمة تصميم مؤتمتة ومراقبة ذكية للعلامة التجارية.',
       'services.service4.title': 'التسويق الرقمي المدعوم بالذكاء الاصطناعي',
-      'services.service4.desc': 'استفد من الذكاء الاصطناعي للتحليلات التنبؤية وتحسين الحملات المؤتمت والاستهداف الذكي للعملاء عبر جميع القنوات.',
+      'services.service4.desc': 'استفد من الذكاء الاصطناعي للتحليلات التنبؤية وتحسين الحملات المؤتمتة والاستهداف الذكي للعملاء عبر جميع القنوات.',
       'services.service5.title': 'أنظمة ERP و CRM الذكية',
       'services.service5.desc': 'نشر أنظمة إدارة أعمال محسّنة بالذكاء الاصطناعي مع تحليلات تنبؤية وسير عمل مؤتمت ورؤى ذكية للعملاء.',
       'services.service6.title': 'وكلاء الذكاء الاصطناعي والأتمتة المتقدمة',
       'services.service6.desc': 'تنفيذ وكلاء ذكاء اصطناعي متطورين وروبوتات دردشة ذكية وسير عمل مؤتمت يتعلم ويتكيف مع احتياجات عملك.',
+      'services.service7.title': 'تطوير التجارة الإلكترونية والتسويق',
+      'services.service7.desc': 'بناء متاجر إلكترونية عالية التحويل مع اكتشاف ذكي للمنتجات وتجربة دفع محسّنة وحملات نمو قائمة على البيانات.',
+      'services.service8.title': 'تصميم UI/UX',
+      'services.service8.desc': 'تصميم رحلات مستخدم واضحة وأنظمة تصميم قابلة للتوسع وواجهات عالية الأداء تعزز التفاعل على الويب والجوال.',
+      'services.service9.title': 'تحرير الفيديو والإنتاج',
+      'services.service9.desc': 'إنتاج فيديوهات احترافية للعلامة التجارية بسرد بصري مدروس ومونتاج مخصص للمنصات وموشن جرافيك ومعالجة ما بعد الإنتاج.',
       // Hero Section (Arabic)
       "hero.tagline": "الأنظمة الذكية • تدفقات العمل الآلية • حلول المستقبل",
       "hero.headline": "نجاح مدعوم بالذكاء",
@@ -472,7 +484,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'aboutSection.button': 'حولنا',
       'aboutMe.heading.ar': 'من أنا',
       'aboutMe.label.ar': 'الهند في كتاب واحد – بعيني',
-      'aboutMe.para1.ar': `السلام عليكم ورحمة الله وبركاته،\n\nأنا محمد رافع، أول صانع محتوى هندي بالعربية وابن فخور من كيرالا. منذ سنوات كرّست جهدي لبناء جسر بين الهند والعالم العربي، عبر مشاركة القصص والتقاليد والواقع اليومي لهذا البلد المدهش – وكل ذلك بلغة أحببتها: العربية.\n\nبدأت رحلتي من قلب كيرالا، بين ثقافة عريقة وجمال طبيعي لا ينتهي. واستلهمت من الروابط التاريخية العميقة بين الهند والخليج، فجعلت مهمتي الإجابة عن الأسئلة الحقيقية التي يطرحها إخوتي العرب: كيف هي الهند فعلًا؟ ماذا نأكل؟ أين نسافر؟ كيف نجد الشفاء؟ وكيف نبدأ أعمالنا؟\n\nكل رسالة وكل تعليق من جمهوري كان مصدر إلهام لي. ومن هنا وضعت قلبي في مشروع "الهند في كتاب واحد – بعيني": مرجع رقمي شامل يتجاوز السفر ليجيب عن أسئلتكم حول التاريخ، الطعام، الصحة، السياحة العلاجية، الرحلات العائلية، الأعمال، وأسرار موطني كيرالا.`,
+      'aboutMe.para1.ar': `السلام عليكم ورحمة الله وبركاته،
+
+أنا محمد رافع، أول صانع محتوى هندي باللغة العربية، وابنٌ فخور من كيرالا. كرّست سنوات من عملي لبناء جسر بين الهند والعالم العربي عبر مشاركة القصص والتقاليد والحياة اليومية لهذا البلد الجميل بلغة أحببتها: العربية.
+
+بدأت رحلتي من قلب كيرالا، بين ثقافة عريقة وطبيعة آسرة. واستلهمت من الروابط التاريخية العميقة بين الهند والخليج، فجعلت هدفي أن أجيب عن الأسئلة الحقيقية التي يطرحها إخوتي العرب: كيف هي الهند فعلاً؟ ماذا نأكل؟ أين نسافر؟ كيف نجد العلاج؟ وكيف نبدأ أعمالنا؟
+
+كل رسالة وتعليق من جمهوري كان مصدر إلهام لي. ومن هنا وضعت قلبي في مشروع "الهند في كتاب واحد – بعيني": دليل رقمي شامل يتجاوز فكرة السفر التقليدي، ويقدّم لكم المعرفة العملية عن التاريخ، الطعام، الصحة، السياحة العلاجية، الرحلات العائلية، الأعمال، وأسرار موطني كيرالا.`,
       'aboutMe.para2.ar': `وبحكم أنني عشت وتعلمت ونشأت بين الهند والخليج، فأنا أعرف تمامًا آمال ومخاوف المسافرين العرب: الطعام الحلال، التجارب الأصيلة، المستشفيات الموثوقة، النصائح الصادقة، وحاجز اللغة. لذلك يغطي كتابي كل ذلك بوضوح، مع قوائم عملية، وأدلة فيديو، ونصائح عائلية.\n\nرؤيتي بسيطة: أن أجعل الهند مرحبة وآمنة ولا تُنسى لكل مسافر وعائلة عربية.`,
       'aboutMe.para3.ar': `أدعوك للانضمام إلي في هذه الرحلة، لترى الهند بعيني، وتحول رحلتك الحلم إلى حقيقة. سواء أردت الاسترخاء في مياه كيرالا، أو البحث عن الشفاء في أفضل المستشفيات، أو تجربة توابل جديدة في دلهي، أو ببساطة فهم المهرجانات والحياة العائلية الهندية – ستجد كل ذلك هنا، بمحبة ووضوح.\n\nالهند في كتاب واحد – جسرُك إلى الهند الحقيقية، مكتوب للعرب، بقلم هندي يهتم.\n\nمعكم محمد رفيع – الهند كما لم ترها من قبل`,
 
@@ -539,7 +557,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
       // Process Section
       'process.title': 'عملنا',
-      'process.step1.title': 'اكتشاف',
+      'process.step1.title': 'اْتشاف',
       'process.step1.description': 'نبدأ بأبحاث عميقة لفهم جمهورك ومنافسيك وأهدافك.',
       'process.step2.title': 'تصميم',
       'process.step2.description': 'نحن نصمم أنظمة — وليس مجرد شعارات — تتوسع عبر جميع نقاط الاتصال.',
@@ -711,3 +729,6 @@ export function useLanguage() {
   }
   return context;
 } 
+
+
+

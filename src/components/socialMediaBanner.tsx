@@ -3,6 +3,7 @@
 import { ArrowUpRight } from "lucide-react"
 import { Poppins } from 'next/font/google';
 import Image from 'next/image';
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Add type for CSS custom properties
 type CSSPropertiesWithCustomVars = React.CSSProperties & {
@@ -32,6 +33,8 @@ const floatingAnimation = `
 `;
 
 export default function Component() {
+  const { t } = useLanguage();
+
   return (
     <div className="relative min-h-screen bg-slate-900 overflow-hidden flex items-center justify-center">
       {/* Add global styles for animation */}
@@ -116,10 +119,10 @@ export default function Component() {
       {/* Main content */}
       <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 flex justify-center items-center flex-col">
         <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-[88px] font-medium text-white mb-6 sm:mb-8 tracking-tight leading-tight ${poppins.className}`}>
-          Social Media
+          {t("service.banner.social.title")}
         </h1>
 
-        <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">We&apos;re here to help you build and grow your social media presence.</p>
+        <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">{t("service.banner.social.subtitle")}</p>
 
 
         <button
@@ -130,7 +133,7 @@ export default function Component() {
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
           }}
         >
-          <span>Let&apos;s Talk</span>
+          <span>{t("service.banner.social.button")}</span>
           <ArrowUpRight className="ml-2 h-6 w-6 p-1 border border-gray-100 rounded-full" />
         </button>
       </div>
