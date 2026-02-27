@@ -22,20 +22,20 @@ export const serviceDetails = {
   en: {
     web: {
       banner: {
-        title: "Autonomous Web Systems & Agentic Architectures",
-        description: "Deploy self-optimizing web ecosystems powered by real-time RAG integration, cognitive UI, and autonomous decision-making loops.",
-        buttonText: "Launch AI Strategy",
+        title: "Custom Web Development Company in Dubai, UAE",
+        description: "We design and develop scalable, AI-powered web applications that combine performance, automation, and modern user experience. From corporate websites to enterprise portals and SaaS platforms, our solutions are built for speed, security, and growth.",
+        buttonText: "Talk to Us",
       },
       main: {
-        header: "Intelligent Web Engineering",
-        subheader: "Autonomous solutions we deliver:",
+        header: "Custom Web Development in Dubai",
+        subheader: "Smart, Scalable & Conversion-Driven Web Solutions",
         services: [
-          { id: 1, icon: Sliders, title: "Cognitive Web Applications", description: "Deploying web apps that reason and learn from user behavior to automate complex business logic.", color: "from-violet-500 to-fuchsia-600" },
-          { id: 2, icon: Headphones, title: "Hyper-Personalized Portals", description: "Dynamic interfaces that restructure in real-time based on predictive intent and behavioral modeling.", color: "from-violet-500 to-fuchsia-600" },
-          { id: 3, icon: Grid3x3, title: "Enterprise AI Orchestration", description: "Scaling business operations through intelligent middleware and automated data-to-insight pipelines.", color: "from-violet-500 to-fuchsia-600" },
-          { id: 4, icon: ShoppingCart, title: "Agentic SaaS Architectures", description: "Cloud platforms featuring built-in AI agents that execute end-to-end tasks rather than just providing tools.", color: "from-violet-500 to-fuchsia-600" },
-          { id: 5, icon: ShoppingCart, title: "Predictive Commerce Engines", description: "E-commerce that anticipates demand and automates supply chain responses with generative assistants.", color: "from-violet-500 to-fuchsia-600" },
-          { id: 6, icon: Monitor, title: "Strategic AI Transformation", description: "Modernizing legacy stacks with LLM-native architectures and automated performance-tuning loops.", color: "from-violet-500 to-fuchsia-600" },
+          { id: 1, icon: Sliders, title: "Custom Web Applications", description: "We design and develop secure, scalable web applications tailored to your business needs. From internal management systems to customer-facing platforms, our solutions are built for performance, usability, and long-term growth.", color: "from-violet-500 to-fuchsia-600" },
+          { id: 2, icon: Headphones, title: "Dynamic & Personalized Web Portals", description: "Build interactive web portals for customers, employees, vendors, or partners. We create user-friendly dashboards with role-based access, real-time data visibility, and personalized user experiences.", color: "from-violet-500 to-fuchsia-600" },
+          { id: 3, icon: Grid3x3, title: "Enterprise Web Solutions", description: "Develop enterprise-grade web systems integrated with CRM, ERP, payment gateways, and third-party APIs. Our solutions help businesses streamline operations and improve efficiency.", color: "from-violet-500 to-fuchsia-600" },
+          { id: 4, icon: ShoppingCart, title: "SaaS Web Platform Development", description: "Launch cloud-based SaaS platforms with subscription models, admin dashboards, secure user authentication, and scalable infrastructure designed for high performance.", color: "from-violet-500 to-fuchsia-600" },
+          { id: 5, icon: ShoppingCart, title: "E-Commerce Website Development", description: "Create high-converting e-commerce platforms with product management, secure payment integration, inventory tracking, and optimized checkout experiences.", color: "from-violet-500 to-fuchsia-600" },
+          { id: 6, icon: Monitor, title: "Website Modernization & Performance Optimization", description: "Upgrade outdated websites with modern UI/UX, faster loading speeds, improved security, mobile responsiveness, and SEO-friendly architecture to meet current digital standards.", color: "from-violet-500 to-fuchsia-600" },
         ],
       },
       accordion: {
@@ -52,18 +52,22 @@ export const serviceDetails = {
     },
     ai: {
       banner: {
-        title: "Agentic Process Automation",
-        description: "Orchestrate multi-agent workflows that think, act, and optimize your business operations autonomously.",
-        buttonText: "Request Agentic Demo",
+        title: "Enterprise AI Agents & Workflow Automation Solutions in UAE",
+        description: "We design and deploy intelligent AI agents that think, act, and optimize business processes autonomously, helping companies in Dubai reduce costs, improve accuracy, and accelerate digital transformation.",
+        buttonText: "Talk to Us",
       },
       main: {
-        header: "AI & Automation Hub",
-        subheader: "Advanced solutions we deliver:",
+        header: "AI & Business Automation Solutions We Deliver in Dubai & UAE",
+        subheader: "",
         services: [
-          { id: 1, icon: Zap, title: "Multi-Agent Workflows", description: "Specialized AI agents collaborating to solve end-to-end business processes without manual intervention.", color: "from-cyan-400 to-blue-600" },
-          { id: 2, icon: Users, title: "Multimodal Voice & Chat", description: "Human-grade conversational agents capable of understanding context across text, voice, and vision.", color: "from-cyan-400 to-blue-600" },
-          { id: 3, icon: BarChart2, title: "Cognitive Data Analytics", description: "Transforming raw Big Data into actionable strategy through autonomous pattern recognition.", color: "from-cyan-400 to-blue-600" },
-          { id: 4, icon: Globe2, title: "RAG-Powered Knowledge", description: "Connecting private data to LLMs for instant, accurate, and secure organizational intelligence.", color: "from-cyan-400 to-blue-600" },
+          { id: 1, icon: Zap, title: "Custom AI Software Development", description: "Build AI-powered custom software solutions tailored to your business needs, ensuring scalability, security, and seamless system integration.", color: "from-cyan-400 to-blue-600" },
+          { id: 2, icon: Users, title: "Robotic Process Automation (RPA)", description: "Automate repetitive and rule-based tasks using intelligent bots that increase speed, reduce operational costs, and improve accuracy.", color: "from-cyan-400 to-blue-600" },
+          { id: 3, icon: BarChart2, title: "Cloud-Based Automation Systems", description: "Deploy cloud-integrated automation platforms that enable real-time collaboration, data access, and business scalability.", color: "from-cyan-400 to-blue-600" },
+          { id: 4, icon: Globe2, title: "AI-Powered CRM & Sales Automation", description: "Streamline lead management, customer tracking, and sales processes with smart CRM systems enhanced by AI-driven insights.", color: "from-cyan-400 to-blue-600" },
+          { id: 5, icon: Zap, title: "Intelligent Document Processing", description: "Automate document handling, data extraction, invoice processing, and workflow approvals using AI-enabled automation tools.", color: "from-cyan-400 to-blue-600" },
+          { id: 6, icon: Users, title: "Enterprise Workflow Optimization", description: "Design and implement automated workflows that connect departments, reduce delays, and enhance operational transparency.", color: "from-cyan-400 to-blue-600" },
+          { id: 7, icon: BarChart2, title: "Predictive Analytics & Reporting", description: "Leverage AI-driven analytics dashboards to forecast trends, monitor KPIs, and support data-driven business decisions.", color: "from-cyan-400 to-blue-600" },
+          { id: 8, icon: Globe2, title: "API Integration & System Automation", description: "Integrate third-party platforms, ERP systems, payment gateways, and internal tools for seamless automated operations.", color: "from-cyan-400 to-blue-600" },
         ],
       },
       accordion: {
@@ -78,18 +82,22 @@ export const serviceDetails = {
     },
     app: {
       banner: {
-        title: "Agent-Driven Mobile Engineering",
-        description: "Building intelligent mobile ecosystems with on-device AI, neural processing, and autonomous user flows.",
+        title: "AI-Powered Mobile App Development in Dubai",
+        description: "Build advanced Apple ecosystem applications using Swift, CoreML, and on-device AI capabilities. We create high-performance iOS apps with intelligent automation, real-time processing, and seamless user experiences tailored for the UAE market.",
         buttonText: "Request AI App Demo",
       },
       main: {
-        header: "Next-Gen App Development",
-        subheader: "Intelligent solutions we deliver:",
+        header: "App Development Solutions We Deliver in Dubai & UAE",
+        subheader: "",
         services: [
-          { id: 1, icon: Sliders, title: "Cognitive iOS Apps", description: "Developing intelligent Apple ecosystem apps with CoreML and agentic automation features.", color: "from-emerald-400 to-teal-600" },
-          { id: 2, icon: Sliders, title: "Neural Android Apps", description: "Building high-performance Android apps with AI-driven features and smart user experiences.", color: "from-emerald-400 to-teal-600" },
-          { id: 3, icon: Sliders, title: "Cross-Platform AI", description: "Creating intelligent React Native and Flutter apps with integrated LLM capabilities.", color: "from-emerald-400 to-teal-600" },
-          { id: 4, icon: Sliders, title: "Generative UI/UX", description: "Designing app interfaces with AI-powered personalization and automated user interactions.", color: "from-emerald-400 to-teal-600" },
+          { id: 1, icon: Sliders, title: "AI-Powered iOS App Development in Dubai", description: "Build advanced Apple ecosystem applications using Swift, CoreML, and on-device AI capabilities. We create high-performance iOS apps with intelligent automation, real-time processing, and seamless user experiences tailored for the UAE market.", color: "from-emerald-400 to-teal-600" },
+          { id: 2, icon: Sliders, title: "Advanced Android App Engineering", description: "Develop scalable Android applications powered by AI-driven features, neural processing, and optimized performance architecture. Our Android solutions focus on speed, security, and enterprise-grade reliability.", color: "from-emerald-400 to-teal-600" },
+          { id: 3, icon: Sliders, title: "Cross-Platform App Development (Flutter & React Native)", description: "Launch powerful cross-platform mobile apps with unified codebases and integrated AI capabilities. We build scalable solutions that perform flawlessly across iOS and Android while reducing development time and cost.", color: "from-emerald-400 to-teal-600" },
+          { id: 4, icon: Sliders, title: "Generative AI UI/UX Design", description: "Design intelligent, adaptive interfaces with AI-powered personalization, predictive interactions, and automated user journeys. We create user experiences that learn, evolve, and increase engagement.", color: "from-emerald-400 to-teal-600" },
+          { id: 5, icon: Sliders, title: "AI Agents & Workflow Automation", description: "Integrate autonomous AI agents into mobile applications to automate support, booking systems, approvals, and operational workflows — improving efficiency and reducing manual effort.", color: "from-emerald-400 to-teal-600" },
+          { id: 6, icon: Sliders, title: "Enterprise & SaaS Mobile Solutions", description: "Build secure enterprise mobility platforms, SaaS-based applications, CRM-integrated systems, and cloud-native mobile ecosystems designed for scalability and long-term growth.", color: "from-emerald-400 to-teal-600" },
+          { id: 7, icon: Sliders, title: "Secure FinTech & Payment Integration", description: "Develop fintech-ready applications with payment gateway integration, biometric authentication, encryption protocols, and compliance-focused architecture.", color: "from-emerald-400 to-teal-600" },
+          { id: 8, icon: Sliders, title: "App Modernization & Performance Optimization", description: "Upgrade legacy apps with AI enhancements, performance tuning, cloud migration, and next-gen architecture to improve speed, security, and scalability.", color: "from-emerald-400 to-teal-600" },
         ],
       },
       accordion: {
@@ -104,18 +112,20 @@ export const serviceDetails = {
     },
     branding: {
       banner: {
-        title: "Strategic Brand Systems",
-        description: "Constructing unique brand identities through algorithmic research and cognitive design systems.",
-        buttonText: "Request Consult",
+        title: "Brand Strategy & Identity Design in Dubai",
+        description: "We craft distinctive brand identities through research-backed strategy, creative design systems, and market positioning frameworks. From startups to enterprise brands, we help businesses stand out with clarity and confidence.",
+        buttonText: "Talk to Us",
       },
       main: {
         header: "Branding Services",
-        subheader: "What we offer:",
+        subheader: "What We Offer",
         services: [
-          { id: 1, icon: PenTool, title: "Dynamic Logo Design", description: "Memorable, versatile logos built for the digital-first era.", color: "from-rose-400 to-pink-600" },
-          { id: 2, icon: PenTool, title: "Systemic Brand Guidelines", description: "Comprehensive digital-ready brand books and scalable style guides.", color: "from-rose-400 to-pink-600" },
-          { id: 3, icon: PenTool, title: "Visual Identity Systems", description: "Data-driven color, typography, and imagery systems for modern brands.", color: "from-rose-400 to-pink-600" },
-          { id: 4, icon: PenTool, title: "Strategic Voice & Story", description: "Crafting your brandâ€™s narrative architecture and cross-platform tone.", color: "from-rose-400 to-pink-600" },
+          { id: 1, icon: PenTool, title: "Logo Design & Brand Mark Creation", description: "We design unique, memorable logos that reflect your brand's personality and values. Every logo is crafted for versatility across digital, print, and social platforms.", color: "from-rose-400 to-pink-600" },
+          { id: 2, icon: PenTool, title: "Brand Guidelines & Style Systems", description: "Develop comprehensive brand guidelines covering logo usage, color palettes, typography, imagery, and layout standards to ensure consistent brand communication.", color: "from-rose-400 to-pink-600" },
+          { id: 3, icon: PenTool, title: "Visual Identity Design", description: "Create cohesive visual identity systems including business cards, letterheads, packaging, social media creatives, and marketing collateral that strengthen brand recognition.", color: "from-rose-400 to-pink-600" },
+          { id: 4, icon: PenTool, title: "Brand Strategy & Positioning", description: "Define your brand mission, vision, target audience, and competitive positioning to create a strong foundation for long-term growth and market differentiation.", color: "from-rose-400 to-pink-600" },
+          { id: 5, icon: PenTool, title: "Brand Voice & Messaging", description: "Craft clear brand messaging, tone of voice, and storytelling frameworks that connect emotionally with your audience across websites, social media, and marketing campaigns.", color: "from-rose-400 to-pink-600" },
+          { id: 6, icon: PenTool, title: "Corporate & Rebranding Solutions", description: "Refresh or reposition existing brands with updated visual identities, messaging systems, and strategic alignment to meet evolving market demands.", color: "from-rose-400 to-pink-600" },
         ],
       },
       accordion: {
@@ -130,18 +140,20 @@ export const serviceDetails = {
     },
     digital: {
       banner: {
-        title: "Algorithmic Digital Marketing",
-        description: "Scale your reach with AI-driven attribution, predictive modeling, and automated growth loops.",
-        buttonText: "Request Strategy",
+        title: "Best Digital Marketing Agency in Dubai",
+        description: "Drive measurable growth with data-driven digital marketing strategies. At Dapps Solutions, we combine SEO, paid advertising, content marketing, and performance analytics to help businesses scale across the UAE.",
+        buttonText: "Talk to Us",
       },
       main: {
-        header: "Performance Marketing",
-        subheader: "Services we deliver:",
+        header: "Digital Marketing Services in Dubai",
+        subheader: "Growth Solutions We Provide",
         services: [
-          { id: 1, icon: BarChart2, title: "AI-Enhanced SEO/SEM", description: "Optimizing visibility through neural search analysis and automated bidding.", color: "from-amber-400 to-orange-600" },
-          { id: 2, icon: BarChart2, title: "Social Orchestration", description: "Engaging audiences through automated content distribution and community analytics.", color: "from-amber-400 to-orange-600" },
-          { id: 3, icon: BarChart2, title: "Generative Content", description: "Driving leads with high-velocity, AI-assisted content marketing pipelines.", color: "from-amber-400 to-orange-600" },
-          { id: 4, icon: BarChart2, title: "Automated Lifecycle", description: "Nurturing leads via predictive email flows and hyper-targeted campaigns.", color: "from-amber-400 to-orange-600" },
+          { id: 1, icon: BarChart2, title: "Search Engine Optimization (SEO)", description: "Improve your website's visibility on Google with keyword research, on-page optimization, technical SEO, and high-quality link building to drive organic traffic.", color: "from-amber-400 to-orange-600" },
+          { id: 2, icon: BarChart2, title: "Search Engine Marketing (Google Ads)", description: "Generate instant leads with high-converting Google Ads campaigns, including search ads, display ads, shopping ads, and remarketing strategies.", color: "from-amber-400 to-orange-600" },
+          { id: 3, icon: BarChart2, title: "Social Media Marketing", description: "Build brand awareness and engagement across Instagram, Facebook, LinkedIn, and TikTok through creative content, paid promotions, and community management.", color: "from-amber-400 to-orange-600" },
+          { id: 4, icon: BarChart2, title: "Content Marketing", description: "Create SEO-optimized blogs, website content, ad creatives, and social media posts that attract, educate, and convert your target audience.", color: "from-amber-400 to-orange-600" },
+          { id: 5, icon: BarChart2, title: "Email & Marketing Automation", description: "Nurture leads with automated email campaigns, customer journeys, remarketing funnels, and CRM-integrated marketing workflows.", color: "from-amber-400 to-orange-600" },
+          { id: 6, icon: BarChart2, title: "Conversion Rate Optimization (CRO)", description: "Increase website conversions through landing page optimization, A/B testing, performance tracking, and data-driven improvements.", color: "from-amber-400 to-orange-600" },
         ],
       },
       accordion: {
@@ -161,13 +173,15 @@ export const serviceDetails = {
         buttonText: "Request Demo",
       },
       main: {
-        header: "Visual Content Engineering",
-        subheader: "Services we deliver:",
+        header: "Professional Video Production & Editing Services in Dubai",
+        subheader: "",
         services: [
-          { id: 1, icon: Camera, title: "Neural Video Editing", description: "AI-assisted object removal, scene expansion, and automated cinematic color grading.", color: "from-indigo-400 to-blue-600" },
-          { id: 2, icon: Camera, title: "Generative Asset Labs", description: "Professional retouching and image creation using custom-trained diffusion models.", color: "from-indigo-400 to-blue-600" },
-          { id: 3, icon: Camera, title: "Dynamic Motion Systems", description: "Data-driven animation and intelligent motion graphics for high-scale engagement.", color: "from-indigo-400 to-blue-600" },
-          { id: 4, icon: Camera, title: "Social First-Gen", description: "Rapid AI-assisted content production optimized for trending algorithms.", color: "from-indigo-400 to-blue-600" },
+          { id: 1, icon: Camera, title: "Brand Video Production & Editing", description: "Create powerful brand stories with professional video editing, color grading, sound design, and cinematic storytelling tailored for corporate identity and marketing campaigns.", color: "from-indigo-400 to-blue-600" },
+          { id: 2, icon: Camera, title: "Commercial & Advertising Video Production", description: "Develop high-converting commercial videos, digital ad creatives, and social media advertising content optimized for performance marketing platforms like Google, Meta, and YouTube.", color: "from-indigo-400 to-blue-600" },
+          { id: 3, icon: Camera, title: "Motion Graphics & Animated Explainers", description: "Design engaging motion graphics, animated explainer videos, kinetic typography, and visual storytelling assets that simplify complex ideas and enhance brand communication.", color: "from-indigo-400 to-blue-600" },
+          { id: 4, icon: Camera, title: "Corporate & Promotional Videos", description: "Produce corporate films, company profile videos, product showcases, and event coverage designed to build trust and strengthen brand presence.", color: "from-indigo-400 to-blue-600" },
+          { id: 5, icon: Camera, title: "Social Media Video Content Creation", description: "Create short-form video content, reels, and platform-optimized edits for Instagram, LinkedIn, TikTok, and YouTube to increase engagement and brand visibility.", color: "from-indigo-400 to-blue-600" },
+          { id: 6, icon: Camera, title: "Professional Post-Production Services", description: "End-to-end post-production workflows including video editing, audio enhancement, subtitle integration, multi-format exports, and content repurposing for multiple platforms.", color: "from-indigo-400 to-blue-600" },
         ],
       },
       accordion: {
@@ -182,18 +196,22 @@ export const serviceDetails = {
     },
     ecommerce: {
       banner: {
-        title: "Ecommerce Development & Growth Marketing",
-        description: "Build scalable storefronts and growth systems that improve acquisition, conversion, and repeat revenue.",
-        buttonText: "Start Ecommerce Project",
+        title: "Custom E-commerce Website Development & Digital Marketing in UAE",
+        description: "Dapps Solutions designs high-performance ecommerce stores integrated with SEO, paid advertising, automation, and conversion optimization strategies to help brands grow faster in Dubai and across the UAE.",
+        buttonText: "Talk to Us",
       },
       main: {
-        header: "Ecommerce Growth Stack",
-        subheader: "Services we deliver:",
+        header: "Custom Ecommerce Development & Growth Solutions in Dubai & UAE",
+        subheader: "",
         services: [
-          { id: 1, icon: ShoppingCart, title: "Storefront Development", description: "Custom ecommerce stores with high-speed UX, SEO-ready architecture, and conversion-first product pages.", color: "from-amber-400 to-orange-600" },
-          { id: 2, icon: BarChart2, title: "Conversion Rate Optimization", description: "Data-backed CRO experiments across landing pages, checkout, and retention funnels.", color: "from-amber-400 to-orange-600" },
-          { id: 3, icon: Globe2, title: "Marketplace Expansion", description: "Integrate and scale on marketplaces with synchronized inventory, pricing, and fulfillment flows.", color: "from-amber-400 to-orange-600" },
-          { id: 4, icon: Users, title: "Performance Marketing", description: "Run paid and organic growth campaigns focused on CAC efficiency and LTV improvement.", color: "from-amber-400 to-orange-600" },
+          { id: 1, icon: ShoppingCart, title: "Custom Ecommerce Platform Development", description: "We build fully custom-coded ecommerce platforms tailored to your business model, offering complete flexibility, scalability, and performance without platform limitations.", color: "from-amber-400 to-orange-600" },
+          { id: 2, icon: Monitor, title: "Enterprise Ecommerce Architecture", description: "Design scalable backend systems, secure databases, and high-performance infrastructure to support large product catalogs and high traffic volumes.", color: "from-amber-400 to-orange-600" },
+          { id: 3, icon: ShoppingCart, title: "Custom Checkout & Payment Integration", description: "Develop secure, optimized checkout systems with integrated payment gateways, multi-currency support, and fraud protection mechanisms.", color: "from-amber-400 to-orange-600" },
+          { id: 4, icon: Globe2, title: "Ecommerce ERP & CRM Integration", description: "Connect your ecommerce platform with ERP, CRM, inventory management, and accounting systems for seamless operations and automation.", color: "from-amber-400 to-orange-600" },
+          { id: 5, icon: BarChart2, title: "Advanced Conversion Optimization", description: "Implement custom UX strategies, optimized product pages, smart search systems, and data-driven funnels to increase sales and reduce cart abandonment.", color: "from-amber-400 to-orange-600" },
+          { id: 6, icon: Users, title: "Ecommerce SEO & Performance Marketing", description: "Integrate advanced SEO, Google Ads, social commerce, and analytics platforms for automated and efficient ecommerce workflows.", color: "from-amber-400 to-orange-600" },
+          { id: 7, icon: ShoppingCart, title: "Custom Marketplace & Multi-Vendor Development", description: "Build scalable multi-vendor ecommerce platforms with vendor dashboards, commission systems, and automated order management.", color: "from-amber-400 to-orange-600" },
+          { id: 8, icon: Globe2, title: "API & Third-Party System Integration", description: "Integrate logistics providers, payment processors, shipping APIs, and external platforms for automated and efficient ecommerce workflows.", color: "from-amber-400 to-orange-600" },
         ],
       },
       accordion: {
@@ -208,18 +226,22 @@ export const serviceDetails = {
     },
     uiux: {
       banner: {
-        title: "UI/UX Design Systems",
-        description: "Create user experiences that are visually consistent, intuitive to navigate, and optimized for measurable outcomes.",
-        buttonText: "Request UI/UX Audit",
+        title: "UI/UX Design for Web & Software Applications in UAE",
+        description: "Dapps Solutions creates modern, data-driven UI/UX design systems that enhance usability, improve engagement, and increase conversion rates for digital products and enterprise platforms.",
+        buttonText: "Talk to Us",
       },
       main: {
-        header: "Product Design Services",
-        subheader: "Services we deliver:",
+        header: "UI/UX & Product Design Services in Dubai",
+        subheader: "",
         services: [
-          { id: 1, icon: PenTool, title: "UX Research & Strategy", description: "User journey mapping, competitor analysis, and behavioral insights to guide design decisions.", color: "from-rose-400 to-pink-600" },
-          { id: 2, icon: Monitor, title: "Web & App Interface Design", description: "Pixel-precise interfaces crafted for clarity, accessibility, and conversion performance.", color: "from-rose-400 to-pink-600" },
-          { id: 3, icon: Grid3x3, title: "Design Systems", description: "Component libraries and interaction standards for scalable product consistency.", color: "from-rose-400 to-pink-600" },
-          { id: 4, icon: Sliders, title: "Usability Optimization", description: "Iterative testing and refinements that reduce friction and improve task completion.", color: "from-rose-400 to-pink-600" },
+          { id: 1, icon: PenTool, title: "UX Research & Product Strategy", description: "We conduct in-depth user research, competitor analysis, journey mapping, and behavioral insights to create data-driven product strategies for web and software applications across the UAE.", color: "from-rose-400 to-pink-600" },
+          { id: 2, icon: Monitor, title: "Web & Application Interface Design", description: "Design modern, responsive, and conversion-focused interfaces for web applications, enterprise software, SaaS platforms, and ecommerce systems.", color: "from-rose-400 to-pink-600" },
+          { id: 3, icon: Grid3x3, title: "Scalable Design Systems", description: "Build structured design systems, reusable UI components, and interaction standards that ensure product consistency and faster development cycles.", color: "from-rose-400 to-pink-600" },
+          { id: 4, icon: Sliders, title: "Usability Testing & Optimization", description: "Improve product performance with usability testing, A/B testing, and continuous design refinements that reduce friction and increase engagement.", color: "from-rose-400 to-pink-600" },
+          { id: 5, icon: PenTool, title: "SaaS Product UI Design", description: "Specialized UI/UX design for SaaS platforms with dashboard optimization, workflow clarity, and enterprise-level usability.", color: "from-rose-400 to-pink-600" },
+          { id: 6, icon: Monitor, title: "Mobile App UX Design", description: "Create intuitive mobile app experiences optimized for performance, accessibility, and user retention.", color: "from-rose-400 to-pink-600" },
+          { id: 7, icon: Grid3x3, title: "Conversion-Focused Landing Page Design", description: "Design high-converting landing pages optimized for SEO, paid campaigns, and lead generation.", color: "from-rose-400 to-pink-600" },
+          { id: 8, icon: Sliders, title: "Accessibility & Performance Optimization", description: "Ensure your digital product meets accessibility standards and delivers fast, seamless user experiences.", color: "from-rose-400 to-pink-600" },
         ],
       },
       accordion: {
@@ -232,20 +254,48 @@ export const serviceDetails = {
         ],
       },
     },
+    erpCrm: {
+      banner: {
+        title: "Intelligent ERP & CRM Systems",
+        description: "Build and deploy smart ERP and CRM platforms that streamline operations, enhance customer relationships, and drive business growth.",
+        buttonText: "Request ERP/CRM Demo",
+      },
+      main: {
+        header: "ERP & CRM Solutions",
+        subheader: "Enterprise solutions we deliver:",
+        services: [
+          { id: 1, icon: Sliders, title: "Custom ERP Development", description: "Build tailored ERP systems that unify your business processes, from inventory and procurement to finance and HR, into one powerful platform.", color: "from-cyan-400 to-blue-600" },
+          { id: 2, icon: Sliders, title: "CRM Platform Development", description: "Design and develop intelligent CRM systems that manage leads, automate sales pipelines, and improve customer engagement across all touchpoints.", color: "from-cyan-400 to-blue-600" },
+          { id: 3, icon: Sliders, title: "ERP & CRM Integration", description: "Seamlessly integrate ERP and CRM systems with existing tools, payment gateways, and third-party APIs for unified business operations.", color: "from-cyan-400 to-blue-600" },
+          { id: 4, icon: Sliders, title: "AI-Powered Business Intelligence", description: "Leverage AI-driven analytics dashboards within your ERP/CRM to forecast trends, track KPIs, and make data-driven decisions.", color: "from-cyan-400 to-blue-600" },
+        ],
+      },
+      accordion: {
+        title: "ERP & CRM for Industries",
+        verticals: [
+          { title: "Manufacturing", description: "Streamline production, supply chain, and quality control with smart ERP systems." },
+          { title: "Retail & Ecommerce", description: "Unified inventory, order management, and customer relationship tracking." },
+          { title: "Healthcare", description: "Patient management, appointment scheduling, and compliance-ready CRM solutions." },
+          { title: "Real Estate", description: "Property management, lead tracking, and automated follow-up workflows." },
+        ],
+      },
+    },
     videoProduction: {
       banner: {
-        title: "Video Editing & Production",
-        description: "End-to-end production workflows for social, advertising, and brand storytelling at scale.",
+        title: "Video Production & Editing Services in Dubai, UAE",
+        description: "Dapps Solutions creates high-quality corporate videos, promotional ads, social media content, and branded visuals that enhance marketing performance and strengthen brand identity.",
         buttonText: "Book Production Call",
       },
       main: {
-        header: "Creative Video Services",
-        subheader: "Services we deliver:",
+        header: "Professional Video Production & Editing Services in Dubai",
+        subheader: "",
         services: [
-          { id: 1, icon: Camera, title: "Brand Video Editing", description: "Narrative-driven edits with pacing, color, and sound crafted for brand identity.", color: "from-indigo-400 to-blue-600" },
-          { id: 2, icon: Camera, title: "Commercial & Ad Creatives", description: "Performance-focused ad videos optimized for platform-specific formats and hooks.", color: "from-indigo-400 to-blue-600" },
-          { id: 3, icon: Camera, title: "Motion Graphics & Titles", description: "Animated explainers, kinetic typography, and visual systems for stronger message clarity.", color: "from-indigo-400 to-blue-600" },
-          { id: 4, icon: Camera, title: "Post-Production Pipeline", description: "Consistent delivery with versioning, subtitle packs, and multi-platform export standards.", color: "from-indigo-400 to-blue-600" },
+          { id: 1, icon: Camera, title: "Brand Video Production & Editing", description: "Create powerful brand stories with professional video editing, color grading, sound design, and cinematic storytelling tailored for corporate identity and marketing campaigns.", color: "from-indigo-400 to-blue-600" },
+          { id: 2, icon: Camera, title: "Commercial & Advertising Video Production", description: "Develop high-converting commercial videos, digital ad creatives, and social media advertising content optimized for performance marketing platforms like Google, Meta, and YouTube.", color: "from-indigo-400 to-blue-600" },
+          { id: 3, icon: Camera, title: "Motion Graphics & Animated Explainers", description: "Design engaging motion graphics, animated explainer videos, kinetic typography, and visual storytelling assets that simplify complex ideas and enhance brand communication.", color: "from-indigo-400 to-blue-600" },
+          { id: 4, icon: Camera, title: "Corporate & Promotional Videos", description: "Produce corporate films, company profile videos, product showcases, and event coverage designed to build trust and strengthen brand presence.", color: "from-indigo-400 to-blue-600" },
+          { id: 5, icon: Camera, title: "Social Media Video Content Creation", description: "Create short-form video content, reels, and platform-optimized edits for Instagram, LinkedIn, TikTok, and YouTube to increase engagement and brand visibility.", color: "from-indigo-400 to-blue-600" },
+          { id: 6, icon: Camera, title: "Professional Post-Production Services", description: "End-to-end post-production workflows including video editing, audio enhancement, subtitle integration, multi-format exports, and content repurposing for multiple platforms.", color: "from-indigo-400 to-blue-600" },
         ],
       },
       accordion: {
@@ -468,6 +518,32 @@ export const serviceDetails = {
           { title: "الرعاية الصحية", description: "واجهات واضحة للمرضى والكوادر الطبية مع تدفق معلومات منظم." },
           { title: "التقنية المالية", description: "تصميمات موثوقة لعمليات الدفع وإدارة الحسابات والبيانات الحساسة." },
           { title: "التعليم الإلكتروني", description: "تجارب تعلم تفاعلية ترفع معدل الإكمال وتزيد ارتباط المستخدم." },
+        ],
+      },
+    },
+    erpCrm: {
+      banner: {
+        title: "أنظمة ERP و CRM الذكية",
+        description: "بناء ونشر منصات ERP و CRM ذكية تبسط العمليات وتعزز علاقات العملاء وتدفع نمو الأعمال.",
+        buttonText: "اطلب عرض ERP/CRM",
+      },
+      main: {
+        header: "حلول ERP و CRM",
+        subheader: "حلول المؤسسات التي نقدمها:",
+        services: [
+          { id: 1, icon: Sliders, title: "تطوير ERP مخصص", description: "بناء أنظمة ERP مصممة خصيصًا لتوحيد عمليات أعمالك من المخزون والمشتريات إلى المالية والموارد البشرية.", color: "from-cyan-400 to-blue-600" },
+          { id: 2, icon: Sliders, title: "تطوير منصات CRM", description: "تصميم وتطوير أنظمة CRM ذكية لإدارة العملاء المحتملين وأتمتة مسارات المبيعات وتحسين التفاعل.", color: "from-cyan-400 to-blue-600" },
+          { id: 3, icon: Sliders, title: "تكامل ERP و CRM", description: "دمج أنظمة ERP و CRM مع الأدوات الحالية وبوابات الدفع وواجهات برمجة التطبيقات.", color: "from-cyan-400 to-blue-600" },
+          { id: 4, icon: Sliders, title: "ذكاء الأعمال المدعوم بالذكاء الاصطناعي", description: "استفد من لوحات التحليلات المدعومة بالذكاء الاصطناعي للتنبؤ بالاتجاهات وتتبع مؤشرات الأداء.", color: "from-cyan-400 to-blue-600" },
+        ],
+      },
+      accordion: {
+        title: "ERP و CRM للصناعات",
+        verticals: [
+          { title: "التصنيع", description: "تبسيط الإنتاج وسلسلة التوريد ومراقبة الجودة بأنظمة ERP ذكية." },
+          { title: "التجزئة والتجارة الإلكترونية", description: "إدارة موحدة للمخزون والطلبات وتتبع علاقات العملاء." },
+          { title: "الرعاية الصحية", description: "إدارة المرضى وجدولة المواعيد وحلول CRM متوافقة." },
+          { title: "العقارات", description: "إدارة العقارات وتتبع العملاء المحتملين وسير عمل المتابعة الآلية." },
         ],
       },
     },
