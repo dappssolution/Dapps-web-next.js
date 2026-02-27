@@ -2,9 +2,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dapps Solutions | AI-Powered Web, App & Digital Services in Dubai",
+ title: "Leading Software & Digital Marketing Company in Dubai, UAE",
   description:
-    "Dapps Solutions is a leading software company in Dubai, UAE offering web development, mobile app development, AI automation, branding and digital marketing services for modern businesses.",
+    "Leading software and digital marketing company in UAE offering web development, mobile apps, CRM, ERP solutions, and performance marketing services.",
   keywords: [
     "Dapps Solutions",
     "Software Company Dubai",
