@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.dappssolutions.com/",
-    title: "Dapps Solutions | AI-Powered Digital Transformation Company",
-    description:
-      "Transform your business with AI automation, web development, mobile apps, branding and digital marketing services in Dubai, UAE.",
+    title: "Leading Software & Digital Marketing Company in Dubai, UAE",
+  description:
+    "Leading software and digital marketing company in UAE offering web development, mobile apps, CRM, ERP solutions, and performance marketing services.",
     siteName: "Dapps Solutions",
     images: [
       {
