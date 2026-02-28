@@ -70,7 +70,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1 }}
-        className="mb-6 z-20"
+        className="mb-6 z-20 mt-16 sm:mt-20 md:mt-24"
       >
         <span
           className="inline-block px-3 py-2 font-semibold tracking-wider rounded-[8px] text-[14px] sm:text-base shadow-lg backdrop-blur-sm"
@@ -89,15 +89,16 @@ const HeroSection = () => {
         variants={headlineVariants}
         initial="initial"
         animate="animate"
-        className="font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight md:leading-[1.1] drop-shadow-2xl flex flex-col items-center text-white gap-3 z-20 font-nohemi capitalize"
+        className="font-bold text-xl sm:text-2xl md:text-4xl lg:text-5xl leading-tight md:leading-[1.1] drop-shadow-2xl flex flex-col items-center text-white gap-2 sm:gap-3 z-20 font-nohemi capitalize px-4 sm:px-6 md:px-0 text-center"
         style={{
           perspective: 800,
           textShadow: "0 8px 32px #040150",
         }}
       >
         
-        <span>{t("hero.headline")}</span>
-        <span className="flex items-center justify-center gap-3">
+        <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl">{t("hero.headlineLine1")}</span>
+        <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl">{t("hero.headlineLine2")}</span>
+        <span className="flex items-center justify-center gap-3 text-xl sm:text-2xl md:text-4xl lg:text-5xl">
           {/* Show logo only on md+ screens */}
           <span className="hidden md:inline-flex">
             <motion.span
@@ -117,7 +118,7 @@ const HeroSection = () => {
               />
             </motion.span>
           </span>
-          <span className="text-white">{t("hero.forYourBusiness")}</span>
+          <span className="text-white">{t("hero.headlineLine3")}</span>
         </span>
       </motion.h1>
 

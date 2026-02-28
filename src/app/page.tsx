@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
- 
- 
+export { metadata } from './page.metadata';
 
 const HeroSection = dynamic(() => import("@/components/heroSection"));
 const AboutSection = dynamic(() => import("@/components/aboutSection"));
