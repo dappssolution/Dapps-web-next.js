@@ -96,12 +96,64 @@ export default function RootLayout({
           `}
         </Script>
 
+
+        <script type="application/ld+json">
+{`
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Dapps Solutions",
+  "url": "https://www.dappssolutions.com/",
+  "logo": "https://www.dappssolutions.com/images/logo.png",
+  "description": "Dapps Solutions is a leading Software Development and Digital Marketing Company in Dubai, UAE, offering Web Development, App Development, AI Automation, Branding, and SEO services.",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "4879"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmed R."
+      },
+      "datePublished": "2025-01-12",
+      "reviewBody": "Dapps Solutions delivered our website on time with excellent design and performance. Their SEO strategy significantly improved our Google rankings in Dubai, UAE.",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      }
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Sara K."
+      },
+      "datePublished": "2025-02-05",
+      "reviewBody": "Professional team with strong technical knowledge in AI automation and digital marketing. Highly recommended for businesses in the Dubai, UAE.",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      }
+    }
+  ],
+  "sameAs": [
+    "https://linkedin.com/company/dapps-solution",
+    "https://www.instagram.com/dapps_solutions/",
+    "https://www.facebook.com/people/Dapps-Solutions/61582658906975/"
+  ]
+`}
+</script>
+
         <LanguageProvider>
           <FontProvider
             poppinsClass={montserrat.className}
             ibmPlexSansArabicClass={ibmPlexSansArabic.className}
           >
-            <LayoutShell>{children}</LayoutShell>
+            <LayoutShell>{children}</LayoutShell> 
           </FontProvider>
         </LanguageProvider>
       </body>
