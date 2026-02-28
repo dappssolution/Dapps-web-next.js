@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
@@ -11,6 +11,23 @@ import { cn } from "@/lib/utils";
 export default function Works() {
   const { t, language } = useLanguage();
   const scrollRef = useRef<HTMLDivElement>(null);
+  // Slide one card at a time for clear animation, looping through all cards
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    let currentIndex = 0;
+    const cardWidth = el.firstChild ? (el.firstChild as HTMLElement).offsetWidth + 24 : 340; // 24px gap
+    function slideToNextCard() {
+      if (!el) return;
+      currentIndex++;
+      if (currentIndex >= el.childNodes.length / 2) {
+        currentIndex = 0;
+      }
+      el.scrollTo({ left: currentIndex * cardWidth, behavior: 'smooth' });
+    }
+    const interval = setInterval(slideToNextCard, 1800);
+    return () => clearInterval(interval);
+  }, []);
   const dragRef = useRef({
     isDragging: false,
     startX: 0,
@@ -119,11 +136,11 @@ export default function Works() {
       <div className="container mx-auto z-10 h-full flex flex-col relative">
         {/* Header Section */}
         <div className="px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
-          <div>
-            <h2 className="text-[#5a189a] font-bold tracking-widest text-sm uppercase mb-2">
+          <div className="text-left w-full md:w-auto" style={{marginLeft: '-2rem', marginTop: '-2rem'}}>
+            <h2 className="text-[#5a189a] font-bold tracking-widest text-sm uppercase mb-2 text-left">
               {t("works.subtitle") || "PORTFOLIO"}
             </h2>
-            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight text-left">
               {t("works.title") || "Selected Works"}
             </h1>
           </div>
@@ -172,15 +189,16 @@ export default function Works() {
             onPointerMove={onPointerMove}
             onPointerUp={onPointerEnd}
             onPointerCancel={onPointerEnd}
-            className="flex gap-6 h-[500px] lg:h-[600px] overflow-x-auto overflow-y-hidden px-6 cursor-grab select-none snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-4 h-[180px] md:h-[220px] lg:h-[240px] overflow-x-auto overflow-y-hidden px-2 cursor-grab select-none snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             style={{ touchAction: "pan-y" }}
           >
-            {projects.map((project) => (
-              <ProjectCardDesktop
-                key={`desktop-${project.id}`}
-                project={project}
-                language={language}
-              />
+            {[...projects, ...projects].map((project, idx) => (
+                  <div className="shrink-0 w-[340px] md:w-[420px] lg:w-[500px]" key={`desktop-${project.id}-${idx}`}>
+                    <ProjectCardDesktop
+                      project={project}
+                      language={language}
+                    />
+                  </div>
             ))}
           </div>
         </div>
