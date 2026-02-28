@@ -184,7 +184,7 @@ const serviceRoutes = [
   "/service/web-development",
   "/service/branding",
   "/service/digital-marketing",
-  "/service/video-photo-editing",
+  "/service/erp-crm",
   "/service/ai-agents-automation",
   "/service/ecommerce-development-marketing",
   "/service/ui-ux-design",

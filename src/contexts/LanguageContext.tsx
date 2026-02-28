@@ -121,7 +121,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'footer.aiAgentsAutomation': 'AI Agents & Automation',
       // Services Section
       'services.section.title': 'AI-Driven Services',
-      'services.section.header': 'Our major services that drive the Digital Transformation',
+      'services.section.header': 'Our Core Services Driving Digital Growth in Dubai & UAE',
       'services.section.viewAll': 'Explore All Services',
       'services.card.learnMore': 'Discover AI Solutions',
       'services.service1.title': 'AI-Powered App Development',
@@ -144,11 +144,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'services.service9.desc': 'Produce polished brand videos with strategic storytelling, platform-optimized edits, motion graphics, and post-production workflows.',
       // Hero Section
       "hero.tagline": "Intelligent Systems ⬢ Automated Workflows ⬢ Future Solutions",
-      "hero.headline": "Intelligence-Driven Success",
-      "hero.forYourBusiness": "For Your Enterprise",
+      "hero.headlineLine1": "Enterprise Software &",
+      "hero.headlineLine2": "Web Application Development",
+      "hero.headlineLine3": "Services in Dubai, UAE",
       "hero.cta": "Begin Your Transformation",
       "hero.shortTagline":
-        "Empower your enterprise with intelligent systems and advanced automated workflows."
+        "Dapps Solutions delivers custom software development, SaaS solutions, AI automation systems, CRM platforms, and ROI-focused digital marketing services for businesses in Dubai and across the UAE."
       ,
       // Contact Form
       'contact.heading': 'Start your journey to profit',
@@ -316,9 +317,29 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'works.subtitle': "Discover our latest projects and creative solutions that make an impact.",
       // About Section
       'aboutSection.badge': 'About',
-      'aboutSection.headline': 'We prioritize open communication and reliability, keeping you informed and valued every step.',
-      'aboutSection.description': 'At Leniq, we believe that creativity has the power to transform brands and connect them with their audiences in meaningful ways. Based in the heart of innovation, our agency specializes in crafting digital experiences that resonate and inspire.',
+      'aboutSection.headline': 'Custom Software Development & Digital Solutions Company in Dubai',
+      'aboutSection.description': 'Dapps Solutions is a Dubai-based software development company delivering custom software, ERP and CRM systems, SaaS platforms, AI-powered applications, and workflow automation tools for businesses across the UAE. We also provide professional digital marketing and SEO services to improve online visibility, drive qualified leads, and support long-term business growth through strategic, data-driven solutions tailored to modern enterprises.',
       'aboutSection.button': 'About Us',
+
+      // Service Banner - Web Development
+      'service.banner.web.title': 'Custom Web Development Company in Dubai, UAE',
+      'service.banner.web.subtitle': 'We design and develop scalable, AI-powered web applications that combine performance, automation, and modern user experience. From corporate websites to enterprise portals and SaaS platforms, our solutions are built for speed, security, and growth.',
+      'service.banner.web.button': 'Talk to Us',
+
+      // Service Banner - Branding
+      'service.banner.branding.title': 'Brand Strategy & Identity Design in Dubai',
+      'service.banner.branding.subtitle': 'We craft distinctive brand identities through research-backed strategy, creative design systems, and market positioning frameworks. From startups to enterprise brands, we help businesses stand out with clarity and confidence.',
+      'service.banner.branding.button': 'Talk to Us',
+
+      // Service Banner - App Development
+      'service.banner.app.title': 'AI-Powered Mobile App Development in Dubai',
+      'service.banner.app.subtitle': 'Build advanced Apple ecosystem applications using Swift, CoreML, and on-device AI capabilities. We create high-performance iOS apps with intelligent automation, real-time processing, and seamless user experiences tailored for the UAE market.',
+      'service.banner.app.button': 'Talk to Us',
+
+      // Service Banner - Digital Marketing
+      'service.banner.digital.title': 'Best Digital Marketing Agency in Dubai',
+      'service.banner.digital.subtitle': 'Drive measurable growth with data-driven digital marketing strategies. At Dapps Solutions, we combine SEO, paid advertising, content marketing, and performance analytics to help businesses scale across the UAE.',
+      'service.banner.digital.button': 'Talk to Us',
     },
 
     ar: {
@@ -409,8 +430,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'services.service9.desc': 'إنتاج فيديوهات احترافية للعلامة التجارية بسرد بصري مدروس ومونتاج مخصص للمنصات وموشن جرافيك ومعالجة ما بعد الإنتاج.',
       // Hero Section (Arabic)
       "hero.tagline": "الأنظمة الذكية • تدفقات العمل الآلية • حلول المستقبل",
-      "hero.headline": "نجاح مدعوم بالذكاء",
-      "hero.forYourBusiness": "لأجل مؤسستك",
+      "hero.headlineLine1": "برمجيات المؤسسات و",
+      "hero.headlineLine2": "تطوير تطبيقات الويب",
+      "hero.headlineLine3": "خدمات في دبي، الإمارات",
       "hero.cta": "ابدأ رحلة التحول",
       "hero.shortTagline":
         "عزّز مؤسستك بأنظمة ذكية وتدفقات عمل آلية متطورة.",
