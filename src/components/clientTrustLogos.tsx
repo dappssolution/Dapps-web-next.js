@@ -85,10 +85,7 @@ export default function ClientTrustLogos() {
           className="text-center mb-14 md:mb-18"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
-            Clients Who{" "}
-            <span className="bg-gradient-to-r from-[#A43EF9] via-[#5A189A] to-[#040150] bg-clip-text text-transparent">
-              Trust Us
-            </span>
+            Clients Who Trust Us
           </h2>
           <p className="text-gray-300 text-sm md:text-base max-w-2xl mx-auto font-light">
             Trusted by leading brands to deliver innovative digital solutions
