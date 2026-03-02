@@ -61,6 +61,10 @@ const logos = [
     src: "/images/client-who-trust-us/WhatsApp Image 2026-03-02 at 12.31.46 PM.jpeg",
     alt: "Client Logo",
   },
+  {
+    src: "/images/client-who-trust-us/auto.jpeg",
+    alt: "Auto",
+  },
 ];
 
 export default function ClientTrustLogos() {
@@ -92,8 +96,8 @@ export default function ClientTrustLogos() {
           </p>
         </motion.div>
 
-        {/* Logos Grid - 7 columns, responsive */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-3 md:gap-4 lg:gap-5 max-w-6xl mx-auto">
+        {/* Logos Grid - 3 rows of 5 logos */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-3 md:gap-4 lg:gap-5 max-w-6xl mx-auto">
           {logos.map((logo, index) => (
             <div
               key={index}
