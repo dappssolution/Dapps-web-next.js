@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 
 const logos = [
   {
@@ -62,31 +62,6 @@ const logos = [
     alt: "Client Logo",
   },
 ];
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const logoVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.7, y: 15 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      type: "spring" as const,
-      stiffness: 120,
-      damping: 14,
-    },
-  },
-};
 
 export default function ClientTrustLogos() {
   return (
