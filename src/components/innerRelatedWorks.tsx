@@ -2,7 +2,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Poppins } from 'next/font/google'
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 const poppins = Poppins({
@@ -51,21 +51,40 @@ export default function RelatedWorks() {
     
   ]
 
+  // Auto-scroll logic
+  const sliderRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (sliderRef.current) {
+        sliderRef.current.scrollBy({ left: 220, behavior: "smooth" });
+        // If at end, scroll back to start
+        if (sliderRef.current.scrollLeft + sliderRef.current.offsetWidth >= sliderRef.current.scrollWidth) {
+          sliderRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        }
+      }
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className={`container mx-auto px-5 md:px-16 lg:px-24 py-12 md:py-20 ${poppins.className}`}>
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl lg:text-[48px] font-medium mb-2">Related Works</h2>
-        <Link href="/works" className="text-blue-500 hover:underline">
+    <section className={`container mx-auto px-2 sm:px-5 md:px-10 py-8 md:py-16 ${poppins.className}`}>
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium mb-2">Related Works</h2>
+        <Link href="/works" className="text-blue-500 hover:underline text-xs sm:text-sm md:text-base">
           View All
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <div
+        ref={sliderRef}
+        className="flex gap-3 md:gap-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2"
+        style={{ scrollBehavior: "smooth" }}
+      >
         {relatedWorks.map((work) => (
-          <Link key={work.id} href={work.route} className="block">
-            <div className="project-card sm:mb-4 border border-gray-200 cursor-pointer">
-              <div 
-                className="mb-3 md:mb-4 overflow-hidden relative"
+          <Link key={work.id} href={work.route} className="block snap-start min-w-[220px] sm:min-w-[260px] md:min-w-[320px]">
+            <div className="project-card border border-gray-200 cursor-pointer rounded-lg bg-white shadow-sm hover:shadow-lg transition-all duration-300" style={{ minWidth: "200px", maxWidth: "320px" }}>
+              <div
+                className="mb-2 md:mb-3 overflow-hidden relative"
                 onMouseMove={handleMouseMove}
                 onMouseEnter={() => setHoveredProjectId(work.id)}
                 onMouseLeave={() => setHoveredProjectId(null)}
@@ -73,12 +92,12 @@ export default function RelatedWorks() {
                 <Image
                   src={work.image || "/placeholder.svg"}
                   alt={t(work.titleKey)}
-                  width={400}
-                  height={250}
-                  className="w-full h-[200px] md:h-[250px] hover:scale-105 transition-transform duration-300"
+                  width={220}
+                  height={140}
+                  className="w-full h-[120px] sm:h-[160px] md:h-[200px] object-cover rounded-md hover:scale-105 transition-transform duration-300"
                 />
                 {hoveredProjectId === work.id && (
-                  <div 
+                  <div
                     className="absolute pointer-events-none transition-transform duration-100 ease-out"
                     style={{
                       left: mousePosition.x,
@@ -86,20 +105,28 @@ export default function RelatedWorks() {
                       transform: 'translate(-50%, -50%)'
                     }}
                   >
-                    <div className="flex items-center justify-center w-[50px] md:w-[60px] h-[50px] md:h-[60px] gap-2 px-2 md:px-3 py-1 md:py-1.5 rounded-full backdrop-blur-md bg-white/20">
+                    <div className="flex items-center justify-center w-[40px] md:w-[50px] h-[40px] md:h-[50px] gap-2 px-2 md:px-3 py-1 md:py-1.5 rounded-full backdrop-blur-md bg-white/20">
                       <span className={`text-white text-xs md:text-sm font-light ${poppins.className}`}>View</span>
                     </div>
                   </div>
                 )}
               </div>
-              <div className="px-3 md:px-4 pb-4 md:pb-5">
-                <h3 className={`text-base md:text-lg lg:text-[24px] font-medium ${poppins.className}`}>{t(work.titleKey)}</h3>
+              <div className="px-2 md:px-3 pb-3 md:pb-4">
+                <h3 className={`text-sm md:text-base lg:text-lg font-medium ${poppins.className}`}>{t(work.titleKey)}</h3>
                 <p className={`text-xs md:text-sm text-gray-600 ${poppins.className}`}>{t(work.descriptionKey)}</p>
               </div>
             </div>
           </Link>
         ))}
       </div>
+      <style jsx>{`
+        .scrollbar-hide {
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   )
 }

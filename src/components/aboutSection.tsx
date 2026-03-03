@@ -164,21 +164,6 @@ const AboutSection = () => {
             <p className="text-gray-600 mb-8 text-base md:text-lg max-w-xl">
               {t('aboutSection.description')}
             </p>
-            <motion.a href="/about" aria-label={t('aboutSection.button')}>
-              <button
-                className="px-8 py-3 font-bold text-lg shadow-2xl transition-all duration-200 focus:outline-none focus:ring-4 rounded-[8px] focus:ring-[#A43EF9] border-2 hover:scale-105"
-                style={{
-                  background: gradient,
-                  color: "#fff",
-                  borderColor: "#A43EF9",
-                  boxShadow: "0 4px 32px 0 #A43EF966",
-                  letterSpacing: 1.5,
-                }}
-                aria-label={t('aboutSection.button')}
-              >
-                {t('aboutSection.button')}
-              </button>
-            </motion.a>
           </motion.div>
         </motion.div>
 

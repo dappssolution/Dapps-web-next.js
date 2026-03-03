@@ -86,8 +86,13 @@ export default function ServiceDetailBanner({ title, description, buttonText }: 
             {/* Left content */}
             <div ref={textRef} className="flex flex-col justify-center space-y-6 sm:space-y-8">
               <div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold  leading-tight   text-white">
-                  {title}
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-white">
+                  {title.split('\n').map((line, i) => (
+                    <span key={i}>
+                      {i > 0 && <br />}
+                      {line}
+                    </span>
+                  ))}
                 </h1>
               </div>
 
