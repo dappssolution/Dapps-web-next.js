@@ -6,20 +6,16 @@ import { motion } from "framer-motion";
 
 const logos = [
   {
-    src: "/images/client-who-trust-us/BMR restaurant 2.png",
-    alt: "BMR Restaurant",
+    src: "/images/client-who-trust-us/Atom.png",
+    alt: "Atom",
   },
   {
-    src: "/images/client-who-trust-us/delmon logo 2.png",
+    src: "/images/client-who-trust-us/delmon_logo_bg-removebg-preview.png",
     alt: "Delmon",
   },
   {
-    src: "/images/client-who-trust-us/e1af5dcb-c368-412c-b345-fc79bf071be6.png",
-    alt: "Client Logo",
-  },
-  {
-    src: "/images/client-who-trust-us/eiLTL4S67771 (1).png",
-    alt: "Client Logo",
+    src: "/images/client-who-trust-us/Empower.png",
+    alt: "Empower",
   },
   {
     src: "/images/client-who-trust-us/friends logo (1) 2.png",
@@ -30,54 +26,54 @@ const logos = [
     alt: "GC",
   },
   {
-    src: "/images/client-who-trust-us/logo-2 2.png",
+    src: "/images/client-who-trust-us/IMG_6252.PNG",
     alt: "Client Logo",
   },
   {
-    src: "/images/client-who-trust-us/PhotoshopExtension_Image (3) 2.png",
+    src: "/images/client-who-trust-us/IMG_6255.PNG",
     alt: "Client Logo",
   },
   {
-    src: "/images/client-who-trust-us/Shawarma Fusion logo design (1) 2.png",
+    src: "/images/client-who-trust-us/IMG_6257.PNG",
+    alt: "Client Logo",
+  },
+  {
+    src: "/images/client-who-trust-us/JV_gold_2-removebg-preview (2).png",
+    alt: "JV Gold",
+  },
+  {
+    src: "/images/client-who-trust-us/Myoutlet logo-01.png",
+    alt: "MyOutlet",
+  },
+  {
+    src: "/images/client-who-trust-us/Sales.png",
+    alt: "Sales",
+  },
+  {
+    src: "/images/client-who-trust-us/Shawarma_Fusion_logo_design__1__2-removebg-preview.png",
     alt: "Shawarma Fusion",
   },
   {
-    src: "/images/client-who-trust-us/Tokyo  2.png",
+    src: "/images/client-who-trust-us/Tokyo__2-removebg-preview.png",
     alt: "Tokyo",
-  },
-  {
-    src: "/images/client-who-trust-us/WhatsApp Image 2026-03-02 at 12.31.35 PM (1).jpeg",
-    alt: "Client Logo",
-  },
-  {
-    src: "/images/client-who-trust-us/WhatsApp Image 2026-03-02 at 12.31.35 PM.jpeg",
-    alt: "Client Logo",
   },
   {
     src: "/images/client-who-trust-us/WhatsApp Image 2026-03-02 at 12.31.46 PM (1).jpeg",
     alt: "Client Logo",
   },
-  {
-    src: "/images/client-who-trust-us/WhatsApp Image 2026-03-02 at 12.31.46 PM.jpeg",
-    alt: "Client Logo",
-  },
-  {
-    src: "/images/client-who-trust-us/auto.jpeg",
-    alt: "Auto",
-  },
 ];
 
 export default function ClientTrustLogos() {
   return (
-    <section className="relative w-full py-20 md:py-28 px-4 bg-gradient-to-b from-black via-[#0a0015] to-black overflow-hidden">
+    <section className="relative w-full py-2 md:py-4 px-4 bg-white overflow-hidden">
       {/* Decorative gradient backgrounds */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/3 w-96 h-96 bg-[#5A189A]/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#040150]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-0 left-1/3 w-96 h-96 bg-[#5A189A]/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-100/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       {/* Gradient line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#5A189A]/50 to-transparent"></div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#5A189A]/20 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Title */}
@@ -86,31 +82,31 @@ export default function ClientTrustLogos() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-14 md:mb-18"
+          className="text-center mb-8 md:mb-10"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-3">
             Clients Who Trust Us
           </h2>
-          <p className="text-gray-300 text-sm md:text-base max-w-2xl mx-auto font-light">
+          <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto font-light">
             Trusted by leading brands to deliver innovative digital solutions
           </p>
         </motion.div>
 
-        {/* Logos Grid - 3 rows of 5 logos */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-3 md:gap-4 lg:gap-5 max-w-6xl mx-auto">
+        {/* Logos Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-x-4 md:gap-x-6 gap-y-8 md:gap-y-10 max-w-6xl mx-auto">
           {logos.map((logo, index) => (
             <div
               key={index}
-              className="relative h-12 sm:h-14 md:h-14 lg:h-16 flex items-center justify-center rounded-lg border border-white/10 p-2 bg-white/5"
+              className="h-24 py-2 flex items-center justify-center"
             >
-              {/* Logo Image */}
-              <div className="relative w-full h-full flex items-center justify-center">
+              <div className="w-full h-full flex items-center justify-center">
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  fill
-                  className="object-contain"
-                  sizes="80px"
+                  width={320}
+                  height={160}
+                  className={`w-auto h-auto max-w-full max-h-16 object-contain ${index === 12 ? 'scale-110' : ''}`}
+                  sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 14vw"
                 />
               </div>
             </div>
