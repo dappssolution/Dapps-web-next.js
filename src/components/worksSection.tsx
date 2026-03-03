@@ -189,11 +189,11 @@ export default function Works() {
             onPointerMove={onPointerMove}
             onPointerUp={onPointerEnd}
             onPointerCancel={onPointerEnd}
-            className="flex gap-4 h-[180px] md:h-[220px] lg:h-[240px] overflow-x-auto overflow-y-hidden px-2 cursor-grab select-none snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-4 h-[330px] md:h-[370px] lg:h-[390px] overflow-x-auto overflow-y-hidden px-2 cursor-grab select-none snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             style={{ touchAction: "pan-y" }}
           >
             {[...projects, ...projects].map((project, idx) => (
-                  <div className="shrink-0 w-[340px] md:w-[420px] lg:w-[500px]" key={`desktop-${project.id}-${idx}`}>
+                  <div className="shrink-0 w-[365px] md:w-[445px] lg:w-[525px]" key={`desktop-${project.id}-${idx}`}>
                     <ProjectCardDesktop
                       project={project}
                       language={language}
@@ -253,7 +253,7 @@ const ProjectCardDesktop = ({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl cursor-pointer border border-white/10 h-full snap-start shrink-0 w-[360px] lg:w-[460px]",
+        "relative overflow-hidden rounded-2xl cursor-pointer border border-white/10 h-full snap-start shrink-0 w-[365px] lg:w-[485px]",
         "bg-zinc-900/40 backdrop-blur-md"
       )}
     >

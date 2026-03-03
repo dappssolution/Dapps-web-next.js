@@ -6,28 +6,40 @@ import { motion } from "framer-motion";
 
 const logos = [
   {
-    src: "/images/client-who-trust-us/Atom.png",
-    alt: "Atom",
-  },
-  {
     src: "/images/client-who-trust-us/delmon_logo_bg-removebg-preview.png",
     alt: "Delmon",
   },
   {
-    src: "/images/client-who-trust-us/Empower.png",
-    alt: "Empower",
+    src: "/images/client-who-trust-us/City-removebg-preview.png",
+    alt: "City",
+  },
+  {
+    src: "/images/client-who-trust-us/Tokyo__2-removebg-preview.png",
+    alt: "Tokyo",
+  },
+  {
+    src: "/images/client-who-trust-us/noor.png",
+    alt: "Noor",
   },
   {
     src: "/images/client-who-trust-us/friends logo (1) 2.png",
     alt: "Friends",
   },
   {
-    src: "/images/client-who-trust-us/Gc 2.png",
-    alt: "GC",
+    src: "/images/client-who-trust-us/Myoutlet logo-01.png",
+    alt: "MyOutlet",
   },
   {
-    src: "/images/client-who-trust-us/IMG_6252.PNG",
+    src: "/images/client-who-trust-us/IMG_6266-removebg-preview.png",
     alt: "Client Logo",
+  },
+  {
+    src: "/images/client-who-trust-us/Sales.png",
+    alt: "Sales",
+  },
+  {
+    src: "/images/client-who-trust-us/Empower.png",
+    alt: "Empower",
   },
   {
     src: "/images/client-who-trust-us/IMG_6255.PNG",
@@ -38,28 +50,36 @@ const logos = [
     alt: "Client Logo",
   },
   {
-    src: "/images/client-who-trust-us/JV_gold_2-removebg-preview (2).png",
-    alt: "JV Gold",
+    src: "/images/client-who-trust-us/Atom.png",
+    alt: "Atom",
   },
   {
-    src: "/images/client-who-trust-us/Myoutlet logo-01.png",
-    alt: "MyOutlet",
+    src: "/images/client-who-trust-us/IMG_6264.PNG",
+    alt: "Client Logo",
   },
   {
-    src: "/images/client-who-trust-us/Sales.png",
-    alt: "Sales",
+    src: "/images/client-who-trust-us/IMG_6262.PNG",
+    alt: "Client Logo",
+  },
+  {
+    src: "/images/client-who-trust-us/IMG_6265.PNG",
+    alt: "Client Logo",
   },
   {
     src: "/images/client-who-trust-us/Shawarma_Fusion_logo_design__1__2-removebg-preview.png",
     alt: "Shawarma Fusion",
   },
   {
-    src: "/images/client-who-trust-us/Tokyo__2-removebg-preview.png",
-    alt: "Tokyo",
+       src: "/images/client-who-trust-us/JV_gold_2-removebg-preview (2).png",
+    alt: "JV Gold",
   },
   {
-    src: "/images/client-who-trust-us/WhatsApp Image 2026-03-02 at 12.31.46 PM (1).jpeg",
-    alt: "Client Logo",
+    src: "/images/client-who-trust-us/IMG_6265.PNG",
+    alt: "Client Logo" ,
+  },
+  {
+    src: "/images/client-who-trust-us/Gc 2.png",
+    alt: "GC",
   },
 ];
 
@@ -93,11 +113,11 @@ export default function ClientTrustLogos() {
         </motion.div>
 
         {/* Logos Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-x-4 md:gap-x-6 gap-y-8 md:gap-y-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-10 gap-y-6 max-w-6xl mx-auto place-items-center">
           {logos.map((logo, index) => (
             <div
               key={index}
-              className="h-24 py-2 flex items-center justify-center"
+              className="h-28 w-full p-3 flex items-center justify-center"
             >
               <div className="w-full h-full flex items-center justify-center">
                 <Image
@@ -105,7 +125,7 @@ export default function ClientTrustLogos() {
                   alt={logo.alt}
                   width={320}
                   height={160}
-                  className={`w-auto h-auto max-w-full max-h-16 object-contain ${index === 12 ? 'scale-110' : ''}`}
+                  className="w-auto h-auto max-w-full max-h-16 object-contain"
                   sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 14vw"
                 />
               </div>
