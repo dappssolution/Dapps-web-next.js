@@ -202,6 +202,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'clients.title': 'Clients',
       'clients.subtitle': 'We collaborate with brands across industries — from startups to global leaders — to craft experiences that resonate and endure.',
       'clients.viewAll': 'View all works',
+      'clientsTrust.title': 'Clients Who Trust Us',
+      'clientsTrust.subtitle': 'Trusted by leading brands to deliver innovative digital solutions',
 
       // Process Section
       'process.title': 'Our Process',
@@ -576,6 +578,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'clients.title': 'العملاء',
       'clients.subtitle': 'نحن نتعاون مع العلامات التجارية عبر الصناعات — من الشركات الناشئة إلى القادة العالميين — لتصميم تجارب تتردد صدى وتدوم.',
       'clients.viewAll': 'عرض جميع الأعمال',
+      'clientsTrust.title': 'العملاء الذين يثقون بنا',
+      'clientsTrust.subtitle': 'موثوق بنا من قبل العلامات التجارية الرائدة لتقديم حلول رقمية مبتكرة',
 
       // Process Section
       'process.title': 'عملنا',
