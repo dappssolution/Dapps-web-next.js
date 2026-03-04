@@ -146,16 +146,16 @@ export default function ClientTrustLogos() {
           {logos.map((logo, index) => (
             <div
               key={index}
-              className="h-28 sm:h-32 md:h-36 w-full p-1 md:p-2 flex items-center justify-center"
+              className="h-24 sm:h-28 md:h-32 w-full p-1 md:p-2 flex items-center justify-center"
             >
               <div className="w-full h-full flex items-center justify-center">
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  width={400}
-                  height={200}
-                  className="w-auto h-auto max-w-full max-h-20 sm:max-h-24 md:max-h-28 object-contain"
-                  sizes="(max-width: 640px) 22vw, (max-width: 1024px) 18vw, 14vw"
+                  width={360}
+                  height={180}
+                  className="w-auto h-auto max-w-full max-h-18 sm:max-h-22 md:max-h-25 object-contain"
+                  sizes="(max-width: 640px) 20vw, (max-width: 1024px) 16vw, 12vw"
                 />
               </div>
             </div>
