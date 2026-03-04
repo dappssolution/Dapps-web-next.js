@@ -15,19 +15,21 @@ export default function Works() {
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
+    const isRTL = language === 'ar';
     let currentIndex = 0;
-    const cardWidth = el.firstChild ? (el.firstChild as HTMLElement).offsetWidth + 24 : 340; // 24px gap
+    const cardWidth = el.firstChild ? (el.firstChild as HTMLElement).offsetWidth + 16 : 340; // 16px gap
     function slideToNextCard() {
       if (!el) return;
       currentIndex++;
       if (currentIndex >= el.childNodes.length / 2) {
         currentIndex = 0;
       }
-      el.scrollTo({ left: currentIndex * cardWidth, behavior: 'smooth' });
+      const scrollPos = currentIndex * cardWidth;
+      el.scrollTo({ left: isRTL ? -scrollPos : scrollPos, behavior: 'smooth' });
     }
     const interval = setInterval(slideToNextCard, 1800);
     return () => clearInterval(interval);
-  }, []);
+  }, [language]);
   const dragRef = useRef({
     isDragging: false,
     startX: 0,
@@ -101,7 +103,8 @@ export default function Works() {
     if (!el || !dragRef.current.isDragging) return;
     e.preventDefault();
     const delta = e.clientX - dragRef.current.startX;
-    el.scrollLeft = dragRef.current.startScrollLeft - delta;
+    const direction = language === 'ar' ? 1 : -1;
+    el.scrollLeft = dragRef.current.startScrollLeft + direction * delta;
   };
 
   const onPointerEnd = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -189,11 +192,11 @@ export default function Works() {
             onPointerMove={onPointerMove}
             onPointerUp={onPointerEnd}
             onPointerCancel={onPointerEnd}
-            className="flex gap-4 h-[330px] md:h-[370px] lg:h-[390px] overflow-x-auto overflow-y-hidden px-2 cursor-grab select-none snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-4 h-[260px] md:h-[290px] lg:h-[310px] overflow-x-auto overflow-y-hidden px-2 cursor-grab select-none snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             style={{ touchAction: "pan-y" }}
           >
             {[...projects, ...projects].map((project, idx) => (
-                  <div className="shrink-0 w-[365px] md:w-[445px] lg:w-[525px]" key={`desktop-${project.id}-${idx}`}>
+                  <div className="shrink-0 w-[230px] md:w-[280px] lg:w-[340px]" key={`desktop-${project.id}-${idx}`}>
                     <ProjectCardDesktop
                       project={project}
                       language={language}
@@ -253,7 +256,7 @@ const ProjectCardDesktop = ({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl cursor-pointer border border-white/10 h-full snap-start shrink-0 w-[365px] lg:w-[485px]",
+        "relative overflow-hidden rounded-2xl cursor-pointer border border-white/10 h-full snap-start shrink-0 w-[230px] lg:w-[340px]",
         "bg-zinc-900/40 backdrop-blur-md"
       )}
     >
@@ -268,7 +271,7 @@ const ProjectCardDesktop = ({
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/45" />
 
-      <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+      <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
         {/* Top Row */}
         <div className="flex justify-between items-start">
           <span
@@ -290,7 +293,7 @@ const ProjectCardDesktop = ({
             <p className="text-[#c084fc] text-sm font-bold tracking-widest mb-2 uppercase">
               {project.category[language] || project.category.en}
             </p>
-            <h3 className={cn("text-white text-4xl font-bold leading-tight", language === 'ar' && "font-arabic")}>
+            <h3 className={cn("text-white text-2xl lg:text-3xl font-bold leading-tight", language === 'ar' && "font-arabic")}>
               {project.title[language] || project.title.en}
             </h3>
           </div>
