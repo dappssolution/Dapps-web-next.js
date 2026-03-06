@@ -189,6 +189,7 @@ const serviceRoutes = [
   "/service/ecommerce-development-marketing",
   "/service/ui-ux-design",
   "/service/video-editing-production",
+  "/service/video-photo-editing",
 ]
 
 function ServiceCard({ title, desc, icon,  index }: Service & { index: number }) {

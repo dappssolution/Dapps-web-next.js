@@ -40,10 +40,6 @@ const logos = [
     alt: "Zain",
   },
   {
-    src: "/images/client-who-trust-us/IMG_6266-removebg-preview.png",
-    alt: "Client Logo",
-  },
-  {
     src: "/images/client-who-trust-us/IMG_6264.PNG",
     alt: "Client Logo",
   },
@@ -146,20 +142,20 @@ export default function ClientTrustLogos() {
         </motion.div>
 
         {/* Responsive Logo Grid: 4 per row (phone), 5 per row (tablet), 6 per row (laptop+) */}
-        <div className="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-x-4 gap-y-4 max-w-6xl mx-auto place-items-center px-2">
+        <div className="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-x-6 gap-y-6 max-w-6xl mx-auto place-items-center px-2">
           {logos.map((logo, index) => (
             <div
               key={index}
-              className="h-16 sm:h-18 md:h-20 w-full p-1 md:p-2 flex items-center justify-center"
+              className="h-24 sm:h-28 md:h-32 w-full p-1 md:p-2 flex items-center justify-center"
             >
               <div className="w-full h-full flex items-center justify-center">
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  width={200}
-                  height={100}
-                  className="w-auto h-auto max-w-full max-h-9 sm:max-h-10 md:max-h-11 object-contain"
-                  sizes="(max-width: 640px) 22vw, (max-width: 1024px) 18vw, 14vw"
+                  width={360}
+                  height={180}
+                  className="w-auto h-auto max-w-full max-h-18 sm:max-h-22 md:max-h-25 object-contain"
+                  sizes="(max-width: 640px) 20vw, (max-width: 1024px) 16vw, 12vw"
                 />
               </div>
             </div>

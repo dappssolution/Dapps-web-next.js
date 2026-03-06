@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: ' Trusted Software Development Company in Dubai, UAE | About Us',
-  description: 'We are a trusted software development company in UAE offering web development, mobile app development, CRM, ERP solutions and digital marketing services',
+  title: 'Trusted Software Development Company in Dubai, UAE | About Us',
+  description: 'We are a trusted software development company in UAE offering web development, mobile app development, CRM, ERP solutions and digital marketing services.',
   keywords: [
     'About Dapps Solutions',
     'AI',
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://www.dappssolutions.com/about',
-    title: 'About Us | Dapps Solutions',
-    description: 'Learn about Dapps Solutions, our mission, team, and approach to AI-powered digital transformation and web/app development.',
+    title: 'Trusted Software Development Company in Dubai, UAE | About Us',
+    description: 'We are a trusted software development company in UAE offering web development, mobile app development, CRM, ERP solutions and digital marketing services.',
     siteName: 'Dapps Solutions',
     images: [
       {
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@dappssolutions',
-    title: 'About Us | Dapps Solutions',
-    description: 'Learn about Dapps Solutions, our mission, team, and approach to AI-powered digital transformation and web/app development.',
+    title: 'Trusted Software Development Company in Dubai, UAE | About Us',
+    description: 'We are a trusted software development company in UAE offering web development, mobile app development, CRM, ERP solutions and digital marketing services.',
     images: ['/logo.png'],
   },
   alternates: {
