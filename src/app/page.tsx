@@ -8,8 +8,10 @@ const ServicesSection = dynamic(() => import("@/components/services"));
 const Works = dynamic(() => import("@/components/worksSection"));
 const AboutBoxes = dynamic(() => import("@/components/aboutBoxes"));
 const ClientReviews = dynamic(() => import("@/components/clientReview"));
+import FaqAccordion from "@/components/faqAccordion";
+import { homeFaqData } from "@/components/homeFaqData";
 
-export default function Home() {
+function Home() {
   return (
     <main role="main" aria-label="Homepage main content">
       {/* Hero section: ensure alt text and ARIA landmarks in HeroSection */}
@@ -26,6 +28,12 @@ export default function Home() {
       <Works />
       {/* ClientReviews: ensure carousel images have alt text and loading="lazy" */}
       <ClientReviews />
+      {/* FAQ Section for Home - now below AI-driven business section and above footer */}
+      <section className="max-w-3xl mx-auto my-16 px-4">
+        <FaqAccordion faqItems={homeFaqData} />
+      </section>
     </main>
   );
 }
+
+export default Home;
