@@ -29,10 +29,8 @@ export default function FaqAccordion({ faqItems }: FaqAccordionProps) {
 
   return (
     <section
-      className={`w-screen min-h-[80vh] bg-[#f8f8fa] flex items-center justify-center py-16 px-0 font-sans ${language === 'ar' ? 'text-right' : 'text-left'}`}
+      className={`min-h-[80vh] bg-[#f8f8fa] flex items-center justify-center py-16 px-0 font-sans ${language === 'ar' ? 'text-right' : 'text-left'}`}
       style={{
-        marginLeft: 'calc(-50vw + 50%)',
-        marginRight: 'calc(-50vw + 50%)',
         direction: language === 'ar' ? 'rtl' : 'ltr',
       }}
     >
