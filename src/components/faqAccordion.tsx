@@ -21,7 +21,7 @@ export default function FaqAccordion({ faqItems }: FaqAccordionProps) {
   // Support both language-keyed and flat array
   const items = Array.isArray(faqItems)
     ? faqItems
-    : faqItems[language] || faqItems['en'];
+    : language === 'ar' ? faqItems['ar'] : faqItems['en'];
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
