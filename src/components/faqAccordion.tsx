@@ -29,20 +29,18 @@ export default function FaqAccordion({ faqItems }: FaqAccordionProps) {
 
   return (
     <section
-      className={`min-h-[80vh] bg-[#f8f8fa] flex items-center justify-center py-16 px-0 font-sans ${language === 'ar' ? 'text-right' : 'text-left'}`}
-      style={{
-        direction: language === 'ar' ? 'rtl' : 'ltr',
-      }}
+      className={`bg-[#f8f8fa] flex items-center justify-center py-2 md:py-4 px-0 faq-montserrat ${language === 'ar' ? 'text-right' : 'text-left'}`}
+      style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}
     >
-      <div className={`w-full max-w-5xl mx-auto flex flex-col justify-center p-8 md:p-16 bg-white rounded-2xl shadow-xl font-sans text-[#222] ${language === 'ar' ? 'text-right' : 'text-left'}`}>
-        <h2 className={`text-4xl md:text-5xl font-bold mb-8 text-[#222] text-center font-sans ${language === 'ar' ? 'font-arabic' : ''}`}>
+      <div className={`w-full max-w-5xl mx-auto flex flex-col justify-center p-2 md:p-8 bg-white rounded-2xl shadow-xl faq-montserrat text-[#222] ${language === 'ar' ? 'text-right' : 'text-left'}`}>
+        <h2 className={`text-2xl md:text-5xl font-bold mb-2 md:mb-4 text-[#222] text-center faq-montserrat-bold ${language === 'ar' ? 'font-arabic' : ''}`}>
           {language === 'ar' ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
         </h2>
         <div className="flex flex-col gap-4">
           {items.map((item, index) => (
             <div
               key={index}
-              className={`border-b last:border-b-0 transition-all duration-300 ${openIndex === index ? 'bg-gray-100' : 'bg-transparent'} px-2 py-2 rounded-lg leading-snug font-sans ${language === 'ar' ? 'text-right' : 'text-left'}`}
+              className={`border-b last:border-b-0 transition-all duration-300 ${openIndex === index ? 'bg-gray-100' : 'bg-transparent'} px-2 py-2 rounded-lg leading-snug faq-montserrat ${language === 'ar' ? 'text-right' : 'text-left'}`}
             >
               <button
                 onClick={() => toggleFaq(index)}
@@ -51,7 +49,7 @@ export default function FaqAccordion({ faqItems }: FaqAccordionProps) {
                 aria-controls={`faq-answer-${index}`}
               >
                 <span className={`font-normal text-xl md:text-2xl font-sans text-[#222] transition-colors tracking-tight leading-snug ${language === 'ar' ? 'font-arabic' : ''}`}>
-                  {item.question}
+                  <span className="faq-montserrat-bold">{item.question}</span>
                 </span>
                 <motion.div
                   initial={false}
@@ -76,7 +74,7 @@ export default function FaqAccordion({ faqItems }: FaqAccordionProps) {
                     className={`overflow-hidden pb-4 pl-2 pr-2 font-sans text-[#222] ${language === 'ar' ? 'font-arabic text-right' : ''}`}
                   >
                     <div className={`text-[#444] leading-loose text-base md:text-lg mt-2 font-sans ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
-                      {item.answer}
+                      <span className="faq-montserrat">{item.answer}</span>
                     </div>
                   </motion.div>
                 )}
