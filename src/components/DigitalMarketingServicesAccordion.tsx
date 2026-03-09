@@ -8,7 +8,7 @@ const services = [
     title: "Search Engine Optimization (SEO)",
     content:
       "We optimize your online presence to improve visibility in search results, driving organic traffic through strategic keyword optimization, content creation, and technical SEO improvements.",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&auto=format&fit=crop&q=60",
+    image: "/images/works/digital-innovotion.jpeg",
   },
   {
     title: "Pay-Per-Click Advertising (PPC)",

@@ -29,7 +29,7 @@ function Home() {
       {/* ClientReviews: ensure carousel images have alt text and loading="lazy" */}
       <ClientReviews />
       {/* FAQ Section for Home - now below AI-driven business section and above footer */}
-      <section className="max-w-3xl mx-auto my-16 px-4">
+      <section className="max-w-5xl mx-auto my-16 px-4">
         <FaqAccordion faqItems={homeFaqData} />
       </section>
     </main>

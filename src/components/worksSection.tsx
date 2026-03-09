@@ -82,7 +82,7 @@ export default function Works() {
       {
         id: 5,
         type: "image",
-        src: "/workslide-3.jpg",
+        src: "/images/works/digital-innovotion.jpeg",
         alt: "Tech Solution",
         title: { en: "Digital Innovation", ar: "الابتكار الرقمي" },
         category: { en: "Technology", ar: "تكنولوجيا" },
