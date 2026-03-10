@@ -4,6 +4,8 @@ import ServiceDetailBanner from "@/components/services-innerpages/ServiceDetailB
 import ServiceDetailMain from "@/components/services-innerpages/ServiceDetailMain";
 import { serviceDetails } from "../service-detail-contents";
 import { useLanguage } from "@/contexts/LanguageContext";
+import FaqAccordion from "@/components/faqAccordion";
+import { brandingFaq } from "@/components/brandingFaqData";
 
 export default function BrandingClient() {
   const { language } = useLanguage();
@@ -13,6 +15,7 @@ export default function BrandingClient() {
       <ServiceDetailBanner {...content.banner} />
       <ServiceDetailMain {...content.main} />
       <ServiceDetailAccordion {...content.accordion} />
+      <FaqAccordion faqItems={brandingFaq} />
     </>
   );
 }

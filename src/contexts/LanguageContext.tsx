@@ -202,6 +202,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'clients.title': 'Clients',
       'clients.subtitle': 'We collaborate with brands across industries — from startups to global leaders — to craft experiences that resonate and endure.',
       'clients.viewAll': 'View all works',
+      'clientsTrust.title': 'Clients Who Trust Us',
+      'clientsTrust.subtitle': 'Trusted by leading brands to deliver innovative digital solutions',
 
       // Process Section
       'process.title': 'Our Process',
@@ -418,13 +420,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'services.service3.desc': 'تطوير استراتيجيات علامة تجارية مدعومة بالذكاء الاصطناعي مع رؤى قائمة على البيانات وأنظمة تصميم مؤتمتة ومراقبة ذكية للعلامة التجارية.',
       'services.service4.title': 'التسويق الرقمي المدعوم بالذكاء الاصطناعي',
       'services.service4.desc': 'استفد من الذكاء الاصطناعي للتحليلات التنبؤية وتحسين الحملات المؤتمتة والاستهداف الذكي للعملاء عبر جميع القنوات.',
-      'services.service5.title': 'أنظمة ERP و CRM الذكية',
+      'services.service5.title': 'أنظمة إدارة الأعمال الذكية',
       'services.service5.desc': 'نشر أنظمة إدارة أعمال محسّنة بالذكاء الاصطناعي مع تحليلات تنبؤية وسير عمل مؤتمت ورؤى ذكية للعملاء.',
       'services.service6.title': 'وكلاء الذكاء الاصطناعي والأتمتة المتقدمة',
       'services.service6.desc': 'تنفيذ وكلاء ذكاء اصطناعي متطورين وروبوتات دردشة ذكية وسير عمل مؤتمت يتعلم ويتكيف مع احتياجات عملك.',
       'services.service7.title': 'تطوير التجارة الإلكترونية والتسويق',
       'services.service7.desc': 'بناء متاجر إلكترونية عالية التحويل مع اكتشاف ذكي للمنتجات وتجربة دفع محسّنة وحملات نمو قائمة على البيانات.',
-      'services.service8.title': 'تصميم UI/UX',
+      'services.service8.title': 'تصميم واجهة المستخدم وتجربة المستخدم',
       'services.service8.desc': 'تصميم رحلات مستخدم واضحة وأنظمة تصميم قابلة للتوسع وواجهات عالية الأداء تعزز التفاعل على الويب والجوال.',
       'services.service9.title': 'تحرير الفيديو والإنتاج',
       'services.service9.desc': 'إنتاج فيديوهات احترافية للعلامة التجارية بسرد بصري مدروس ومونتاج مخصص للمنصات وموشن جرافيك ومعالجة ما بعد الإنتاج.',
@@ -576,6 +578,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'clients.title': 'العملاء',
       'clients.subtitle': 'نحن نتعاون مع العلامات التجارية عبر الصناعات — من الشركات الناشئة إلى القادة العالميين — لتصميم تجارب تتردد صدى وتدوم.',
       'clients.viewAll': 'عرض جميع الأعمال',
+      'clientsTrust.title': 'العملاء الذين يثقون بنا',
+      'clientsTrust.subtitle': 'موثوق بنا من قبل العلامات التجارية الرائدة لتقديم حلول رقمية مبتكرة',
 
       // Process Section
       'process.title': 'عملنا',

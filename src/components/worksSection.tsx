@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
@@ -11,6 +11,29 @@ import { cn } from "@/lib/utils";
 export default function Works() {
   const { t, language } = useLanguage();
   const scrollRef = useRef<HTMLDivElement>(null);
+  // Slide one card at a time for clear animation, looping through all cards
+  const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
+  const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const isRTL = language === 'ar';
+    let currentIndex = 0;
+    const cardWidth = el.firstChild ? (el.firstChild as HTMLElement).offsetWidth + 16 : 340; // 16px gap
+    function slideToNextCard() {
+      if (!el) return;
+      currentIndex++;
+      if (currentIndex >= el.childNodes.length / 2) {
+        currentIndex = 0;
+      }
+      const scrollPos = currentIndex * cardWidth;
+      el.scrollTo({ left: isRTL ? -scrollPos : scrollPos, behavior: 'smooth' });
+    }
+    autoScrollRef.current = setInterval(slideToNextCard, 1800);
+    return () => {
+      if (autoScrollRef.current) clearInterval(autoScrollRef.current);
+    };
+  }, [language]);
   const dragRef = useRef({
     isDragging: false,
     startX: 0,
@@ -23,8 +46,8 @@ export default function Works() {
       {
         id: 1,
         type: "image",
-        src: "/workslide-1.jpg",
-        alt: "Business Person",
+        src: "/images/works/corporate-vision.jpeg",
+        alt: "Corporate Vision",
         title: { en: "Corporate Vision", ar: "رؤية الشركات" },
         category: { en: "Photography", ar: "تصارير" },
         number: "01",
@@ -32,8 +55,8 @@ export default function Works() {
       {
         id: 2,
         type: "image",
-        src: "/workslide-4.jpg",
-        alt: "Brand Identity",
+        src: "/images/works/brand-identity.jpeg",
+        alt: "Brand Identity Solutions",
         title: { en: "Brand Identity Solutions", ar: "حلول هوية العلامة التجارية" },
         category: { en: "Brand Strategy", ar: "استراتيجية العلامة" },
         number: "02",
@@ -50,8 +73,8 @@ export default function Works() {
       {
         id: 4,
         type: "image",
-        src: "/workslide-2.jpg",
-        alt: "Strategy Meeting",
+        src: "/images/works/statergic-planing.jpeg",
+        alt: "Strategic Planning",
         title: { en: "Strategic Planning", ar: "التخطيط الاستراتيجي" },
         category: { en: "Consulting", ar: "استشارات" },
         number: "04",
@@ -59,11 +82,92 @@ export default function Works() {
       {
         id: 5,
         type: "image",
-        src: "/workslide-3.jpg",
+        src: "/images/works/digital-innovotion.jpeg",
         alt: "Tech Solution",
         title: { en: "Digital Innovation", ar: "الابتكار الرقمي" },
         category: { en: "Technology", ar: "تكنولوجيا" },
         number: "05",
+      },
+      {
+        id: 6,
+        type: "image",
+        src: "/images/works/ai-agent.jpg",
+        alt: "AI Agents",
+        title: { en: "AI Agents Integration", ar: "دمج وكلاء الذكاء الاصطناعي" },
+        category: { en: "Artificial Intelligence", ar: "ذكاء اصطناعي" },
+        number: "06",
+      },
+      {
+        id: 7,
+        type: "image",
+        src: "/images/works/web-development.jpeg",
+        alt: "Web Development",
+        title: { en: "Web Development Excellence", ar: "تطوير الويب المتميز" },
+        category: { en: "Web Development", ar: "تطوير الويب" },
+        number: "07",
+      },
+      {
+        id: 8,
+        type: "image",
+         src: "/images/works/digital-marketing (1).jpg",
+        alt: "Digital Marketing",
+        title: { en: "Digital Marketing Campaigns", ar: "حملات التسويق الرقمي" },
+        category: { en: "Marketing", ar: "تسويق" },
+        number: "08",
+      },
+      {
+        id: 9,
+        type: "image",
+        src: "/images/works/erp and crm.jpg",
+        alt: "ERP & CRM Software",
+        title: { en: "ERP & CRM Solutions", ar: "حلول ERP و CRM" },
+        category: { en: "Software", ar: "برمجيات" },
+        number: "09",
+      },
+      {
+        id: 10,
+        type: "image",
+        src: "/images/works/Business_Card_Mockup_3.jpg.jpeg",
+        alt: "Business Card Mockup",
+        title: { en: "Business Card Design", ar: "تصميم بطاقة العمل" },
+        category: { en: "Branding", ar: "العلامة التجارية" },
+        number: "10",
+      },
+      {
+        id: 11,
+        type: "image",
+        src: "/images/works/Citylight_Mockup_2.jpg.jpeg",
+        alt: "Citylight Mockup",
+        title: { en: "Outdoor Advertising", ar: "إعلانات خارجية" },
+        category: { en: "Advertising", ar: "إعلانات" },
+        number: "11",
+      },
+      {
+        id: 12,
+        type: "image",
+        src: "/images/works/elegence mockup new.jpg.jpeg",
+        alt: "Elegance Mockup",
+        title: { en: "Elegant Branding", ar: "العلامة التجارية الأنيقة" },
+        category: { en: "Branding", ar: "العلامة التجارية" },
+        number: "12",
+      },
+      {
+        id: 13,
+        type: "image",
+        src: "/images/works/my outlet app post 1.jpg.jpeg",
+        alt: "My Outlet App",
+        title: { en: "My Outlet App Launch", ar: "إطلاق تطبيق ماي أوتليت" },
+        category: { en: "App Development", ar: "تطوير التطبيقات" },
+        number: "13",
+      },
+      {
+        id: 14,
+        type: "image",
+        src: "/images/works/bahcar.jpg.jpeg",
+        alt: "Car Website Development",
+        title: { en: "Car Website Development Specialization", ar: "تخصص تطوير مواقع السيارات" },
+        category: { en: "Web Development", ar: "تطوير الويب" },
+        number: "14",
       },
     ],
     []
@@ -84,7 +188,8 @@ export default function Works() {
     if (!el || !dragRef.current.isDragging) return;
     e.preventDefault();
     const delta = e.clientX - dragRef.current.startX;
-    el.scrollLeft = dragRef.current.startScrollLeft - delta;
+    const direction = language === 'ar' ? 1 : -1;
+    el.scrollLeft = dragRef.current.startScrollLeft + direction * delta;
   };
 
   const onPointerEnd = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -101,7 +206,7 @@ export default function Works() {
 
   return (
     <section
-      className="relative min-h-screen w-full bg-[#0a0a0a] py-16 lg:py-32 flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen w-full bg-[#0a0a0a] py-6 lg:py-10 flex flex-col justify-center overflow-hidden"
       dir={language === "ar" ? "rtl" : "ltr"}
     >
       {/* Background Image with Blur */}
@@ -119,11 +224,11 @@ export default function Works() {
       <div className="container mx-auto z-10 h-full flex flex-col relative">
         {/* Header Section */}
         <div className="px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
-          <div>
-            <h2 className="text-[#5a189a] font-bold tracking-widest text-sm uppercase mb-2">
+          <div className="text-left w-full md:w-auto" style={{marginLeft: '-2rem', marginTop: '-2rem'}}>
+            <h2 className="text-[#5a189a] font-bold tracking-widest text-sm uppercase mb-2 text-left">
               {t("works.subtitle") || "PORTFOLIO"}
             </h2>
-            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight text-left">
               {t("works.title") || "Selected Works"}
             </h1>
           </div>
@@ -166,21 +271,99 @@ export default function Works() {
             Hidden on mobile
            ========================================= */}
         <div className="hidden md:block w-full relative py-10 lg:py-12">
+          {/* Manual Scroll Buttons */}
+          <button
+            className="absolute left-2 top-1/2 z-20 -translate-y-1/2 bg-[#222] text-white rounded-full p-2 shadow-lg hover:bg-[#5a189a] transition"
+            style={{outline: 'none'}}
+            onClick={() => {
+              if (autoScrollRef.current) {
+                clearInterval(autoScrollRef.current);
+                autoScrollRef.current = null;
+              }
+              if (resumeTimeoutRef.current) {
+                clearTimeout(resumeTimeoutRef.current);
+                resumeTimeoutRef.current = null;
+              }
+              if (scrollRef.current) scrollRef.current.scrollBy({ left: -340, behavior: 'smooth' });
+              // Resume auto scroll after 3 seconds
+              resumeTimeoutRef.current = setTimeout(() => {
+                if (!autoScrollRef.current) {
+                  const el = scrollRef.current;
+                  if (!el) return;
+                  const isRTL = language === 'ar';
+                  let currentIndex = 0;
+                  const cardWidth = el.firstChild ? (el.firstChild as HTMLElement).offsetWidth + 16 : 340;
+                  function slideToNextCard() {
+                    if (!el) return;
+                    currentIndex++;
+                    if (currentIndex >= el.childNodes.length / 2) {
+                      currentIndex = 0;
+                    }
+                    const scrollPos = currentIndex * cardWidth;
+                    el.scrollTo({ left: isRTL ? -scrollPos : scrollPos, behavior: 'smooth' });
+                  }
+                  autoScrollRef.current = setInterval(slideToNextCard, 1800);
+                }
+              }, 3000);
+            }}
+            aria-label="Scroll Left"
+          >
+            <ArrowRight className="w-6 h-6 rotate-180" />
+          </button>
+          <button
+            className="absolute right-2 top-1/2 z-20 -translate-y-1/2 bg-[#222] text-white rounded-full p-2 shadow-lg hover:bg-[#5a189a] transition"
+            style={{outline: 'none'}}
+            onClick={() => {
+              if (autoScrollRef.current) {
+                clearInterval(autoScrollRef.current);
+                autoScrollRef.current = null;
+              }
+              if (resumeTimeoutRef.current) {
+                clearTimeout(resumeTimeoutRef.current);
+                resumeTimeoutRef.current = null;
+              }
+              if (scrollRef.current) scrollRef.current.scrollBy({ left: 340, behavior: 'smooth' });
+              // Resume auto scroll after 3 seconds
+              resumeTimeoutRef.current = setTimeout(() => {
+                if (!autoScrollRef.current) {
+                  const el = scrollRef.current;
+                  if (!el) return;
+                  const isRTL = language === 'ar';
+                  let currentIndex = 0;
+                  const cardWidth = el.firstChild ? (el.firstChild as HTMLElement).offsetWidth + 16 : 340;
+                  function slideToNextCard() {
+                    if (!el) return;
+                    currentIndex++;
+                    if (currentIndex >= el.childNodes.length / 2) {
+                      currentIndex = 0;
+                    }
+                    const scrollPos = currentIndex * cardWidth;
+                    el.scrollTo({ left: isRTL ? -scrollPos : scrollPos, behavior: 'smooth' });
+                  }
+                  autoScrollRef.current = setInterval(slideToNextCard, 1800);
+                }
+              }, 3000);
+            }}
+            aria-label="Scroll Right"
+          >
+            <ArrowRight className="w-6 h-6" />
+          </button>
           <div
             ref={scrollRef}
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={onPointerEnd}
             onPointerCancel={onPointerEnd}
-            className="flex gap-6 h-[500px] lg:h-[600px] overflow-x-auto overflow-y-hidden px-6 cursor-grab select-none snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-4 h-[320px] md:h-[370px] lg:h-[420px] overflow-x-auto overflow-y-hidden px-2 cursor-grab select-none snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             style={{ touchAction: "pan-y" }}
           >
-            {projects.map((project) => (
-              <ProjectCardDesktop
-                key={`desktop-${project.id}`}
-                project={project}
-                language={language}
-              />
+            {[...projects, ...projects].map((project, idx) => (
+                  <div className="shrink-0 w-[230px] md:w-[280px] lg:w-[340px]" key={`desktop-${project.id}-${idx}`}>
+                    <ProjectCardDesktop
+                      project={project}
+                      language={language}
+                    />
+                  </div>
             ))}
           </div>
         </div>
@@ -235,7 +418,7 @@ const ProjectCardDesktop = ({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl cursor-pointer border border-white/10 h-full snap-start shrink-0 w-[360px] lg:w-[460px]",
+        "relative overflow-hidden rounded-2xl cursor-pointer border border-white/10 h-full snap-start shrink-0 w-[230px] lg:w-[340px]",
         "bg-zinc-900/40 backdrop-blur-md"
       )}
     >
@@ -250,7 +433,7 @@ const ProjectCardDesktop = ({
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/45" />
 
-      <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+      <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
         {/* Top Row */}
         <div className="flex justify-between items-start">
           <span
@@ -272,7 +455,7 @@ const ProjectCardDesktop = ({
             <p className="text-[#c084fc] text-sm font-bold tracking-widest mb-2 uppercase">
               {project.category[language] || project.category.en}
             </p>
-            <h3 className={cn("text-white text-4xl font-bold leading-tight", language === 'ar' && "font-arabic")}>
+            <h3 className={cn("text-white text-2xl lg:text-3xl font-bold leading-tight", language === 'ar' && "font-arabic")}>
               {project.title[language] || project.title.en}
             </h3>
           </div>

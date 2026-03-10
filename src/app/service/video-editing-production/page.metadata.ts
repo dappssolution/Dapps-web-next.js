@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Video Editing & Production Services in Dubai, UAE",
+  title: "Best Video & Photo Editing Services in Dubai, UAE",
   description:
-    "Professional video editing and production services in UAE for ads, social media, brand films, and marketing campaigns.",
+    "Professional video and photo editing services in Dubai, UAE, delivering high-quality visuals, colour correction, retouching and creative content for businesses and brands.",
   keywords: [
     "Video Editing Dubai",
     "Video Production UAE",

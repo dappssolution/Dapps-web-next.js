@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useRef } from "react";
 
 export default function TermsOfService() {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -17,51 +17,44 @@ export default function TermsOfService() {
   return (
     <div
       ref={contentRef}
-      className={`w-full min-h-screen primary-background-two px-4 md:px-16 lg:px-32 py-16 ${language === "ar" ? "text-right" : ""}`}
+      className={`w-full min-h-screen px-4 md:px-6 lg:px-8 py-8 flex flex-col items-center justify-center bg-white faq-montserrat ${language === "ar" ? "text-right" : ""}`}
     >
-      {/* Banner */}
-      <section className="max-w-4xl mx-auto mb-12">
-        <h1 className="text-3xl sm:text-4xl pt-8 text-center lg:text-5xl font-semibold text-white mb-2 font-poppins">
-          {t("terms.title")}
-        </h1>
-      </section>
+      
 
-      {/* Terms Content */}
-      <section className="max-w-4xl mx-auto rounded-xl shadow-lg px-6 md:p-10 text-white/80">
-        <h2 className="text-2xl font-semibold mb-4 text-white">{t("terms.intro.title")}</h2>
-        <p className="mb-4">{t("terms.intro.body")}</p>
-
-    <h2 className="text-xl font-semibold mt-8 mb-2 text-white">{t("terms.refund.title")}</h2>
-    <p className="mb-4">{t("terms.refund.body")}</p>
-        <h2 className="text-xl font-semibold mt-8 mb-2 text-white">{t("terms.accept.title")}</h2>
-        <p className="mb-4">{t("terms.accept.body")}</p>
-
-        <h2 className="text-xl font-semibold mt-8 mb-2 text-white">{t("terms.use.title")}</h2>
-        <ul className="list-disc pl-6 mb-4">
-          <li>{t("terms.use.1")}</li>
-          <li>{t("terms.use.2")}</li>
-        </ul>
-
-        <h2 className="text-xl font-semibold mt-8 mb-2 text-white">{t("terms.ip.title")}</h2>
-        <p className="mb-4">{t("terms.ip.body")}</p>
-
-        <h2 className="text-xl font-semibold mt-8 mb-2 text-white">{t("terms.user.title")}</h2>
-        <ul className="list-disc pl-6 mb-4">
-          <li>{t("terms.user.1")}</li>
-          <li>{t("terms.user.2")}</li>
-        </ul>
-
-        <h2 className="text-xl font-semibold mt-8 mb-2 text-white">{t("terms.liability.title")}</h2>
-        <p className="mb-4">{t("terms.liability.body")}</p>
-
-        <h2 className="text-xl font-semibold mt-8 mb-2 text-white">{t("terms.changes.title")}</h2>
-        <p className="mb-4">{t("terms.changes.body")}</p>
-
-        <h2 className="text-xl font-semibold mt-8 mb-2 text-white">{t("terms.contact.title")}</h2>
-        <p>
-          {t("terms.contact.body")} <a href="mailto:info@brandbik.com" className="text-blue-600 underline">info@brandbik.com</a>.
-        </p>
+      {/* Glassmorphism Terms Content */}
+      <section className="w-full max-w-4xl mx-auto rounded-3xl px-4 md:px-6 lg:px-8 py-6 bg-white font-sans">
+        {language === "ar" ? (
+          <>
+            <h2 className="text-2xl font-bold mb-6 text-center text-black faq-montserrat-bold">شروط الخدمة – حلول دابس</h2>
+            <p className="mb-4 text-base font-semibold text-black faq-montserrat">آخر تحديث: مارس 2026</p>
+            <p className="mb-6 text-base text-black faq-montserrat">
+              مرحبًا بك في حلول دابس. من خلال الوصول واستخدام موقعنا www.dappssolutions.com، فإنك توافق على الالتزام بشروط الخدمة التالية. تحكم هذه الشروط استخدامك لموقعنا والخدمات المقدمة من حلول دابس. إذا لم توافق على أي جزء من هذه الشروط، ننصحك بعدم استخدام الموقع أو الخدمات.
+            </p>
+            <p className="mb-6 text-base text-black faq-montserrat">
+              حلول دابس هي شركة تكنولوجيا وحلول رقمية تقدم خدمات تشمل تطوير المواقع، تطوير تطبيقات الجوال، حلول برمجيات ERP وCRM، تصميم واجهات المستخدم وتجربة المستخدم، التسويق الرقمي، خدمات تحسين محركات البحث، وتطوير البرمجيات المعتمدة على الذكاء الاصطناعي. المعلومات المتاحة على هذا الموقع تهدف إلى تقديم نظرة عامة على خدماتنا وقدراتنا. أي مشروع أو تعاون يتم مع حلول دابس سيخضع لاتفاقية مشروع منفصلة أو عرض يحدد نطاق العمل، الجداول الزمنية، التسليمات، وشروط الدفع.
+            </p>
+            <p className="mb-6 text-base text-black faq-montserrat">
+              باستخدام هذا الموقع، توافق على استخدامه فقط لأغراض مشروعة وبطريقة لا تنتهك أي قوانين أو لوائح سارية. يجب ألا تحاول تعطيل وظائف الموقع، أو تحميل برامج ضارة، أو محاولة الوصول غير المصرح به، أو إساءة استخدام أي محتوى متاح على الموقع. قد تؤدي مثل هذه الأنشطة إلى تقييد أو إنهاء الوصول إلى الموقع.
+            </p>
+          </>
+        ) : (
+          <>
+            <h2 className="text-2xl font-bold mb-6 text-center text-black">Terms of Service – Dapps Solutions</h2>
+            <p className="mb-4 text-base font-semibold text-black">Last Updated: March 2026</p>
+            <p className="mb-6 text-base text-black faq-montserrat">
+              Welcome to Dapps Solutions. By accessing and using our website www.dappssolutions.com, you agree to comply with and be bound by the following Terms of Service. These terms govern your use of our website and the services provided by Dapps Solutions. If you do not agree with any part of these terms, we advise you not to use our website or services.
+            </p>
+            <p className="mb-6 text-base text-black">
+              Dapps Solutions is a technology and digital solutions company that provides services including website development, mobile application development, ERP and CRM software solutions, UI/UX design, digital marketing, SEO services, and AI-based software development. The information available on this website is intended to provide an overview of our services and capabilities. Any engagement or project initiated with Dapps Solutions will be governed by a separate project agreement or proposal that outlines the scope of work, timelines, deliverables, and payment terms.
+            </p>
+            <p className="mb-6 text-base text-black">
+              By using this website, you agree to use it only for lawful purposes and in a manner that does not violate any applicable laws or regulations. You must not attempt to disrupt the functionality of the website, upload harmful software, attempt unauthorized access, or misuse any content available on the website. Any such activities may result in restriction or termination of access to the website.
+            </p>
+          </>
+        )}
       </section>
     </div>
   );
-} 
+}
+
+

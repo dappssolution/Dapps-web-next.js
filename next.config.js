@@ -7,6 +7,7 @@ const nextConfig = {
   reactStrictMode: false,
   images: {
     domains: [
+      "mma.prnewswire.com",
       "sklc-tinymce-2021.s3.amazonaws.com",
       "img.freepik.com",
       "images.unsplash.com",

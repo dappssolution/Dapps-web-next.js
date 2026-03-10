@@ -1,95 +1,88 @@
 "use client"
 
 import { useState } from "react"
-import { Plus, Minus } from "lucide-react"
+// ...existing code...
 import { motion, AnimatePresence } from "framer-motion"
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface FaqItem {
   question: string
   answer: string
 }
 
-export default function FaqAccordion() {
+interface FaqAccordionProps {
+  faqItems: { [key: string]: FaqItem[] } | FaqItem[];
+}
+
+export default function FaqAccordion({ faqItems }: FaqAccordionProps) {
+  const { language } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(1)
 
-  const faqItems: FaqItem[] = [
-    {
-      question: "What digital services do you offer?",
-      answer: "We provide a comprehensive suite of digital services including web development, mobile app development, brand development, digital marketing, advertising, and social media management. Our integrated approach ensures all your digital needs are met under one roof, creating cohesive and effective digital solutions.",
-    },
-    {
-      question: "How do you approach web and app development projects?",
-      answer: "Our development process follows industry best practices: Requirements Analysis → Design & Prototyping → Development → Testing → Deployment → Maintenance. We use modern technologies and frameworks, ensuring responsive, secure, and scalable solutions. We also focus on user experience and performance optimization.",
-    },
-    {
-      question: "What digital marketing services do you provide?",
-      answer: "Our digital marketing services include SEO optimization, PPC advertising, content marketing, email marketing, social media marketing, and analytics. We create data-driven strategies tailored to your business goals, focusing on measurable results and ROI. We also provide regular performance reports and optimization recommendations.",
-    },
-    {
-      question: "How do you handle social media management?",
-      answer: "Our social media management includes content strategy, content creation, community management, paid social advertising, and performance analytics. We develop platform-specific strategies, create engaging content, and maintain consistent brand voice across all channels. We also provide regular performance reports and optimization strategies.",
-    },
-    {
-      question: "What is your approach to brand development and advertising?",
-      answer: "We combine strategic brand development with creative advertising solutions. This includes brand strategy, visual identity design, brand guidelines, advertising campaigns, and brand implementation across all channels. We ensure your brand message is consistent and impactful across all touchpoints.",
-    },
-    {
-      question: "How do you measure the success of your digital services?",
-      answer: "We use various metrics and KPIs specific to each service: website traffic and conversion rates for web development, app downloads and user engagement for app development, brand awareness and recognition for branding, ROI and conversion rates for digital marketing, and engagement metrics for social media. We provide detailed analytics and regular performance reports.",
-    },
-    {
-      question: "What is your project timeline and pricing structure?",
-      answer: "Project timelines vary based on scope and complexity. Web development typically takes 8-12 weeks, app development 12-16 weeks, and digital marketing campaigns are ongoing. We offer flexible pricing models including project-based, retainer, and performance-based options. We provide detailed proposals with clear timelines and pricing before project commencement.",
-    },
-    {
-      question: "Do you provide ongoing support and maintenance?",
-      answer: "Yes, we offer comprehensive support and maintenance packages for all our services. This includes regular updates, security patches, performance monitoring, content updates, and technical support. We also provide training and documentation to help your team manage and maintain the solutions we create.",
-    }
-  ]
+  // Support both language-keyed and flat array
+  const items = Array.isArray(faqItems)
+    ? faqItems
+    : language === 'ar' ? faqItems['ar'] : faqItems['en'];
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
   }
 
   return (
-    <div className="w-full px-4 md:px-16 lg:px-32 bg-[#efefef] py-8 lg:py-20">
-      <h1 className={`text-3xl lg:text-[48px] font-bold mb-8 font-poppins`}>FAQ</h1>
-      <div className="space-y-1">
-        {faqItems.map((item, index) => (
-          <div key={index} className="border-b border-gray-200">
-            <button
-              onClick={() => toggleFaq(index)}
-              className="flex justify-between items-center w-full py-5 text-left focus:outline-none"
-              aria-expanded={openIndex === index}
-              aria-controls={`faq-answer-${index}`}
+    <section
+      className={`bg-[#f8f8fa] flex items-center justify-center py-2 md:py-4 px-0 faq-montserrat ${language === 'ar' ? 'text-right' : 'text-left'}`}
+      style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}
+    >
+      <div className={`w-full max-w-5xl mx-auto flex flex-col justify-center p-2 md:p-8 bg-white rounded-2xl shadow-xl faq-montserrat text-[#222] ${language === 'ar' ? 'text-right' : 'text-left'}`}>
+        <h2 className={`text-2xl md:text-5xl font-bold mb-2 md:mb-4 text-[#222] text-center faq-montserrat-bold ${language === 'ar' ? 'font-arabic' : ''}`}>
+          {language === 'ar' ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
+        </h2>
+        <div className="flex flex-col gap-4">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className={`border-b last:border-b-0 transition-all duration-300 ${openIndex === index ? 'bg-gray-100' : 'bg-transparent'} px-2 py-2 rounded-lg leading-snug faq-montserrat ${language === 'ar' ? 'text-right' : 'text-left'}`}
             >
-              <span className="font-medium text-base md:text-lg pr-4">{item.question}</span>
-              <motion.div
-                initial={false}
-                animate={{ rotate: openIndex === index ? 180 : 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="flex-shrink-0"
+              <button
+                onClick={() => toggleFaq(index)}
+                className={`flex justify-between items-center w-full py-4 px-2 text-left focus:outline-none font-sans text-[#222] ${language === 'ar' ? 'flex-row-reverse' : ''}`}
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
               >
-                {openIndex === index ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
-              </motion.div>
-            </button>
-            <AnimatePresence>
-              {openIndex === index && (
+                <span className={`font-normal text-xl md:text-2xl font-sans text-[#222] transition-colors tracking-tight leading-snug ${language === 'ar' ? 'font-arabic' : ''}`}>
+                  <span className="faq-montserrat-bold">{item.question}</span>
+                </span>
                 <motion.div
-                  id={`faq-answer-${index}`}
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
+                  initial={false}
+                  animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="overflow-hidden"
+                  className="flex-shrink-0"
                 >
-                  <div className="pb-5 text-gray-600">{item.answer}</div>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="12" fill="#222" />
+                    <path d="M7 10L12 15L17 10" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        ))}
+              </button>
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    id={`faq-answer-${index}`}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className={`overflow-hidden pb-4 pl-2 pr-2 font-sans text-[#222] ${language === 'ar' ? 'font-arabic text-right' : ''}`}
+                  >
+                    <div className={`text-[#444] leading-loose text-base md:text-lg mt-2 font-sans ${language === 'ar' ? 'font-arabic text-right' : ''}`}>
+                      <span className="faq-montserrat">{item.answer}</span>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  )
+    </section>
+  );
 }

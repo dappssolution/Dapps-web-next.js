@@ -141,7 +141,7 @@ export default function Footer() {
           <Link href="/service/app-development" className="hover:text-white transition-colors duration-200">{t('footer.appDevelopment')}</Link>
           <Link href="/service/branding" className="hover:text-white transition-colors duration-200">{t('footer.branding')}</Link>
           <Link href="/service/digital-marketing" className="hover:text-white transition-colors duration-200">{t('footer.digitalMarketing')}</Link>
-          <Link href="/service/video-photo-editing" className="hover:text-white transition-colors duration-200">{t('footer.videoPhotoEditing')}</Link>
+          <Link href="/service/video-editing-production" className="hover:text-white transition-colors duration-200">{t('footer.videoPhotoEditing')}</Link>
           <Link href="/service/ai-agents-automation" className="hover:text-white transition-colors duration-200">{t('footer.aiAgentsAutomation')}</Link>
         </nav>
 
