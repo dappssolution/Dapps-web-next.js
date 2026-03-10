@@ -6,6 +6,10 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const logos = [
+    {
+      src: "/images/client-who-trust-us/tweaki.png",
+      alt: "Tweaki",
+    },
   // --- Row 1: Tech & Digital ---
   {
     src: "/images/client-who-trust-us/Atom.png",

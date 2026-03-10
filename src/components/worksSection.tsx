@@ -206,7 +206,7 @@ export default function Works() {
 
   return (
     <section
-      className="relative min-h-screen w-full bg-[#0a0a0a] py-16 lg:py-32 flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen w-full bg-[#0a0a0a] py-6 lg:py-10 flex flex-col justify-center overflow-hidden"
       dir={language === "ar" ? "rtl" : "ltr"}
     >
       {/* Background Image with Blur */}
