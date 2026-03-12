@@ -1,9 +1,6 @@
 "use client";
 import { useState } from "react";
-import dynamic from "next/dynamic";
 import { apiUrl } from "@/lib/api";
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
-import "react-quill/dist/quill.snow.css";
 
 const categories = [
   "Web Development",
@@ -65,9 +62,9 @@ export default function AdminAddProject() {
     setGalleryPreviews(files.map((file) => URL.createObjectURL(file)));
   };
 
-  // Rich text editor handler
-  const handleFullDescChange = (value: string) => {
-    setFullDesc(value);
+  // Full description handler
+  const handleFullDescChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setFullDesc(e.target.value);
   };
 
   // Form submit handler with robust validation
@@ -157,7 +154,12 @@ export default function AdminAddProject() {
           <label className="font-semibold text-[#E1AAFF]">Short Description *</label>
           <textarea value={shortDesc} onChange={(e) => setShortDesc(e.target.value)} className="px-4 py-2 rounded-lg bg-[#24243e] text-white font-montserrat" required />
           <label className="font-semibold text-[#E1AAFF]">Full Description *</label>
-          <ReactQuill value={fullDesc} onChange={handleFullDescChange} className="bg-[#24243e] text-white font-montserrat rounded-lg" theme="snow" />
+          <textarea
+            value={fullDesc}
+            onChange={handleFullDescChange}
+            className="px-4 py-2 rounded-lg bg-[#24243e] text-white font-montserrat min-h-[150px]"
+            required
+          />
         </div>
         {/* Project Details */}
         <div className="flex flex-col gap-4">
