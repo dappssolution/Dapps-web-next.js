@@ -1,9 +1,7 @@
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
-});
-
 process.env.NEXT_WEBPACK_CACHE = "none";
 process.env.NEXT_TELEMETRY_DISABLED = "1";
+
+const isAnalyze = process.env.ANALYZE === "true";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -56,4 +54,8 @@ const nextConfig = {
   },
 };
 
-module.exports = withBundleAnalyzer(nextConfig);
+module.exports = isAnalyze
+  ? require("@next/bundle-analyzer")({
+      enabled: true,
+    })(nextConfig)
+  : nextConfig;
