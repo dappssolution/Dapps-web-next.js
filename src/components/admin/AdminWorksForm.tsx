@@ -1,10 +1,20 @@
 import { useState, useEffect } from "react";
 
+export interface WorkFormPayload {
+  _id?: string;
+  title: string;
+  description: string;
+  category: string;
+  image?: string;
+  technologies?: string[];
+  projectLink?: string;
+}
+
 interface WorkFormProps {
   onWorkAdded: () => void;
-  initialData?: any;
+  initialData?: WorkFormPayload;
   isEdit?: boolean;
-  onEdit?: (work: any) => void;
+  onEdit?: (work: WorkFormPayload) => Promise<void>;
 }
 
 export default function AdminWorksForm({ onWorkAdded, initialData, isEdit, onEdit }: WorkFormProps) {
@@ -62,10 +72,10 @@ export default function AdminWorksForm({ onWorkAdded, initialData, isEdit, onEdi
         const uploadData = await uploadRes.json();
         imageUrl = uploadData.url;
       }
-      const payload = {
+      const payload: WorkFormPayload = {
         ...form,
         image: imageUrl,
-        technologies: form.technologies.split(",").map(t => t.trim())
+        technologies: form.technologies.split(",").map(t => t.trim()).filter(Boolean)
       };
       if (isEdit && onEdit && initialData && initialData._id) {
         // Edit mode: call onEdit
@@ -82,8 +92,9 @@ export default function AdminWorksForm({ onWorkAdded, initialData, isEdit, onEdi
         setImageFile(null);
         onWorkAdded();
       }
-    } catch (err: any) {
-      setError(err.message);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Something went wrong";
+      setError(message);
     } finally {
       setLoading(false);
     }

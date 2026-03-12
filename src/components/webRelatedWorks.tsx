@@ -1,16 +1,12 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import { Poppins } from 'next/font/google'
 import { useState } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { usePathname } from "next/navigation";
+import { poppinsFont } from "@/lib/fonts"
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],  
-  variable: '--font-poppins',  
-})
+const poppins = poppinsFont
 
 
 export default function WebRelatedWorks() {

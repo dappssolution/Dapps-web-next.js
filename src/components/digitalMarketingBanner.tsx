@@ -1,21 +1,16 @@
 "use client"
 
 import { ArrowUpRight } from "lucide-react"
-import { Poppins } from 'next/font/google';
 import Image from 'next/image';
 import { useLanguage } from "@/contexts/LanguageContext";
+import { poppinsFont } from "@/lib/fonts";
 
 // Add type for CSS custom properties
 type CSSPropertiesWithCustomVars = React.CSSProperties & {
   '--rotation': string;
 };
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'], // You can include multiple weights
-  display: 'swap',
-  variable: '--font-poppins',
-});
+const poppins = poppinsFont;
 
 // Add keyframes animation
 const floatingAnimation = `

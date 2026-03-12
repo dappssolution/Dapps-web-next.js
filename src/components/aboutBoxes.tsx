@@ -1,14 +1,8 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { Montserrat } from "next/font/google";
-// Load Montserrat font with required weights
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal"],
-  display: "swap",
-});
+import { montserratFont } from "@/lib/fonts";
+const montserrat = montserratFont;
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import {

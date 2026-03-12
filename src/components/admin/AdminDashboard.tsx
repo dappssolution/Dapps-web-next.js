@@ -1,6 +1,6 @@
 "use client";
-import AdminWorksForm from './AdminWorksForm';
-import { useRef, useState, useEffect } from 'react';
+import AdminWorksForm, { WorkFormPayload } from './AdminWorksForm';
+import { useState, useEffect } from 'react';
 
 interface Work {
   _id: string;
@@ -45,15 +45,20 @@ export default function AdminDashboard() {
       });
   };
 
-  const handleEdit = (work: any) => {
+  const handleEdit = (work: Work) => {
     setEditWork(work);
     setShowEditModal(true);
   };
 
-  const handleUpdate = async (updatedWork: any) => {
+  const handleUpdate = async (updatedWork: WorkFormPayload) => {
     setLoading(true);
     setError("");
     try {
+      if (!updatedWork._id) {
+        setError("Work ID is missing.");
+        setLoading(false);
+        return;
+      }
       const res = await fetch(`http://localhost:5000/api/works/${updatedWork._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -63,7 +68,7 @@ export default function AdminDashboard() {
       setShowEditModal(false);
       setEditWork(null);
       fetchWorks();
-    } catch (err) {
+    } catch {
       setError("Failed to update work.");
       setLoading(false);
     }
@@ -78,7 +83,7 @@ export default function AdminDashboard() {
       });
       if (!res.ok) throw new Error("Failed to delete work");
       fetchWorks();
-    } catch (err) {
+    } catch {
       setError("Failed to delete work.");
       setLoading(false);
     }

@@ -1,9 +1,9 @@
 "use client";
 
 // import { useState } from "react"
-import { Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { montserratFont } from "@/lib/fonts";
 import {
   ArrowUpRight,
   MapPin,
@@ -16,12 +16,7 @@ import {
 } from "lucide-react";
 
 // 1. Font Configuration
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  style: ["normal"],
-  display: "swap",
-});
+const montserrat = montserratFont;
 
 type Job = {
   id: number;

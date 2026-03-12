@@ -17,10 +17,16 @@ const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
       });
-      let data = {};
+      type AuthResponse = {
+        token?: string;
+        error?: string;
+        details?: string;
+      };
+
+      let data: AuthResponse = {};
       try {
         data = await res.json();
-      } catch (jsonErr) {
+      } catch {
         setError('Server response error');
         return;
       }
@@ -31,7 +37,7 @@ const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
       } else {
         setError(data.error || data.details || 'Invalid credentials or server error');
       }
-    } catch (err) {
+    } catch {
       setError('Network error: Unable to reach server');
     }
   };

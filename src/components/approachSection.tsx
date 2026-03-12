@@ -15,13 +15,10 @@ import {
   ShieldCheck, 
   Leaf 
 } from "lucide-react"
-import { Poppins } from 'next/font/google'
 import { useLanguage } from "@/contexts/LanguageContext"
+import { poppinsFont } from "@/lib/fonts"
 
-const poppins = Poppins({
-  weight: '500',
-  subsets: ['latin'],
-});
+const poppins = poppinsFont
 
 export default function ApproachSection() {
   const { t } = useLanguage()

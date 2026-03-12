@@ -1,11 +1,10 @@
 import Script from "next/script";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
-import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import LayoutShell from "@/components/LayoutShell";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import FontProvider from "@/components/FontProvider";
+import { montserratFont, arabicFont } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Dapps Solutions | AI-Powered Web & Apps",
@@ -48,17 +47,8 @@ export const metadata: Metadata = {
   },
 };
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
-  subsets: ["arabic"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
+const englishFontClass = montserratFont.className;
+const arabicFontClass = arabicFont.className;
 
 export default function RootLayout({
   children,
@@ -230,8 +220,8 @@ export default function RootLayout({
 
         <LanguageProvider>
           <FontProvider
-            poppinsClass={montserrat.className}
-            ibmPlexSansArabicClass={ibmPlexSansArabic.className}
+            poppinsClass={englishFontClass}
+            ibmPlexSansArabicClass={arabicFontClass}
           >
             <LayoutShell>{children}</LayoutShell> 
           </FontProvider>

@@ -1,14 +1,10 @@
 "use client"
 
-import { Poppins } from 'next/font/google';
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect } from "react";
+import { poppinsFont } from "@/lib/fonts";
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],  
-  variable: '--font-poppins',  
-});
+const poppins = poppinsFont;
 
 export default function ProcessSection() {
   const { t, language } = useLanguage();

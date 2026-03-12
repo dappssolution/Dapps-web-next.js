@@ -2,13 +2,10 @@
 
  
 import { useEffect, useRef } from "react"
-import { Poppins } from "next/font/google"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { poppinsFont } from "@/lib/fonts"
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: "500",
-})
+const poppins = poppinsFont
 
  
 

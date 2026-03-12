@@ -22,7 +22,6 @@ export default function AdminAddProject() {
   const [technologies, setTechnologies] = useState("");
   const [featuredImage, setFeaturedImage] = useState<File | null>(null);
   const [featuredImagePreview, setFeaturedImagePreview] = useState<string>("");
-  const [galleryImages, setGalleryImages] = useState<File[]>([]);
   const [galleryPreviews, setGalleryPreviews] = useState<string[]>([]);
   const [demoVideo, setDemoVideo] = useState("");
   const [liveUrl, setLiveUrl] = useState("");
@@ -62,7 +61,6 @@ export default function AdminAddProject() {
   // Gallery images preview
   const handleGalleryImages = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
-    setGalleryImages(files);
     setGalleryPreviews(files.map((file) => URL.createObjectURL(file)));
   };
 
@@ -140,7 +138,7 @@ export default function AdminAddProject() {
         return;
       }
       setSuccess("Project saved successfully!");
-    } catch (err) {
+    } catch {
       setError("Server error. Could not save project.");
     }
   };
