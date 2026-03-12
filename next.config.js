@@ -2,6 +2,9 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
+process.env.NEXT_WEBPACK_CACHE = "none";
+process.env.NEXT_TELEMETRY_DISABLED = "1";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
