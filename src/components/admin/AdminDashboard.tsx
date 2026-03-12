@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import AdminWorksForm, { WorkFormPayload } from './AdminWorksForm';
 import { useState, useEffect } from 'react';
 
@@ -170,7 +171,18 @@ export default function AdminDashboard() {
                     <span className="bg-[#e0e7ef] text-[#00bcd4] px-2 py-1 rounded">Category: {work.category}</span>
                     <span className="bg-[#e0e7ef] text-[#ff9800] px-2 py-1 rounded">Tech: {work.technologies?.join(', ')}</span>
                   </div>
-                  {work.image && <img src={work.image} alt={work.title} className="w-full h-32 object-cover rounded-md mt-2 border border-[#e0e7ef]" />}
+                  {work.image && (
+                    <div className="w-full h-32 relative rounded-md mt-2 border border-[#e0e7ef] overflow-hidden">
+                      <Image
+                        src={work.image}
+                        alt={`${work.title} thumbnail`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 90vw, 35vw"
+                        unoptimized
+                      />
+                    </div>
+                  )}
                   {work.projectLink && <a href={work.projectLink} target="_blank" rel="noopener" className="text-[#4caf50] underline mt-2 text-sm">View Project</a>}
                   <div className="flex gap-2 mt-4 self-end">
                     <button

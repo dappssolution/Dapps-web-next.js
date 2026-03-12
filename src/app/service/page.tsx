@@ -66,7 +66,7 @@ function ServicePage() {
     ],
   };
   return (
-    <div>
+    <div className="pt-28 md:pt-32 pb-16 space-y-16">
        <ServiceMain/>
        <ServicesSection/>
        <ServiceContent/>

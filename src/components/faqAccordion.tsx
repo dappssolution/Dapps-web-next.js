@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 // ...existing code...
 import { motion, AnimatePresence } from "framer-motion"
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -17,6 +17,10 @@ interface FaqAccordionProps {
 export default function FaqAccordion({ faqItems }: FaqAccordionProps) {
   const { language } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  useEffect(() => {
+    setOpenIndex(null)
+  }, [language])
 
   // Support both language-keyed and flat array
   const items = Array.isArray(faqItems)

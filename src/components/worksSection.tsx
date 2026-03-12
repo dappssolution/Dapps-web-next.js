@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 
 export default function Works() {
   const { t, language } = useLanguage();
+  const isArabic = language === "ar";
   const desktopScrollRef = useRef<HTMLDivElement>(null);
   const mobileViewportRef = useRef<HTMLDivElement>(null);
   const mobileTrackRef = useRef<HTMLDivElement>(null);
@@ -257,6 +258,7 @@ export default function Works() {
 
   const onMobilePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!pointerDragRef.current.isDragging) return;
+    pauseMobileAutoScroll();
     const deltaX = e.clientX - pointerDragRef.current.x;
     pointerDragRef.current.x = e.clientX;
     offsetRef.current += deltaX;
@@ -283,7 +285,7 @@ export default function Works() {
   return (
     <section
       className="relative min-h-screen w-full bg-[#0a0a0a] py-6 lg:py-10 flex flex-col justify-center overflow-hidden"
-      dir={language === "ar" ? "rtl" : "ltr"}
+      dir={isArabic ? "rtl" : "ltr"}
     >
       {/* Background Image with Blur */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -301,12 +303,12 @@ export default function Works() {
         {/* Header Section */}
         <div className="px-4 sm:px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-10 md:mb-12 gap-4">
           <div className="text-left w-full md:w-auto">
-            <h2 className="text-white font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-left max-w-4xl">
-              Our Work
-            </h2>
-            <p className="mt-3 text-[#cfcfd4] text-base sm:text-lg md:text-xl font-medium leading-relaxed text-left max-w-2xl">
-              Crafting digital experiences that help brands grow and stand out.
-            </p>
+        <h2 className="text-white font-extrabold tracking-tight text-5xl sm:text-6xl md:text-6xl lg:text-7xl leading-[1.05] text-left w-full max-w-full">
+          Our Work
+        </h2>
+        <p className="mt-3 text-[#cfcfd4] text-base sm:text-lg md:text-xl font-medium leading-relaxed text-left max-w-full md:max-w-2xl">
+          Crafting digital experiences that help brands grow and stand out.
+        </p>
           </div>
 
           <Link
@@ -327,6 +329,7 @@ export default function Works() {
             onPointerCancel={onMobilePointerEnd}
             onTouchStart={pauseMobileAutoScroll}
             onTouchEnd={pauseMobileAutoScroll}
+            style={{ touchAction: "pan-y" }}
             className="overflow-hidden px-4 sm:px-6 touch-pan-y select-none"
           >
             <div ref={mobileTrackRef} className="flex w-max gap-4 will-change-transform">

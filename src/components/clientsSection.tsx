@@ -37,14 +37,16 @@ const row2Logos = [
 
 const LogoItem = ({ logo }: { logo: { src: string; alt: string } }) => (
   <div className="flex-shrink-0 inline-flex items-center mx-3 md:mx-5">
-    <div className="bg-gray-50 border border-gray-200 shadow-sm rounded-2xl px-5 py-3 md:px-7 md:py-4 flex items-center justify-center" style={{ width: 150, height: 70 }}>
+    <div
+      className="bg-gray-50 border border-gray-200 shadow-sm rounded-2xl px-4 py-3 md:px-5 md:py-4 flex items-center justify-center"
+      style={{ minWidth: 140, minHeight: 70 }}
+    >
       <Image
         src={logo.src}
         alt={logo.alt}
-        width={120}
-        height={60}
-        style={{ height: 40, width: "auto", maxWidth: 120 }}
-        className="object-contain"
+        width={140}
+        height={70}
+        className="object-contain max-w-full h-auto"
         loading="lazy"
       />
     </div>
@@ -53,15 +55,21 @@ const LogoItem = ({ logo }: { logo: { src: string; alt: string } }) => (
 
 const ClientsSection = () => {
   const { language } = useLanguage();
+  const isArabic = language === "ar";
+  const marqueeLeftClass = isArabic ? "animate-marquee-right" : "animate-marquee-left";
+  const marqueeRightClass = isArabic ? "animate-marquee-left" : "animate-marquee-right";
   return (
-    <section className="md:py-12 py-6 w-full bg-white overflow-hidden">
+    <section
+      className="md:py-12 py-6 w-full bg-white overflow-hidden"
+      dir={isArabic ? "rtl" : "ltr"}
+    >
       <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10 tracking-tight text-gray-900">
         {language === "ar" ? "بفخر نتعاون مع" : "Proudly Associated with"}
       </h2>
 
       {/* Row 1 — scrolls left */}
       <div className="relative w-full overflow-hidden mb-5 md:mb-7" dir="ltr">
-        <div className="animate-marquee-left flex w-max whitespace-nowrap will-change-transform [transform:translate3d(0,0,0)]">
+        <div className={`${marqueeLeftClass} flex w-max whitespace-nowrap will-change-transform`}>
           {row1Logos.map((logo, i) => (
             <LogoItem key={i} logo={logo} />
           ))}
@@ -74,7 +82,7 @@ const ClientsSection = () => {
 
       {/* Row 2 — scrolls right */}
       <div className="relative w-full overflow-hidden" dir="ltr">
-        <div className="animate-marquee-right flex w-max whitespace-nowrap will-change-transform [transform:translate3d(0,0,0)]">
+        <div className={`${marqueeRightClass} flex w-max whitespace-nowrap will-change-transform`}>
           {row2Logos.map((logo, i) => (
             <LogoItem key={i} logo={logo} />
           ))}

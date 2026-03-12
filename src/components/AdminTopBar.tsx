@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function AdminTopBar() {
@@ -22,9 +23,11 @@ export default function AdminTopBar() {
         header { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
       <div className="flex items-center gap-2 md:gap-3">
-        <img
+        <Image
           src="/dapps-logo.png"
           alt="Admin Logo"
+          width={48}
+          height={48}
           className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain"
           style={{ maxWidth: '100%', height: 'auto' }}
         />
