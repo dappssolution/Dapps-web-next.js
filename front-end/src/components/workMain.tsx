@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react"
 import { categorySections } from "@/app/works/worksData"
 import { useRouter } from "next/navigation"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { apiUrl } from "@/lib/api"
 
 type Category = "all" | "website" | "app" | "branding" | "social"
 
@@ -108,7 +109,7 @@ export default function WorkMain() {
 
   useEffect(() => {
     setLoading(true)
-    fetch('http://localhost:5000/api/works')
+    fetch(apiUrl("/api/works"))
       .then((res) => res.json())
       .then((data) => {
         setProjects(Array.isArray(data) ? data : [])

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { apiUrl } from "@/lib/api";
 
 export interface WorkFormPayload {
   _id?: string;
@@ -64,7 +65,7 @@ export default function AdminWorksForm({ onWorkAdded, initialData, isEdit, onEdi
         // Upload image to backend or cloud storage
         const data = new FormData();
         data.append("file", imageFile);
-        const uploadRes = await fetch("http://localhost:5000/api/upload", {
+        const uploadRes = await fetch(apiUrl("/api/upload"), {
           method: "POST",
           body: data
         });
@@ -82,7 +83,7 @@ export default function AdminWorksForm({ onWorkAdded, initialData, isEdit, onEdi
         await onEdit({ ...payload, _id: initialData._id });
       } else {
         // Add mode: POST
-        const res = await fetch("http://localhost:5000/api/works", {
+        const res = await fetch(apiUrl("/api/works"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import { apiUrl } from "@/lib/api";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 
@@ -121,7 +122,7 @@ export default function AdminAddProject() {
     }
     // API call to save project
     try {
-      const res = await fetch("http://localhost:5000/api/works", {
+      const res = await fetch(apiUrl("/api/works"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
-import AdminWorksForm, { WorkFormPayload } from './AdminWorksForm';
-import { useState, useEffect } from 'react';
+import AdminWorksForm, { WorkFormPayload } from "./AdminWorksForm";
+import { useState, useEffect } from "react";
+import { apiUrl, assetUrl } from "@/lib/api";
 
 interface Work {
   _id: string;
@@ -34,7 +35,7 @@ export default function AdminDashboard() {
   ];
   const fetchWorks = () => {
     setLoading(true);
-    fetch("http://localhost:5000/api/works")
+    fetch(apiUrl("/api/works"))
       .then(res => res.json())
       .then(data => {
         setWorks(Array.isArray(data) ? data : []);
@@ -60,7 +61,7 @@ export default function AdminDashboard() {
         setLoading(false);
         return;
       }
-      const res = await fetch(`http://localhost:5000/api/works/${updatedWork._id}`, {
+      const res = await fetch(apiUrl(`/api/works/${updatedWork._id}`), {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedWork)
@@ -79,7 +80,7 @@ export default function AdminDashboard() {
     if (!window.confirm("Are you sure you want to delete this work?")) return;
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/works/${id}`, {
+      const res = await fetch(apiUrl(`/api/works/${id}`), {
         method: "DELETE"
       });
       if (!res.ok) throw new Error("Failed to delete work");
@@ -173,8 +174,8 @@ export default function AdminDashboard() {
                   </div>
                   {work.image && (
                     <div className="w-full h-32 relative rounded-md mt-2 border border-[#e0e7ef] overflow-hidden">
-                      <Image
-                        src={work.image}
+                    <Image
+                        src={assetUrl(work.image)}
                         alt={`${work.title} thumbnail`}
                         fill
                         className="object-cover"
