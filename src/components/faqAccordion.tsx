@@ -16,7 +16,7 @@ interface FaqAccordionProps {
 
 export default function FaqAccordion({ faqItems }: FaqAccordionProps) {
   const { language } = useLanguage();
-  const [openIndex, setOpenIndex] = useState<number | null>(1)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   // Support both language-keyed and flat array
   const items = Array.isArray(faqItems)

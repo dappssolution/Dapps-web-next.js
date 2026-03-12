@@ -17,7 +17,7 @@ export default function TermsOfService() {
   return (
     <div
       ref={contentRef}
-      className={`w-full min-h-screen px-4 md:px-6 lg:px-8 py-8 flex flex-col items-center justify-center bg-white faq-montserrat ${language === "ar" ? "text-right" : ""}`}
+      className={`w-full min-h-screen px-4 md:px-6 lg:px-8 pt-24 pb-8 md:pt-28 md:pb-10 flex flex-col items-center justify-start bg-white faq-montserrat ${language === "ar" ? "text-right" : ""}`}
     >
       
 

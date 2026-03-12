@@ -1,9 +1,5 @@
 // src/app/works/worksData.ts
-// Internet-available works for the portfolio
-// Each work includes title, description, image, category, and route
-
 export type Category = "website" | "app" | "branding" | "social" | "all";
-// Category section text for WorkMain (English and Arabic)
 export const categorySections = {
   all: {
     en: {
@@ -38,21 +34,21 @@ export const categorySections = {
   branding: {
     en: {
       title: "Branding Projects",
-      description: "Distinctive brand identities and visual design solutions."
+      description: "Brand identity, logo, and visual design."
     },
     ar: {
       title: "مشاريع العلامات التجارية",
-      description: "هويات بصرية مميزة وحلول تصميم احترافية."
+      description: "تصميم الهوية والعلامة التجارية والشعار."
     }
   },
   social: {
     en: {
       title: "Social Media Projects",
-      description: "Creative campaigns and digital marketing for social platforms."
+      description: "Campaigns and content for social platforms."
     },
     ar: {
-      title: "مشاريع وسائل التواصل الاجتماعي",
-      description: "حملات إبداعية وتسويق رقمي لمنصات التواصل الاجتماعي."
+      title: "مشاريع التواصل الاجتماعي",
+      description: "حملات ومحتوى لمنصات التواصل الاجتماعي."
     }
   }
 };

@@ -10,35 +10,17 @@ import { cn } from "@/lib/utils";
 
 export default function Works() {
   const { t, language } = useLanguage();
-  const scrollRef = useRef<HTMLDivElement>(null);
-  // Slide one card at a time for clear animation, looping through all cards
-  const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
+  const desktopScrollRef = useRef<HTMLDivElement>(null);
+  const mobileViewportRef = useRef<HTMLDivElement>(null);
+  const mobileTrackRef = useRef<HTMLDivElement>(null);
+  const firstSetRef = useRef<HTMLDivElement>(null);
+  const animationFrameRef = useRef<number | null>(null);
   const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const isRTL = language === 'ar';
-    let currentIndex = 0;
-    const cardWidth = el.firstChild ? (el.firstChild as HTMLElement).offsetWidth + 16 : 340; // 16px gap
-    function slideToNextCard() {
-      if (!el) return;
-      currentIndex++;
-      if (currentIndex >= el.childNodes.length / 2) {
-        currentIndex = 0;
-      }
-      const scrollPos = currentIndex * cardWidth;
-      el.scrollTo({ left: isRTL ? -scrollPos : scrollPos, behavior: 'smooth' });
-    }
-    autoScrollRef.current = setInterval(slideToNextCard, 1800);
-    return () => {
-      if (autoScrollRef.current) clearInterval(autoScrollRef.current);
-    };
-  }, [language]);
-  const dragRef = useRef({
-    isDragging: false,
-    startX: 0,
-    startScrollLeft: 0,
-  });
+  const pausedUntilRef = useRef<number>(0);
+  const offsetRef = useRef<number>(0);
+  const singleSetWidthRef = useRef<number>(0);
+  const pointerDragRef = useRef({ isDragging: false, pointerId: -1, x: 0 });
+  const desktopDragRef = useRef({ isDragging: false, startX: 0, startScrollLeft: 0 });
 
   // Original Data
   const projects = useMemo(
@@ -173,35 +155,129 @@ export default function Works() {
     []
   );
 
-  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    const el = scrollRef.current;
+  const onDesktopPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = desktopScrollRef.current;
     if (!el) return;
-    dragRef.current.isDragging = true;
-    dragRef.current.startX = e.clientX;
-    dragRef.current.startScrollLeft = el.scrollLeft;
+    desktopDragRef.current.isDragging = true;
+    desktopDragRef.current.startX = e.clientX;
+    desktopDragRef.current.startScrollLeft = el.scrollLeft;
     el.setPointerCapture(e.pointerId);
     el.style.cursor = "grabbing";
   };
 
-  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    const el = scrollRef.current;
-    if (!el || !dragRef.current.isDragging) return;
+  const onDesktopPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = desktopScrollRef.current;
+    if (!el || !desktopDragRef.current.isDragging) return;
     e.preventDefault();
-    const delta = e.clientX - dragRef.current.startX;
+    const delta = e.clientX - desktopDragRef.current.startX;
     const direction = language === 'ar' ? 1 : -1;
-    el.scrollLeft = dragRef.current.startScrollLeft + direction * delta;
+    el.scrollLeft = desktopDragRef.current.startScrollLeft + direction * delta;
   };
 
-  const onPointerEnd = (e: React.PointerEvent<HTMLDivElement>) => {
-    const el = scrollRef.current;
+  const onDesktopPointerEnd = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = desktopScrollRef.current;
     if (!el) return;
-    dragRef.current.isDragging = false;
+    desktopDragRef.current.isDragging = false;
     try {
       el.releasePointerCapture(e.pointerId);
     } catch {
       // no-op
     }
     el.style.cursor = "grab";
+  };
+
+  const syncMobileTrack = () => {
+    const track = mobileTrackRef.current;
+    if (!track) return;
+    track.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`;
+  };
+
+  const pauseMobileAutoScroll = () => {
+    pausedUntilRef.current = Date.now() + 2000;
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+    resumeTimeoutRef.current = setTimeout(() => {
+      pausedUntilRef.current = 0;
+    }, 2000);
+  };
+
+  useEffect(() => {
+    const viewport = mobileViewportRef.current;
+    const firstSet = firstSetRef.current;
+    if (!viewport || !firstSet) return;
+
+    const measure = () => {
+      singleSetWidthRef.current = firstSet.getBoundingClientRect().width;
+      if (singleSetWidthRef.current <= 0) return;
+      while (offsetRef.current <= -singleSetWidthRef.current) offsetRef.current += singleSetWidthRef.current;
+      while (offsetRef.current > 0) offsetRef.current -= singleSetWidthRef.current;
+      syncMobileTrack();
+    };
+
+    measure();
+    const resizeObserver = new ResizeObserver(measure);
+    resizeObserver.observe(firstSet);
+    resizeObserver.observe(viewport);
+
+    let last = performance.now();
+    const speedPxPerSec = 40;
+
+    const animate = (now: number) => {
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+      const shouldPause = Date.now() < pausedUntilRef.current;
+      if (isMobile && !shouldPause && singleSetWidthRef.current > 0 && !pointerDragRef.current.isDragging) {
+        const dt = (now - last) / 1000;
+        offsetRef.current -= speedPxPerSec * dt;
+        if (offsetRef.current <= -singleSetWidthRef.current) {
+          offsetRef.current += singleSetWidthRef.current;
+        }
+        syncMobileTrack();
+      }
+      last = now;
+      animationFrameRef.current = requestAnimationFrame(animate);
+    };
+
+    animationFrameRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  const onMobilePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const viewport = mobileViewportRef.current;
+    if (!viewport) return;
+    pointerDragRef.current.isDragging = true;
+    pointerDragRef.current.pointerId = e.pointerId;
+    pointerDragRef.current.x = e.clientX;
+    pauseMobileAutoScroll();
+    viewport.setPointerCapture(e.pointerId);
+  };
+
+  const onMobilePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!pointerDragRef.current.isDragging) return;
+    const deltaX = e.clientX - pointerDragRef.current.x;
+    pointerDragRef.current.x = e.clientX;
+    offsetRef.current += deltaX;
+    const loopWidth = singleSetWidthRef.current;
+    if (loopWidth > 0) {
+      while (offsetRef.current <= -loopWidth) offsetRef.current += loopWidth;
+      while (offsetRef.current > 0) offsetRef.current -= loopWidth;
+    }
+    syncMobileTrack();
+  };
+
+  const onMobilePointerEnd = (e: React.PointerEvent<HTMLDivElement>) => {
+    const viewport = mobileViewportRef.current;
+    if (!viewport) return;
+    pointerDragRef.current.isDragging = false;
+    pauseMobileAutoScroll();
+    try {
+      viewport.releasePointerCapture(e.pointerId);
+    } catch {
+      // no-op
+    }
   };
 
   return (
@@ -223,14 +299,14 @@ export default function Works() {
 
       <div className="container mx-auto z-10 h-full flex flex-col relative">
         {/* Header Section */}
-        <div className="px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
-          <div className="text-left w-full md:w-auto" style={{marginLeft: '-2rem', marginTop: '-2rem'}}>
-            <h2 className="text-[#5a189a] font-bold tracking-widest text-sm uppercase mb-2 text-left">
-              {t("works.subtitle") || "PORTFOLIO"}
+        <div className="px-4 sm:px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-10 md:mb-12 gap-4">
+          <div className="text-left w-full md:w-auto">
+            <h2 className="text-white font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-left max-w-4xl">
+              Our Work
             </h2>
-            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight text-left">
-              {t("works.title") || "Selected Works"}
-            </h1>
+            <p className="mt-3 text-[#cfcfd4] text-base sm:text-lg md:text-xl font-medium leading-relaxed text-left max-w-2xl">
+              Crafting digital experiences that help brands grow and stand out.
+            </p>
           </div>
 
           <Link
@@ -242,20 +318,35 @@ export default function Works() {
           </Link>
         </div>
 
-        {/* =========================================
-            MOBILE VIEW (Vertical Grid)
-            Hidden on md/lg screens
-           ========================================= */}
-        <div className="md:hidden flex flex-col gap-6 px-6 pb-20">
-          {projects.map((project) => (
-            <ProjectCardMobile
-              key={project.id}
-              project={project}
-              language={language}
-            />
-          ))}
-          {/* Mobile View All Button */}
-          <div className="mt-6">
+        <div className="md:hidden w-full pb-12">
+          <div
+            ref={mobileViewportRef}
+            onPointerDown={onMobilePointerDown}
+            onPointerMove={onMobilePointerMove}
+            onPointerUp={onMobilePointerEnd}
+            onPointerCancel={onMobilePointerEnd}
+            onTouchStart={pauseMobileAutoScroll}
+            onTouchEnd={pauseMobileAutoScroll}
+            className="overflow-hidden px-4 sm:px-6 touch-pan-y select-none"
+          >
+            <div ref={mobileTrackRef} className="flex w-max gap-4 will-change-transform">
+              <div ref={firstSetRef} className="flex gap-4">
+                {projects.map((project) => (
+                  <div key={`mobile-a-${project.id}`} className="w-[82vw] max-w-[300px] shrink-0">
+                    <ProjectCardMobile project={project} language={language} />
+                  </div>
+                ))}
+              </div>
+              <div className="flex gap-4" aria-hidden="true">
+                {projects.map((project) => (
+                  <div key={`mobile-b-${project.id}`} className="w-[82vw] max-w-[300px] shrink-0">
+                    <ProjectCardMobile project={project} language={language} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="px-4 sm:px-6 mt-6">
             <Link
               href="/works"
               className="flex w-full justify-center items-center gap-2 text-white border border-white/20 rounded-full px-6 py-4 hover:bg-white hover:text-black transition-all"
@@ -275,37 +366,7 @@ export default function Works() {
           <button
             className="absolute left-2 top-1/2 z-20 -translate-y-1/2 bg-[#222] text-white rounded-full p-2 shadow-lg hover:bg-[#5a189a] transition"
             style={{outline: 'none'}}
-            onClick={() => {
-              if (autoScrollRef.current) {
-                clearInterval(autoScrollRef.current);
-                autoScrollRef.current = null;
-              }
-              if (resumeTimeoutRef.current) {
-                clearTimeout(resumeTimeoutRef.current);
-                resumeTimeoutRef.current = null;
-              }
-              if (scrollRef.current) scrollRef.current.scrollBy({ left: -340, behavior: 'smooth' });
-              // Resume auto scroll after 3 seconds
-              resumeTimeoutRef.current = setTimeout(() => {
-                if (!autoScrollRef.current) {
-                  const el = scrollRef.current;
-                  if (!el) return;
-                  const isRTL = language === 'ar';
-                  let currentIndex = 0;
-                  const cardWidth = el.firstChild ? (el.firstChild as HTMLElement).offsetWidth + 16 : 340;
-                  function slideToNextCard() {
-                    if (!el) return;
-                    currentIndex++;
-                    if (currentIndex >= el.childNodes.length / 2) {
-                      currentIndex = 0;
-                    }
-                    const scrollPos = currentIndex * cardWidth;
-                    el.scrollTo({ left: isRTL ? -scrollPos : scrollPos, behavior: 'smooth' });
-                  }
-                  autoScrollRef.current = setInterval(slideToNextCard, 1800);
-                }
-              }, 3000);
-            }}
+            onClick={() => desktopScrollRef.current?.scrollBy({ left: -340, behavior: "smooth" })}
             aria-label="Scroll Left"
           >
             <ArrowRight className="w-6 h-6 rotate-180" />
@@ -313,47 +374,17 @@ export default function Works() {
           <button
             className="absolute right-2 top-1/2 z-20 -translate-y-1/2 bg-[#222] text-white rounded-full p-2 shadow-lg hover:bg-[#5a189a] transition"
             style={{outline: 'none'}}
-            onClick={() => {
-              if (autoScrollRef.current) {
-                clearInterval(autoScrollRef.current);
-                autoScrollRef.current = null;
-              }
-              if (resumeTimeoutRef.current) {
-                clearTimeout(resumeTimeoutRef.current);
-                resumeTimeoutRef.current = null;
-              }
-              if (scrollRef.current) scrollRef.current.scrollBy({ left: 340, behavior: 'smooth' });
-              // Resume auto scroll after 3 seconds
-              resumeTimeoutRef.current = setTimeout(() => {
-                if (!autoScrollRef.current) {
-                  const el = scrollRef.current;
-                  if (!el) return;
-                  const isRTL = language === 'ar';
-                  let currentIndex = 0;
-                  const cardWidth = el.firstChild ? (el.firstChild as HTMLElement).offsetWidth + 16 : 340;
-                  function slideToNextCard() {
-                    if (!el) return;
-                    currentIndex++;
-                    if (currentIndex >= el.childNodes.length / 2) {
-                      currentIndex = 0;
-                    }
-                    const scrollPos = currentIndex * cardWidth;
-                    el.scrollTo({ left: isRTL ? -scrollPos : scrollPos, behavior: 'smooth' });
-                  }
-                  autoScrollRef.current = setInterval(slideToNextCard, 1800);
-                }
-              }, 3000);
-            }}
+            onClick={() => desktopScrollRef.current?.scrollBy({ left: 340, behavior: "smooth" })}
             aria-label="Scroll Right"
           >
             <ArrowRight className="w-6 h-6" />
           </button>
           <div
-            ref={scrollRef}
-            onPointerDown={onPointerDown}
-            onPointerMove={onPointerMove}
-            onPointerUp={onPointerEnd}
-            onPointerCancel={onPointerEnd}
+            ref={desktopScrollRef}
+            onPointerDown={onDesktopPointerDown}
+            onPointerMove={onDesktopPointerMove}
+            onPointerUp={onDesktopPointerEnd}
+            onPointerCancel={onDesktopPointerEnd}
             className="flex gap-4 h-[320px] md:h-[370px] lg:h-[420px] overflow-x-auto overflow-y-hidden px-2 cursor-grab select-none snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             style={{ touchAction: "pan-y" }}
           >

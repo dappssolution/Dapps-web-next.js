@@ -60,8 +60,8 @@ const ClientsSection = () => {
       </h2>
 
       {/* Row 1 — scrolls left */}
-      <div className="relative w-full overflow-hidden mb-5 md:mb-7">
-        <div className="animate-marquee-left flex whitespace-nowrap">
+      <div className="relative w-full overflow-hidden mb-5 md:mb-7" dir="ltr">
+        <div className="animate-marquee-left flex w-max whitespace-nowrap will-change-transform [transform:translate3d(0,0,0)]">
           {row1Logos.map((logo, i) => (
             <LogoItem key={i} logo={logo} />
           ))}
@@ -73,8 +73,8 @@ const ClientsSection = () => {
       </div>
 
       {/* Row 2 — scrolls right */}
-      <div className="relative w-full overflow-hidden">
-        <div className="animate-marquee-right flex whitespace-nowrap">
+      <div className="relative w-full overflow-hidden" dir="ltr">
+        <div className="animate-marquee-right flex w-max whitespace-nowrap will-change-transform [transform:translate3d(0,0,0)]">
           {row2Logos.map((logo, i) => (
             <LogoItem key={i} logo={logo} />
           ))}

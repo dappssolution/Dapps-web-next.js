@@ -5,7 +5,7 @@ import Footer from "@/components/footer";
 
 export default function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const hide = pathname.startsWith("/rafih-book");
+  const hide = pathname.startsWith("/rafih-book") || pathname.startsWith("/admin");
   return (
     <>
       {!hide && <Header />}

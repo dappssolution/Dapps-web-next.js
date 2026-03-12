@@ -194,7 +194,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'workDetailChallenge.title': 'Challenge',
 
       // Works Section Project 3
-      'works.title': 'Our Works',
+      'works.title': '',
       'worksSection.project3.title': 'Engineered and Launched Robust Full-Stack Web Platforms',
       'worksSection.project3.category': 'Full-Stack Web Development',
 
@@ -316,7 +316,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       'bottom.bar.description': 'Discover how we revolutionize businesses with AI technology. From intelligent app development to AI-powered web solutions, smart automation, and predictive analytics — our AI-driven work delivers measurable results.',
       'bottom.bar.button': 'Start Your AI Journey',
       'work.banner.title': "Work that speaks louder than words.",
-      'works.subtitle': "Discover our latest projects and creative solutions that make an impact.",
+      'works.subtitle': '',
       // About Section
       'aboutSection.badge': 'About',
       'aboutSection.headline': 'Custom Software Development & Digital Solutions Company in Dubai',
