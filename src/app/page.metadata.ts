@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Digital Marketing Agency Dubai",
     "Branding Agency Dubai",
     "IT Company UAE"
-  ],
+  ], 
   openGraph: {
     type: "website",
     url: "https://www.dappssolutions.com/",

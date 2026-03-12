@@ -17,7 +17,7 @@ function Home() {
       {/* Hero section: ensure alt text and ARIA landmarks in HeroSection */}
       <HeroSection />
       {/* About section: ensure carousel images have alt text and loading="lazy" */}
-      <AboutSection />
+      <AboutSection /> 
       {/* Client Trust Logos: 14 logos in 2 lines, responsive layout */}
       <ClientTrustLogos />
       {/* AboutBoxes: ensure interactive elements have aria-labels */} 
